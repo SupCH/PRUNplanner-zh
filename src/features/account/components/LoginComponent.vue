@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { ref, Ref, computed } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	import { useUserStore } from "@/stores/userStore";
 
@@ -45,25 +47,25 @@
 
 <template>
 	<div class="mx-auto max-w-[400px]">
-		<div class="text-xl text-white font-bold font-mono pb-3">Login</div>
+		<div class="text-xl text-white font-bold font-mono pb-3">{{ $t("auth.login_title") }}</div>
 		<div v-if="hasError" class="pb-3 text-red-600">
-			Error logging in. Please check your username and password.
+			{{ $t("auth.error_login") }}
 		</div>
 		<PForm>
 			<PFormSeperator>
 				<div class="font-mono text-xs text-white/60 pb-3">
-					By using PRUNplanner you agree to the
+					{{ $t("auth.tos_prefix") }}
 					<router-link
 						to="/imprint-tos"
 						class="hover:cursor-pointer underline">
-						Terms of Service.
+						{{ $t("auth.tos_link") }}
 					</router-link>
 				</div>
 			</PFormSeperator>
-			<PFormItem label="Username">
+			<PFormItem :label="$t('auth.username')">
 				<PInput v-model:value="inputUsername" class="w-full" />
 			</PFormItem>
-			<PFormItem label="Password">
+			<PFormItem :label="$t('auth.password')">
 				<PInput
 					v-model:value="inputPassword"
 					type="password"
@@ -71,11 +73,11 @@
 			</PFormItem>
 			<PFormSeperator>
 				<div class="font-mono text-xs text-white/60 py-3">
-					Forgot your password? Request a
+					{{ $t("auth.forgot_password_prefix") }}
 					<router-link
 						to="/request-password-reset"
 						class="hover:cursor-pointer underline">
-						Password Reset.
+						{{ $t("auth.forgot_password_link") }}
 					</router-link>
 				</div>
 			</PFormSeperator>
@@ -84,7 +86,7 @@
 					:loading="isLoggingIn"
 					:disabled="!canLogin"
 					@click="handleLogin">
-					Login
+					{{ $t("auth.login_title") }}
 				</PButton>
 			</PFormItem>
 		</PForm>

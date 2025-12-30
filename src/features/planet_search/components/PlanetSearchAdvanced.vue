@@ -153,17 +153,17 @@
 
 <template>
 	<div class="flex flex-row justify-between pb-3">
-		<h2 class="text-lg font-bold my-auto">Advanced Search</h2>
+		<h2 class="text-lg font-bold my-auto">{{ $t("advanced.heading") }}</h2>
 		<PButton :loading="refIsLoading" @click="doSearch">
 			<template #icon><SearchSharp /></template>
-			Search
+			{{ $t("advanced.search_button") }}
 		</PButton>
 	</div>
 
 	<div class="grid grid-cols-1 xl:grid-cols-[40%_auto] gap-x-6">
 		<div>
 			<PForm>
-				<PFormItem label="Materials">
+				<PFormItem :label="$t('advanced.materials_label')">
 					<PSelectMultiple
 						v-model:value="inputMaterials"
 						:options="PLANETSEARCHOPTIONMATERIALS"
@@ -182,7 +182,7 @@
 							}
 						" />
 				</PFormItem>
-				<PFormItem label="COGC">
+				<PFormItem :label="$t('advanced.cogc_label')">
 					<PSelectMultiple
 						v-model:value="inputCOGC"
 						:options="PLANETSEARCHCOGC"
@@ -190,7 +190,7 @@
 						searchable
 						class="w-full" />
 				</PFormItem>
-				<PFormItem label="Planet Features">
+				<PFormItem :label="$t('advanced.features_label')">
 					<PSelectMultiple
 						v-model:value="inputInfrastructure"
 						:options="PLANETSEARCHINFRASTRUCTURE"
@@ -198,7 +198,7 @@
 						clearable
 						class="w-full" />
 				</PFormItem>
-				<PFormItem label="System Distance">
+				<PFormItem :label="$t('advanced.distance_label')">
 					<PSelect
 						v-model:value="inputSystem"
 						:options="PLANETSEARCHSYSTEMS"
@@ -214,16 +214,16 @@
 			</PForm>
 		</div>
 		<div>
-			<h3 class="pb-3">Planet Environment</h3>
+			<h3 class="pb-3">{{ $t("advanced.environment_heading") }}</h3>
 
 			<div class="flex flex-row gap-x-3">
 				<PTable class="w-full">
 					<tbody>
 						<tr class="child:w-[25%]">
-							<td>Surface</td>
-							<td>Gravity</td>
-							<td>Temperature</td>
-							<td>Pressure</td>
+							<td>{{ $t("advanced.env_table.surface") }}</td>
+							<td>{{ $t("advanced.env_table.gravity") }}</td>
+							<td>{{ $t("advanced.env_table.temperature") }}</td>
+							<td>{{ $t("advanced.env_table.pressure") }}</td>
 						</tr>
 						<tr>
 							<td>
@@ -231,7 +231,7 @@
 									class="flex flex-row gap-x-3 child:my-auto">
 									<PCheckbox
 										v-model:checked="inputIncludeRocky" />
-									Rocky
+									{{ $t("advanced.env_table.rocky") }}
 								</div>
 							</td>
 							<td>
@@ -241,7 +241,7 @@
 										v-model:checked="
 											inputIncludeLowGravity
 										" />
-									Low
+									{{ $t("advanced.env_table.low") }}
 								</div>
 							</td>
 							<td>
@@ -251,7 +251,7 @@
 										v-model:checked="
 											inputIncludeLowTemperature
 										" />
-									Low
+									{{ $t("advanced.env_table.low") }}
 								</div>
 							</td>
 							<td>
@@ -261,7 +261,7 @@
 										v-model:checked="
 											inputIncludeLowPressure
 										" />
-									Low
+									{{ $t("advanced.env_table.low") }}
 								</div>
 							</td>
 						</tr>
@@ -271,7 +271,7 @@
 									class="flex flex-row gap-x-3 child:my-auto">
 									<PCheckbox
 										v-model:checked="inputIncludeGaseous" />
-									Gaseous
+									{{ $t("advanced.env_table.gaseous") }}
 								</div>
 							</td>
 							<td>
@@ -281,7 +281,7 @@
 										v-model:checked="
 											inputIncludeHighGravity
 										" />
-									High
+									{{ $t("advanced.env_table.high") }}
 								</div>
 							</td>
 							<td>
@@ -291,7 +291,7 @@
 										v-model:checked="
 											inputIncludeHighTemperature
 										" />
-									High
+									{{ $t("advanced.env_table.high") }}
 								</div>
 							</td>
 							<td>
@@ -301,7 +301,7 @@
 										v-model:checked="
 											inputIncludeHighPressure
 										" />
-									High
+									{{ $t("advanced.env_table.high") }}
 								</div>
 							</td>
 						</tr>
@@ -310,10 +310,10 @@
 
 				<div class="flex flex-col gap-y-3">
 					<PButton secondary @click="environmentDefault">
-						Default
+						{{ $t("advanced.env_buttons.default") }}
 					</PButton>
 					<PButton secondary @click="environmentAll">
-						Select All
+						{{ $t("advanced.env_buttons.select_all") }}
 					</PButton>
 				</div>
 			</div>

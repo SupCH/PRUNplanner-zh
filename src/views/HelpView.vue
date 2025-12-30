@@ -1,9 +1,11 @@
 <script setup lang="ts">
 	import { onMounted, Ref, ref } from "vue";
 	import { useHead } from "@unhead/vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	useHead({
-		title: "Help | PRUNplanner",
+		title: `${t("help.title")} | PRUNplanner`,
 	});
 
 	import HelpTutorial from "@/features/help/components/HelpTutorial.vue";
@@ -32,7 +34,7 @@
 	<div class="min-h-screen flex flex-col">
 		<div
 			class="px-6 py-3 border-b border-white/10 flex flex-row justify-between">
-			<h1 class="text-2xl font-bold my-auto">Help & Changelog</h1>
+			<h1 class="text-2xl font-bold my-auto">{{ $t("help.heading") }}</h1>
 		</div>
 
 		<div
@@ -42,17 +44,16 @@
 			</div>
 			<div>
 				<section class="bg-white/10 p-3 rounded mb-3">
-					PRUNplanners frontend is
+					{{ $t("help.contribution_text") }}
 					<a
 						href="https://github.com/PRUNplanner/frontend"
 						target="_blank"
 						class="text-link-primary"
 						>open source</a
 					>
-					and welcomes contributions on Github!
 				</section>
 
-				<h2 class="text-xl font-bold pb-3">Changelog</h2>
+				<h2 class="text-xl font-bold pb-3">{{ $t("help.changelog") }}</h2>
 				<div
 					v-if="markdownContent != ''"
 					id="markdown"

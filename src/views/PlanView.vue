@@ -9,6 +9,8 @@
 		Ref,
 		watch,
 	} from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Router
 	import router from "@/router";
@@ -440,9 +442,7 @@
 				planetNaturalId: planetData.PlanetNaturalId,
 			});
 
-			const answer = confirm(
-				"Do you really want to leave? Unsaved changes will be lost."
-			);
+			const answer = confirm(t("plan.leave_confirmation"));
 
 			if (!answer) return false;
 		}
@@ -540,8 +540,8 @@
 						<template #icon>
 							<ContentCopySharp />
 						</template>
-						<span v-if="!sharedWasCloned"> Clone Plan </span>
-						<span v-else> Cloning Complete </span>
+						<span v-if="!sharedWasCloned"> {{ $t("plan.actions.clone") }} </span>
+						<span v-else> {{ $t("plan.actions.cloning_complete") }} </span>
 					</PButton>
 					<PTooltip :disabled="saveable">
 						<template #trigger>
@@ -558,10 +558,10 @@
 								<template #icon>
 									<SaveSharp />
 								</template>
-								{{ existing ? "Save" : "Create" }}
+								{{ existing ? $t("plan.actions.save") : $t("plan.actions.create") }}
 							</PButton>
 						</template>
-						Must set a plan name in Configuration to save
+						{{ $t("plan.actions.must_set_name") }}
 					</PTooltip>
 					<PButton
 						v-if="existing"
@@ -571,7 +571,7 @@
 						<template #icon>
 							<ChangeCircleOutlined />
 						</template>
-						Reload
+						{{ $t("plan.actions.reload") }}
 					</PButton>
 
 					<ShareButton
@@ -598,13 +598,13 @@
 						<template #icon>
 							<SettingsSharp />
 						</template>
-						Configuration
+						{{ $t("plan.tools.configuration") }}
 					</PButton>
 					<PButton
 						v-if="userStore.isLoggedIn"
 						:type="refShowTool === 'popr' ? 'primary' : 'secondary'"
 						@click="toggleTool('popr')">
-						POPR
+						{{ $t("plan.tools.popr") }}
 					</PButton>
 					<PButton
 						:type="
@@ -613,7 +613,7 @@
 								: 'secondary'
 						"
 						@click="toggleTool('visitation-frequency')">
-						Visitation Frequency
+						{{ $t("plan.tools.visitation_frequency") }}
 					</PButton>
 					<PButton
 						:type="
@@ -622,7 +622,7 @@
 								: 'secondary'
 						"
 						@click="toggleTool('construction-cart')">
-						Construction Cart
+						{{ $t("plan.tools.construction_cart") }}
 					</PButton>
 					<PButton
 						:type="
@@ -631,7 +631,7 @@
 								: 'secondary'
 						"
 						@click="toggleTool('supply-cart')">
-						Supply Cart
+						{{ $t("plan.tools.supply_cart") }}
 					</PButton>
 					<PButton
 						:type="
@@ -640,7 +640,7 @@
 								: 'secondary'
 						"
 						@click="toggleTool('repair-analysis')">
-						Repair Analysis
+						{{ $t("plan.tools.repair_analysis") }}
 					</PButton>
 				</div>
 				<!-- Tool View -->
@@ -656,7 +656,7 @@
 						class="flex flex-wrap sm:justify-center-safe gap-6">
 						<div class="flex flex-col min-w-[300px]">
 							<h2 class="text-white/80 font-bold text-lg pb-3">
-								Configuration
+								{{ $t("plan.tools.configuration") }}
 							</h2>
 
 							<div
@@ -694,7 +694,7 @@
 						</div>
 						<div>
 							<h2 class="text-white/80 font-bold text-lg pb-3">
-								Infrastructure
+								{{ $t("plan.sections.infrastructure") }}
 							</h2>
 							<div
 								class="sm:border sm:border-white/10 sm:rounded sm:p-3">
@@ -720,7 +720,7 @@
 						</div>
 						<div>
 							<h2 class="text-white/80 font-bold text-lg pb-3">
-								Experts
+								{{ $t("plan.sections.experts") }}
 							</h2>
 							<div
 								class="sm:border sm:border-white/10 sm:rounded sm:p-3">
@@ -757,7 +757,7 @@
 						class="flex flex-row flex-wrap sm:justify-center-safe gap-6">
 						<div>
 							<h2 class="text-white/80 font-bold text-lg pb-3">
-								Workforce
+								{{ $t("plan.sections.workforce") }}
 							</h2>
 							<PlanWorkforce
 								:disabled="disabled"
@@ -804,7 +804,7 @@
 					<div class="sticky top-12">
 						<h2
 							class="text-white/80 font-bold text-lg pb-3 flex justify-between child:my-auto">
-							<div>Material I/O</div>
+							<div>{{ $t("plan.sections.material_io") }}</div>
 							<div class="flex gap-x-3">
 								<PTooltip>
 									<template #trigger>
@@ -824,7 +824,7 @@
 											</template>
 										</PButton>
 									</template>
-									Toggle Weight & Volume
+									{{ $t("plan.tips.toggle_weight_volume") }}
 								</PTooltip>
 
 								<PTooltip>
@@ -845,7 +845,7 @@
 											</template>
 										</PButton>
 									</template>
-									Toggle Production & Workforce Split
+									{{ $t("plan.tips.toggle_split") }}
 								</PTooltip>
 							</div>
 						</h2>
@@ -855,11 +855,11 @@
 								:show-basked="refMaterialIOShowBasked" />
 						</template>
 						<template v-else>
-							<h3 class="font-bold pb-3">Production</h3>
+							<h3 class="font-bold pb-3">{{ $t("plan.sections.production") }}</h3>
 							<PlanMaterialIO
 								:material-i-o-data="result.productionMaterialIO"
 								:show-basked="refMaterialIOShowBasked" />
-							<h3 class="font-bold py-3">Workforce</h3>
+							<h3 class="font-bold py-3">{{ $t("plan.sections.workforce") }}</h3>
 							<PlanMaterialIO
 								:material-i-o-data="result.workforceMaterialIO"
 								:show-basked="refMaterialIOShowBasked" />

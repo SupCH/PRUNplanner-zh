@@ -107,7 +107,7 @@
 		:key="`COGM#RECIPE#${recipeData.recipe.BuildingTicker}#${localRecipeIndex}`"
 		v-model:show="refShowCOGM"
 		preset="card"
-		title="Cost Of Goods Manufactured"
+		:title="$t('plan.production.recipe.cogm_title')"
 		:class="cogmWithCX ? 'max-w-[1000px]' : 'max-w-[600px]'">
 		<PlanCOGM
 			v-if="localRecipeData.cogm && cxUuid"
@@ -170,12 +170,12 @@
 				striped>
 				<thead>
 					<tr>
-						<th>Input</th>
-						<th>Time</th>
-						<th>Output</th>
-						<th>$ / Day</th>
-						<th>$ / Area</th>
-						<th>ROI</th>
+						<th>{{ $t("plan.production.recipe.table.input") }}</th>
+						<th>{{ $t("plan.production.recipe.table.time") }}</th>
+						<th>{{ $t("plan.production.recipe.table.output") }}</th>
+						<th>{{ $t("plan.production.recipe.table.daily_revenue") }}</th>
+						<th>{{ $t("plan.production.recipe.table.profit_area") }}</th>
+						<th>{{ $t("plan.production.recipe.table.roi") }}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -247,23 +247,9 @@
 						<td
 							colspan="6"
 							class="text-xs !p-2 !text-white/60 !border-t-1">
-							<strong>Revenue / Day</strong> is calculated by
-							taking the daily income generated from a recipe and
-							subtracting both the daily workforce cost (all
-							luxuries provided) and the daily building
-							degradation cost (1/180th of the construction cost).
-							The income from the recipe is based on the
-							difference between the input material costs and the
-							output material values. <strong>$ / Area</strong> is
-							the daily revenue divided by the area for one
-							production building and its proportionate share of
-							the area for a CM and habs required for an
-							optimal base of such buildings in Recipe ROI.
-							<strong>ROI (Payback)</strong> is the time required
-							for a continuously operating recipe to generate
-							enough revenue to offset the building's construction
-							cost. This considers daily degradation and workforce
-							costs as well.
+							<strong>{{ $t("plan.production.recipe.table.daily_revenue") }}</strong> {{ $t("plan.production.recipe.info.revenue_day") }} 
+							<strong>{{ $t("plan.production.recipe.table.profit_area") }}</strong> {{ $t("plan.production.recipe.info.dollar_area") }} 
+							<strong>{{ $t("plan.production.recipe.table.roi") }}</strong> {{ $t("plan.production.recipe.info.roi_payback") }}
 						</td>
 					</tr>
 				</tbody>

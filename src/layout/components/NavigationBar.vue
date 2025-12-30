@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, ComputedRef, watch } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t, locale } = useI18n();
 
 	// Stores
 	import { useUserStore } from "@/stores/userStore";
@@ -36,6 +38,7 @@
 		PersonSharp,
 		HelpOutlineSharp,
 		ExtensionSharp,
+		LanguageRound,
 		LocalFireDepartmentSharp,
 		AutoFixNormalSharp,
 		MoneySharp,
@@ -85,30 +88,30 @@
 
 	const menuItems: ComputedRef<IMenuSection[]> = computed(() => [
 		{
-			label: "Planning",
-			labelShort: "Plan",
+			label: t("nav.sections.planning"),
+			labelShort: t("nav.sections.planning"),
 			display: true,
 			children: [
 				{
-					label: "Empire",
+					label: t("nav.items.empire"),
 					display: true,
 					routerLink: "/",
 					icon: HomeSharp,
 				},
 				{
-					label: "Planet Search",
+					label: t("nav.items.planet_search"),
 					display: true,
 					routerLink: "/search",
 					icon: SearchRound,
 				},
 				{
-					label: "Management",
+					label: t("nav.items.management"),
 					display: true,
 					routerLink: "/manage",
 					icon: SettingsRound,
 				},
 				{
-					label: "Exchanges",
+					label: t("nav.items.exchanges"),
 					display: true,
 					routerLink: "/exchanges",
 					icon: ShoppingBasketSharp,
@@ -131,24 +134,24 @@
 		// 	],
 		// },
 		{
-			label: "Tools",
-			labelShort: "Tool",
+			label: t("nav.sections.tools"),
+			labelShort: t("nav.sections.tools"),
 			display: true,
 			children: [
 				{
-					label: "Market Exploration",
+					label: t("nav.items.market_exploration"),
 					display: true,
 					routerLink: "/market-exploration",
 					icon: ExploreSharp,
 				},
 				{
-					label: "Recipe ROI",
+					label: t("nav.items.recipe_roi"),
 					display: true,
 					routerLink: "/roi-overview",
 					icon: MoneySharp,
 				},
 				{
-					label: "Resource ROI",
+					label: t("nav.items.resource_roi"),
 					display: true,
 					routerLink: "/resource-roi-overview",
 					icon: TravelExploreSharp,
@@ -180,13 +183,13 @@
 				// 	],
 				// },
 				{
-					label: "HQ Calculator",
+					label: t("nav.items.hq_calculator"),
 					display: true,
 					routerLink: "/hq-upgrade-calculator",
 					icon: ProductionQuantityLimitsSharp,
 				},
 				{
-					label: "Production Chains",
+					label: t("nav.items.production_chains"),
 					display: true,
 					routerLink: "/production-chain",
 					icon: CompareSharp,
@@ -204,13 +207,13 @@
 				// 	icon: StarsSharp,
 				// },
 				{
-					label: "FIO Burn",
+					label: t("nav.items.fio_burn"),
 					display: userStore.hasFIO,
 					routerLink: "/fio/burn",
 					icon: LocalFireDepartmentSharp,
 				},
 				{
-					label: "FIO Repair",
+					label: t("nav.items.fio_repair"),
 					display: userStore.hasFIO,
 					routerLink: "/fio/repair",
 					icon: AutoFixNormalSharp,
@@ -248,41 +251,47 @@
 			],
 		},
 		{
-			label: "Account",
-			labelShort: "Acc",
+			label: t("nav.sections.account"),
+			labelShort: t("nav.sections.account"),
 			display: true,
 			children: [
 				{
-					label: "API",
+					label: t("nav.items.api"),
 					display: true,
 					routerLink: "/api",
 					icon: ExtensionSharp,
 				},
 				{
-					label: "Profile",
+					label: t("nav.items.profile"),
 					display: true,
 					routerLink: "/profile",
 					icon: PersonSharp,
 				},
 				{
-					label: "Help",
+					label: t("nav.items.help"),
 					display: true,
 					routerLink: "/help",
 					icon: HelpOutlineSharp,
 				},
-				{
-					label: "Logout",
-					display: true,
-					icon: LogOutRound,
-					functionCall: () => {
-						userStore.logout();
-						router.push("/");
-					},
-				},
-			],
-		},
-	]);
-
+				                {
+				                    label: t("nav.items.logout"),
+				                    display: true,
+				                    icon: LogOutRound,
+				                    functionCall: () => {
+				                        userStore.logout();
+				                    },
+				                },
+				                {
+				                    label: locale.value === "zh" ? "English" : "中文",
+				                    display: true,
+				                    icon: LanguageRound,
+				                    functionCall: () => {
+				                        locale.value = locale.value === "zh" ? "en" : "zh";
+				                    },
+				                },
+				            ],
+				        },
+				    ]);
 	const appVersion = __APP_VERSION__;
 
 	function toggleNavigationSize(): void {

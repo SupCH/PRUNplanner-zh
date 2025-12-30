@@ -1,11 +1,11 @@
 services:
     frontend:
-        image: ghcr.io/prunplanner/prunplanner-frontend:latest
+        image: prunplanner-frontend:latest
         container_name: prunplanner-frontend
         entrypoint: ["sh", "-c"]
         command: >
             "echo \"window.__APP_CONFIG__ = { POSTHOG_KEY: '${POSTHOG_KEY}' }\" > /code/env.js &&
             /bin/go-http-server --port 80 --brotli"
         ports:
-            - "80:80"
+            - "8082:80"
         restart: unless-stopped

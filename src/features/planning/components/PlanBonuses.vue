@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, PropType, WritableComputedRef } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 	import { trackEvent } from "@/lib/analytics/useAnalytics";
 	// Types & Interfaces
 	import { PLAN_COGCPROGRAM_TYPE } from "@/stores/planningStore.types";
@@ -55,40 +57,39 @@
 		},
 	});
 
-	const cogcOptions: PSelectOption[] = [
-		{ value: "---", label: "None" },
-		{ value: "AGRICULTURE", label: "Agriculture" },
-		{ value: "CHEMISTRY", label: "Chemistry" },
-		{ value: "CONSTRUCTION", label: "Construction" },
-		{ value: "ELECTRONICS", label: "Electronics" },
-		{ value: "FOOD_INDUSTRIES", label: "Food Industries" },
-		{ value: "FUEL_REFINING", label: "Fuel Refining" },
-		{ value: "MANUFACTURING", label: "Manufacturing" },
-		{ value: "METALLURGY", label: "Metallurgy" },
-		{ value: "RESOURCE_EXTRACTION", label: "Resource Extraction" },
-		{ value: "PIONEERS", label: "Pioneers" },
-		{ value: "SETTLERS", label: "Settlers" },
-		{ value: "TECHNICIANS", label: "Technicians" },
-		{ value: "ENGINEERS", label: "Engineers" },
-		{ value: "SCIENTISTS", label: "Scientists" },
-	];
+	const cogcOptions = computed<PSelectOption[]>(() => [
+		{ value: "---", label: t("empire.plan_list.cogc_mapping.---") },
+		{ value: "AGRICULTURE", label: t("plan.experts.mapping.AGRICULTURE") },
+		{ value: "CHEMISTRY", label: t("plan.experts.mapping.CHEMISTRY") },
+		{ value: "CONSTRUCTION", label: t("plan.experts.mapping.CONSTRUCTION") },
+		{ value: "ELECTRONICS", label: t("plan.experts.mapping.ELECTRONICS") },
+		{ value: "FOOD_INDUSTRIES", label: t("plan.experts.mapping.FOOD_INDUSTRIES") },
+		{ value: "FUEL_REFINING", label: t("plan.experts.mapping.FUEL_REFINING") },
+		{ value: "MANUFACTURING", label: t("plan.experts.mapping.MANUFACTURING") },
+		{ value: "METALLURGY", label: t("plan.experts.mapping.METALLURGY") },
+		{ value: "RESOURCE_EXTRACTION", label: t("plan.experts.mapping.RESOURCE_EXTRACTION") },
+		{ value: "PIONEERS", label: t("empire.plan_list.cogc_mapping.PIONEERS") },
+		{ value: "SETTLERS", label: t("empire.plan_list.cogc_mapping.SETTLERS") },
+		{ value: "TECHNICIANS", label: t("empire.plan_list.cogc_mapping.TECHNICIANS") },
+		{ value: "ENGINEERS", label: t("empire.plan_list.cogc_mapping.ENGINEERS") },
+		{ value: "SCIENTISTS", label: t("empire.plan_list.cogc_mapping.SCIENTISTS") },
+	]);
 </script>
 
 <template>
 	<PForm>
-		<PFormItem label="Corp. HQ">
+		<PFormItem :label="$t('plan.bonuses.corp_hq')">
 			<PTooltip>
 				<template #trigger>
 					<PCheckbox
 						v-model:checked="localCorpHQ"
 						:disabled="disabled" />
 				</template>
-				The corporation you belong to has its headquarters on <br />
-				this planet (not your individual company).
+				{{ $t("plan.bonuses.corp_hq_tip") }}
 			</PTooltip>
 		</PFormItem>
 
-		<PFormItem label="COGC">
+		<PFormItem :label="$t('plan.bonuses.cogc')">
 			<PSelect
 				v-model:value="localCOGC"
 				class="w-full"

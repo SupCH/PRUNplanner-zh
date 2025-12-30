@@ -7,6 +7,8 @@
 		Ref,
 		toRef,
 	} from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Unhead
 	import { useHead } from "@unhead/vue";
@@ -197,7 +199,7 @@
 		if (selectedEmpire.value) {
 			return selectedEmpire.value.name;
 		}
-		return "Unknown";
+		return t("empire.unknown");
 	});
 
 	/**
@@ -241,7 +243,7 @@
 					return {
 						planetId: plan.baseplanner_data.planet.planetid,
 						planUuid: planUuid,
-						planName: plan.name ?? "Unknown Plan Name",
+						planName: plan.name ?? t("empire.unknown_plan_name"),
 						materialIO: planResult.materialio,
 					};
 				}
@@ -267,8 +269,8 @@
 
 	const switchText = computed(() =>
 		mainContent.value === "materialio"
-			? "Empire Analysis"
-			: "Empire Material I/O"
+			? t("empire.analysis")
+			: t("empire.material_io")
 	);
 
 	// dafuq does Vite complain it would change a computed here?
@@ -301,14 +303,14 @@
 				@complete="calculateEmpire">
 				<AsyncWrapperGenericError
 					v-if="refEmpireList.length === 0"
-					message-title="No Empires"
-					message-text="You don't have any empires. Head to Management to create your first." />
+					:message-title="t('empire.no_empires_title')"
+					:message-text="t('empire.no_empires_text')" />
 
 				<ComputingProgress
 					v-else-if="isCalculating"
 					:step="progressCurrent"
 					:total="progressTotal"
-					message="One does not simply calculate empire plans." />
+					:message="t('empire.calculating')" />
 
 				<div v-else>
 					<div class="flex flex-col">
@@ -334,7 +336,7 @@
 								class="flex flex-col gap-6 justify-items-start">
 								<div>
 									<PForm>
-										<PFormItem label="Switch Empire">
+										<PFormItem :label="t('empire.switch_empire')">
 											<PSelect
 												v-model:value="
 													selectedEmpireUuid

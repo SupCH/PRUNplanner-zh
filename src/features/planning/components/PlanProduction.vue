@@ -87,12 +87,12 @@
 </script>
 
 <template>
-	<h2 class="text-white/80 font-bold text-lg">Production</h2>
+	<h2 class="text-white/80 font-bold text-lg">{{ $t("plan.production.heading") }}</h2>
 	<div
 		class="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-3 py-3 child:my-auto">
 		<div class="flex gap-3 child:my-auto">
 			<div v-if="planetResources.length" class="text-sm">
-				Planet Resources
+				{{ $t("plan.production.planet_resources") }}
 			</div>
 			<div class="flex flex-wrap gap-1 child:my-auto">
 				<PTooltip
@@ -112,7 +112,7 @@
 								:enable-popover="false" />
 						</div>
 					</template>
-					{{ resource.ResourceType }} ({{
+					{{ $t("plan.production.resource_types." + (resource.ResourceType || "MINERAL")) }} ({{
 						resource.ResourceType === "MINERAL"
 							? "EXT"
 							: resource.ResourceType === "GASEOUS"
@@ -124,7 +124,7 @@
 		</div>
 		<div class="sm:justify-self-end-safe flex child:my-auto gap-3">
 			<div class="flex gap-3">
-				<div class="text-sm text-nowrap">Match COGC</div>
+				<div class="text-sm text-nowrap">{{ $t("plan.production.match_cogc") }}</div>
 				<PCheckbox
 					v-model:checked="localMatchCOGC"
 					:disabled="disabled" />
@@ -134,7 +134,7 @@
 				v-model:value="localSelectedBuilding"
 				:disabled="disabled"
 				searchable
-				placeholder="Select Production Building(s)"
+				:placeholder="$t('plan.production.select_building_placeholder')"
 				class="w-full sm:!w-[300px]"
 				:options="
 					getProductionBuildingOptions(

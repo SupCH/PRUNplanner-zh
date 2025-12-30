@@ -14,12 +14,16 @@ pinia.use(piniaPluginPersistedstate);
 // routing
 import router from "@/router";
 
+// locales
+import i18n from "@/locales";
+
 // app + uses
 const app = createApp(AppProvider);
 app.config.performance = true;
 
 app.use(router);
 app.use(pinia);
+app.use(i18n);
 
 // axios
 import axiosSetup from "@/util/axiosSetup";

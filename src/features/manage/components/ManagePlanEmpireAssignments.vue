@@ -8,6 +8,8 @@
 		watch,
 		WritableComputedRef,
 	} from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Composables
 	import { usePlanetData } from "@/database/services/usePlanetData";
@@ -81,11 +83,9 @@
 	const refIsCloning: Ref<string | undefined> = ref(undefined);
 	const refIsDeleting: Ref<string | undefined> = ref(undefined);
 
-	const filterPlanNames: Ref<string[]> = ref([]);
-	const filterEmpires: Ref<string[]> = ref([]);
 	const filterOptionsPlanNames: ComputedRef<PSelectOption[]> = computed(() =>
 		localPlans.value.map((e) => ({
-			label: e.name ?? "Missing Plan Name",
+			label: e.name ?? t("empire.unknown_plan_name"),
 			value: e.uuid,
 		}))
 	);
@@ -247,7 +247,7 @@
 
 		useQuery("ClonePlan", {
 			planUuid: planUuid,
-			cloneName: `${planName} (Clone)`,
+			cloneName: `${planName}${t("manage.assignments.actions.clone_suffix")}`,
 		})
 			.execute()
 			.then(() => updateEmitEmpiresPlans())
@@ -258,10 +258,10 @@
 
 	function handleDeleteConfirm(planUuid: string): void {
 		dialog.warning({
-			title: "Confirm Plan Deletion",
-			content: "Are you sure? Deleting the Plan can't be reversed.",
-			positiveText: "Delete",
-			negativeText: "Cancel",
+			title: t("manage.assignments.delete_confirm.title"),
+			content: t("manage.assignments.delete_confirm.content"),
+			positiveText: t("manage.assignments.delete_confirm.positive"),
+			negativeText: t("manage.assignments.delete_confirm.negative"),
 			onPositiveClick: () => {
 				deletePlan(planUuid);
 			},
@@ -286,22 +286,20 @@
 
 <template>
 	<div class="flex flex-row flex-wrap gap-3 justify-between">
-		<h2 class="text-xl font-bold my-auto">Plan ↔ Empire Assignments</h2>
+		<h2 class="text-xl font-bold my-auto">{{ $t("manage.assignments.heading") }}</h2>
 		<div class="flex gap-x-3">
 			<PButton :loading="refIsPatching" @click="patchJunctions">
 				<template #icon><SaveSharp /></template>
-				Update Plan Assignments
+				{{ $t("manage.assignments.update_button") }}
 			</PButton>
 			<PButton @click="reload">
 				<template #icon><ChangeCircleOutlined /></template>
-				Reload
+				{{ $t("manage.assignments.reload_button") }}
 			</PButton>
 		</div>
 	</div>
 	<div class="py-3 text-white/60">
-		Every planned base can be assigned to multiple empires. This allows you
-		to simultaneously keep track of your existing Prosperous Universe
-		empire, corporation production chains or future expansion plans.
+		{{ $t("manage.assignments.info_text") }}
 	</div>
 
 	<ManageAssignmentFilters
@@ -315,7 +313,7 @@
 		striped
 		:single-line="false"
 		:pagination="{ pageSize: 50 }">
-		<x-n-data-table-column key="planName" title="Plan" sorter="default">
+		<x-n-data-table-column key="planName" :title="$t('manage.assignments.table.plan')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<div class="w-[175px] text-wrap">
 					<router-link
@@ -326,19 +324,19 @@
 				</div>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="planetId" title="Planet" sorter="default">
+		<x-n-data-table-column key="planetId" :title="$t('manage.assignments.table.planet')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<div class="w-[175px] text-wrap">
 					{{
 						planetNames[rowData.planetId] ||
 						loadPlanetName(rowData.planetId) ||
-						"Loading..."
+						$t("manage.assignments.table.loading")
 					}}
 				</div>
 			</template>
 		</x-n-data-table-column>
 
-		<x-n-data-table-column key="options" title="Configuration">
+		<x-n-data-table-column key="options" :title="$t('manage.assignments.table.configuration')">
 			<template #render-cell="{ rowData }">
 				<div class="flex flex-row flex-wrap gap-1">
 					<PButton
@@ -397,15 +395,9 @@
 		</x-n-data-table-column>
 		<template #empty>
 			<div class="flex flex-col gap-y-3">
-				<div class="text-center">No Plans available.</div>
+				<div class="text-center">{{ $t("manage.assignments.table.no_plans") }}</div>
 				<div class="text-center">
-					Use
-					<router-link
-						to="/search"
-						class="text-link-primary hover:underline">
-						Planet Search
-					</router-link>
-					to create your first plan.
+					{{ $t("manage.assignments.table.create_first") }}
 				</div>
 			</div>
 		</template>

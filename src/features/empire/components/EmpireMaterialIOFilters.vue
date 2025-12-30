@@ -85,25 +85,25 @@
 	<div class="grid grid-cols-1 xl:grid-cols-[max-content_auto] gap-6">
 		<div>
 			<PForm>
-				<PFormItem label="Display">
+				<PFormItem :label="$t('empire.filters.display')">
 					<PButtonGroup>
 						<PButton
 							:type="localLoadBalance ? 'secondary' : 'primary'"
 							@click="
 								() => (localLoadBalance = !localLoadBalance)
 							">
-							All
+							{{ $t("empire.filters.all") }}
 						</PButton>
 						<PButton
 							:type="!localLoadBalance ? 'secondary' : 'primary'"
 							@click="
 								() => (localLoadBalance = !localLoadBalance)
 							">
-							Loadbalance
+							{{ $t("empire.filters.loadbalance") }}
 						</PButton>
 					</PButtonGroup>
 				</PFormItem>
-				<PFormItem label="Consumables">
+				<PFormItem :label="$t('empire.filters.consumables')">
 					<PButtonGroup>
 						<PButton
 							:type="
@@ -114,7 +114,7 @@
 									(localHideConsumables =
 										!localHideConsumables)
 							">
-							Show
+							{{ $t("empire.filters.show") }}
 						</PButton>
 						<PButton
 							:type="
@@ -125,7 +125,7 @@
 									(localHideConsumables =
 										!localHideConsumables)
 							">
-							Hide
+							{{ $t("empire.filters.hide") }}
 						</PButton>
 					</PButtonGroup>
 				</PFormItem>
@@ -133,7 +133,7 @@
 		</div>
 		<div class="">
 			<PForm>
-				<PFormItem label="Materials">
+				<PFormItem :label="$t('empire.filters.materials')">
 					<PSelectMultiple
 						v-model:value="localFilterMaterials"
 						multiple
@@ -142,7 +142,7 @@
 						class="w-full"
 						:options="materialOptions" />
 				</PFormItem>
-				<PFormItem label="Planets">
+				<PFormItem :label="$t('empire.filters.planets')">
 					<PSelectMultiple
 						v-model:value="localFilterPlanets"
 						multiple

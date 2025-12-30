@@ -47,20 +47,19 @@
 
 <template>
 	<div class="flex flex-row flex-wrap gap-3 justify-between">
-		<h2 class="text-lg font-bold my-auto">Plan Name or ID</h2>
+		<h2 class="text-lg font-bold my-auto">{{ $t("search.basic.heading") }}</h2>
 		<PButton :loading="isLoading" :disabled="!canSearch" @click="doSearch">
 			<template #icon><SearchSharp /></template>
-			Search
+			{{ $t("search.basic.search_button") }}
 		</PButton>
 	</div>
 
 	<div class="py-3 text-white/60">
-		Search must include at least 3 characters. Example Searches: "OT-580b",
-		"Montem", "OT-"" or "580".
+		{{ $t("search.basic.search_info") }}
 	</div>
 
 	<PForm>
-		<PFormItem label="ID">
+		<PFormItem :label="$t('search.basic.id_label')">
 			<PInput v-model:value="refSearchId" class="w-full" />
 		</PFormItem>
 	</PForm>

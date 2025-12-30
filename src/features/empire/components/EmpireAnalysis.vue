@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { PropType, computed } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Composables
 	import { useMaterialData } from "@/database/services/useMaterialData";
@@ -113,7 +115,7 @@
 		const data = localPlanListData.value.filter((f) => f.profit > 0);
 
 		return generatePieChart(
-			"Profitable Plans",
+			t("empire.analysis_charts.profitable_plans"),
 			data.map((e) => {
 				return {
 					name: e.name ?? "",
@@ -130,7 +132,7 @@
 		);
 
 		return generatePieChart(
-			"Material Profits",
+			t("empire.analysis_charts.material_profits"),
 			data.map((e) => {
 				return {
 					name: e.ticker ?? "",
@@ -147,7 +149,7 @@
 		);
 
 		return generatePieChart(
-			"Material Costs",
+			t("empire.analysis_charts.material_costs"),
 			data.map((e) => {
 				return {
 					name: e.ticker ?? "",
@@ -162,7 +164,7 @@
 		const data = localEmpireMaterialIO.value.filter((f) => f.delta > 0);
 
 		return generatePieChart(
-			"Net Production",
+			t("empire.analysis_charts.net_production"),
 			data.map((e) => {
 				return {
 					name: e.ticker ?? "",
@@ -177,7 +179,7 @@
 		const data = localEmpireMaterialIO.value.filter((f) => f.delta < 0);
 
 		return generatePieChart(
-			"Net Consumption",
+			t("empire.analysis_charts.net_consumption"),
 			data.map((e) => {
 				return {
 					name: e.ticker ?? "",
@@ -194,7 +196,7 @@
 		);
 
 		return generatePieChart(
-			"Exclusive Production",
+			t("empire.analysis_charts.exclusive_production"),
 			data.map((e) => {
 				return {
 					name: e.ticker ?? "",
@@ -211,7 +213,7 @@
 		);
 
 		return generatePieChart(
-			"Exclusive Consumption",
+			t("empire.analysis_charts.exclusive_consumption"),
 			data.map((e) => {
 				return {
 					name: e.ticker ?? "",
@@ -227,14 +229,14 @@
 	<div class="border rounded-[3px] border-white/15 p-3">
 		<div class="grid grid-cols-1 xl:grid-cols-2 gap-3">
 			<div class="col-span-2">
-				<h2 class="text-lg font-bold">Profitable Plans</h2>
+				<h2 class="text-lg font-bold">{{ $t("empire.analysis_charts.profitable_plans") }}</h2>
 				<chart
 					ref="chartProfitablePlans"
 					key="chartProfitablePlans"
 					:options="chartProfitablePlans" />
 			</div>
 			<div>
-				<h2 class="text-lg font-bold">Material Profits</h2>
+				<h2 class="text-lg font-bold">{{ $t("empire.analysis_charts.material_profits") }}</h2>
 
 				<chart
 					ref="chartMaterialProfit"
@@ -242,35 +244,35 @@
 					:options="chartMaterialProfit" />
 			</div>
 			<div>
-				<h2 class="text-lg font-bold">Material Costs</h2>
+				<h2 class="text-lg font-bold">{{ $t("empire.analysis_charts.material_costs") }}</h2>
 				<chart
 					ref="chartMaterialCost"
 					key="chartMaterialCost"
 					:options="chartMaterialCost" />
 			</div>
 			<div>
-				<h2 class="text-lg font-bold">Net Production</h2>
+				<h2 class="text-lg font-bold">{{ $t("empire.analysis_charts.net_production") }}</h2>
 				<chart
 					ref="chartNetProduction"
 					key="chartNetProduction"
 					:options="chartNetProduction" />
 			</div>
 			<div>
-				<h2 class="text-lg font-bold">Net Consumption</h2>
+				<h2 class="text-lg font-bold">{{ $t("empire.analysis_charts.net_consumption") }}</h2>
 				<chart
 					ref="chartNetConsumption"
 					key="chartNetConsumption"
 					:options="chartNetConsumption" />
 			</div>
 			<div>
-				<h2 class="text-lg font-bold">Exclusive Production</h2>
+				<h2 class="text-lg font-bold">{{ $t("empire.analysis_charts.exclusive_production") }}</h2>
 				<chart
 					ref="chartExclusiveProduction"
 					key="chartExclusiveProduction"
 					:options="chartExclusiveProduction" />
 			</div>
 			<div>
-				<h2 class="text-lg font-bold">Exclusive Consumption</h2>
+				<h2 class="text-lg font-bold">{{ $t("empire.analysis_charts.exclusive_consumption") }}</h2>
 				<chart
 					ref="chartExclusiveConsumption"
 					key="chartExclusiveConsumption"

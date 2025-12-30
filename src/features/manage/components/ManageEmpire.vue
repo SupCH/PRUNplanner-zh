@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, ComputedRef, PropType, ref, Ref, watch } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Composables
 	import { useQuery } from "@/lib/query_cache/useQuery";
@@ -86,14 +88,14 @@
 		return false;
 	});
 
-	const factionOptions: PSelectOption[] = [
-		{ label: "No Faction", value: "NONE" },
-		{ label: "Antares", value: "ANTARES" },
-		{ label: "Benten", value: "BENTEN" },
-		{ label: "Hortus", value: "HORTUS" },
-		{ label: "Moria", value: "MORIA" },
-		{ label: "Outside Region", value: "OUTSIDEREGION" },
-	];
+	const factionOptions = computed<PSelectOption[]>(() => [
+		{ label: t("empire.config.factions.NONE"), value: "NONE" },
+		{ label: t("empire.config.factions.ANTARES"), value: "ANTARES" },
+		{ label: t("empire.config.factions.BENTEN"), value: "BENTEN" },
+		{ label: t("empire.config.factions.HORTUS"), value: "HORTUS" },
+		{ label: t("empire.config.factions.MORIA"), value: "MORIA" },
+		{ label: t("empire.config.factions.OUTSIDEREGION"), value: "OUTSIDEREGION" },
+	]);
 
 	generateEmpireCXMap();
 	generateCXOptions();
@@ -119,7 +121,7 @@
 		const options: PSelectOption[] = [
 			{
 				value: undefined,
-				label: "None",
+				label: t("empire.plan_list.cogc_mapping.---"),
 			},
 		];
 
@@ -210,11 +212,10 @@
 
 	function handleDeleteConfirm(empireUuid: string): void {
 		dialog.warning({
-			title: "Confirm Empire Deletion",
-			content:
-				"Are you sure? Deleting the Empire will not delete plans assigned to it.",
-			positiveText: "Delete",
-			negativeText: "Cancel",
+			title: t("manage.empires.delete_confirm.title"),
+			content: t("manage.empires.delete_confirm.content"),
+			positiveText: t("manage.empires.delete_confirm.positive"),
+			negativeText: t("manage.empires.delete_confirm.negative"),
 			onPositiveClick: () => {
 				deleteEmpire(empireUuid);
 			},
@@ -242,25 +243,22 @@
 
 <template>
 	<div class="flex flex-row flex-wrap gap-3 justify-between">
-		<h2 class="text-xl font-bold my-auto">Empire Configuration</h2>
+		<h2 class="text-xl font-bold my-auto">{{ $t("manage.empires.heading") }}</h2>
 		<div class="flex gap-x-3">
 			<PButton
 				:loading="refIsUpdatingJunctions"
 				@click="updateCXJunctions">
 				<template #icon><SaveSharp /></template>
-				Update CX Assignments
+				{{ $t("manage.empires.update_cx_button") }}
 			</PButton>
 			<PButton @click="refShowCreateEmpire = !refShowCreateEmpire">
 				<template #icon><PlusSharp /></template>
-				New Empire
+				{{ $t("manage.empires.new_empire_button") }}
 			</PButton>
 		</div>
 	</div>
 	<div class="py-3 text-white/60">
-		Removing empires will not delete any associated plans — they will simply
-		become unassigned. You can create edit existing empires in the Empire
-		View. To ensure correct plan efficiency calculations, make sure each
-		empire has your Faction and the appropriate Permits.
+		{{ $t("manage.empires.info_text") }}
 	</div>
 	<div
 		:class="
@@ -272,33 +270,33 @@
 		<div class="flex gap-x-3 pt-3 w-1/2 min-w-[400px]">
 			<div class="flex-grow">
 				<PForm>
-					<PFormItem label="Empire Name">
+					<PFormItem :label="$t('manage.empires.create_section.name_label')">
 						<PInput
 							v-model:value="refCreateName"
 							class="w-full"
-							placeholder="Empire Name (max. 100 characters)" />
+							:placeholder="$t('manage.empires.create_section.name_placeholder')" />
 					</PFormItem>
-					<PFormItem label="Faction">
+					<PFormItem :label="$t('manage.empires.create_section.faction_label')">
 						<PSelect
 							v-model:value="refCreateFaction"
 							class="w-full"
 							:options="factionOptions" />
 					</PFormItem>
-					<PFormItem label="Permits Total">
+					<PFormItem :label="$t('manage.empires.create_section.permits_total_label')">
 						<PInputNumber
 							v-model:value="refCreatePermitsTotal"
 							show-buttons
 							:min="2"
 							class="w-full" />
 					</PFormItem>
-					<PFormItem label="Permits Used">
+					<PFormItem :label="$t('manage.empires.create_section.permits_used_label')">
 						<PInputNumber
 							v-model:value="refCreatePermitsUsed"
 							show-buttons
 							:min="1"
 							class="w-full" />
 					</PFormItem>
-					<PFormItem label="Use FIO Storage?">
+					<PFormItem :label="$t('manage.empires.create_section.use_fio_label')">
 						<PCheckbox v-model:checked="refCreateUseFioStorage" />
 					</PFormItem>
 				</PForm>
@@ -308,13 +306,13 @@
 					:disabled="!compCanCreate"
 					:loading="refIsCreating"
 					@click="createEmpire">
-					Create
+					{{ $t("manage.empires.create_section.create_button") }}
 				</PButton>
 			</div>
 		</div>
 	</div>
 	<x-n-data-table :data="localEmpires" striped class="pt-3">
-		<x-n-data-table-column key="name" title="Name">
+		<x-n-data-table-column key="name" :title="$t('manage.empires.table.name')">
 			<template #render-cell="{ rowData }">
 				<router-link
 					:to="`/empire/${rowData.uuid}`"
@@ -323,33 +321,33 @@
 				</router-link>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="faction" title="Faction">
+		<x-n-data-table-column key="faction" :title="$t('manage.empires.table.faction')">
 			<template #render-cell="{ rowData }">
-				{{ capitalizeString(rowData.faction) }}
+				{{ $t("empire.config.factions." + (rowData.faction || "NONE")) }}
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="permits" title="Permits">
+		<x-n-data-table-column key="permits" :title="$t('manage.empires.table.permits')">
 			<template #render-cell="{ rowData }">
 				{{ rowData.permits_used }} / {{ rowData.permits_total }}
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="plans" title="Plans">
+		<x-n-data-table-column key="plans" :title="$t('manage.empires.table.plans')">
 			<template #render-cell="{ rowData }">
 				{{ rowData.baseplanners.length }}
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="fio" title="FIO">
+		<x-n-data-table-column key="fio" :title="$t('manage.empires.table.fio')">
 			<template #render-cell="{ rowData }">
 				<PTag
 					v-if="rowData.use_fio_storage"
 					:bordered="false"
 					type="success">
-					Yes
+					{{ $t("manage.empires.table.yes") }}
 				</PTag>
-				<PTag v-else :bordered="false" type="error"> No </PTag>
+				<PTag v-else :bordered="false" type="error"> {{ $t("manage.empires.table.no") }} </PTag>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="cx" title="CX" width="200">
+		<x-n-data-table-column key="cx" :title="$t('manage.empires.table.cx')" width="200">
 			<template #render-cell="{ rowData }">
 				<div class="max-w-[200px]">
 					<PSelect
@@ -374,8 +372,8 @@
 		</x-n-data-table-column>
 		<template #empty>
 			<div class="flex flex-col gap-y-3">
-				<div class="text-center">No Empires available.</div>
-				<div class="text-center">Create your first Empire.</div>
+				<div class="text-center">{{ $t("manage.empires.table.no_empires") }}</div>
+				<div class="text-center">{{ $t("manage.empires.table.create_first") }}</div>
 			</div>
 		</template>
 	</x-n-data-table>

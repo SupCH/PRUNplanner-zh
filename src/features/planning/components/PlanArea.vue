@@ -42,7 +42,7 @@
 
 <template>
 	<PForm>
-		<PFormItem label="Permits">
+		<PFormItem :label="$t('plan.area.permits')">
 			<PInputNumber
 				v-model:value="localPermits"
 				:disabled="disabled"
@@ -51,7 +51,7 @@
 				:max="3"
 				class="w-full" />
 		</PFormItem>
-		<PFormItem label="Area">
+		<PFormItem :label="$t('plan.area.area')">
 			<div class="flex flex-row w-full">
 				<div class="flex-grow">
 					{{ areaData.areaUsed }} / {{ areaData.areaTotal }}
@@ -66,7 +66,7 @@
 						"
 						>{{ areaData.areaLeft }}</span
 					>
-					Free
+					{{ $t("plan.area.free") }}
 				</div>
 			</div>
 		</PFormItem>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, ComputedRef, PropType, ref, Ref } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Composables
 	import { useQuery } from "@/lib/query_cache/useQuery";
@@ -68,11 +70,10 @@
 
 	function handleDeleteConfirm(cxUuid: string): void {
 		dialog.warning({
-			title: "Confirm CX Deletion",
-			content:
-				"Are you sure? Deleting the CX will delete all preferences.",
-			positiveText: "Delete",
-			negativeText: "Cancel",
+			title: t("manage.exchanges.delete_confirm.title"),
+			content: t("manage.exchanges.delete_confirm.content"),
+			positiveText: t("manage.exchanges.delete_confirm.positive"),
+			negativeText: t("manage.exchanges.delete_confirm.negative"),
 			onPositiveClick: () => {
 				deleteCX(cxUuid);
 			},
@@ -99,17 +100,14 @@
 
 <template>
 	<div class="flex flex-row flex-wrap gap-3 justify-between">
-		<h2 class="text-xl font-bold my-auto">CX Configuration</h2>
+		<h2 class="text-xl font-bold my-auto">{{ $t("manage.exchanges.heading") }}</h2>
 		<PButton @click="refShowCreateCX = !refShowCreateCX">
 			<template #icon><PlusSharp /></template>
-			New CX
+			{{ $t("manage.exchanges.new_cx_button") }}
 		</PButton>
 	</div>
 	<div class="py-3 text-white/60">
-		Removing a CX preference will delete all its exchange and material
-		settings. Assigned empires will remain unaffected, but they will no
-		longer use the removed preferences. Make sure to assign a new CX
-		preference.
+		{{ $t("manage.exchanges.info_text") }}
 	</div>
 	<div
 		:class="
@@ -117,23 +115,23 @@
 		"
 		class="transition-all duration-500 border-t border-b border-white/10">
 		<div class="flex gap-x-3 py-2">
-			<div class="my-auto">CX Name</div>
+			<div class="my-auto">{{ $t("manage.exchanges.create_section.name_label") }}</div>
 			<div class="flex-grow">
 				<PInput
 					v-model:value="refNewCXName"
-					placeholder="CX Name (max. 100 characters)" />
+					:placeholder="$t('manage.exchanges.create_section.name_placeholder')" />
 			</div>
 			<PButton
 				:loading="refIsCreating"
 				:disabled="!compCanCreate"
 				@click="createCX">
-				Create
+				{{ $t("manage.exchanges.create_section.create_button") }}
 			</PButton>
 		</div>
 	</div>
 
 	<x-n-data-table :data="localCX" striped class="pt-3">
-		<x-n-data-table-column key="name" title="Name">
+		<x-n-data-table-column key="name" :title="$t('manage.exchanges.table.name')">
 			<template #render-cell="{ rowData }">
 				<router-link
 					:to="`/exchanges/${rowData.uuid}`"
@@ -142,16 +140,16 @@
 				</router-link>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="uuid" title="Assigned to Empire?">
+		<x-n-data-table-column key="uuid" :title="$t('manage.exchanges.table.assigned')">
 			<template #title>
-				<div class="text-center">Assigned to Empire?</div>
+				<div class="text-center">{{ $t("manage.exchanges.table.assigned") }}</div>
 			</template>
 			<template #render-cell="{ rowData }">
 				<div class="text-center">
 					<PTag v-if="rowData.empires.length > 0" type="success">
-						Yes ({{ rowData.empires.length }})
+						{{ $t("manage.exchanges.table.yes") }} ({{ rowData.empires.length }})
 					</PTag>
-					<PTag v-else type="error"> No </PTag>
+					<PTag v-else type="error"> {{ $t("manage.exchanges.table.no") }} </PTag>
 				</div>
 			</template>
 		</x-n-data-table-column>
@@ -170,9 +168,9 @@
 		</x-n-data-table-column>
 		<template #empty>
 			<div class="flex flex-col gap-y-3">
-				<div class="text-center">No CX available.</div>
+				<div class="text-center">{{ $t("manage.exchanges.table.no_cx") }}</div>
 				<div class="text-center">
-					Create your first Exchange Preference.
+					{{ $t("manage.exchanges.table.create_first") }}
 				</div>
 			</div>
 		</template>

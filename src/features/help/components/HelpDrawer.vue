@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { PropType, ref, Ref, watch } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	import { PButton } from "@/ui";
 	import { NDrawer, NDrawerContent } from "naive-ui";
@@ -30,12 +32,12 @@
 		drawerTitle: {
 			type: String,
 			required: false,
-			default: "Help",
+			default: undefined,
 		},
 		buttonTitle: {
 			type: String,
 			required: false,
-			default: "Help",
+			default: undefined,
 		},
 		buttonSize: {
 			type: String as PropType<"sm" | "md">,
@@ -67,18 +69,18 @@
 		:class="buttonClass"
 		type="secondary"
 		@click="() => (showDrawer = !showDrawer)">
-		{{ buttonTitle }}
+		{{ buttonTitle ? buttonTitle : $t("help.title") }}
 	</PButton>
 	<n-drawer v-model:show="showDrawer" :width="drawerWidth" placement="right">
 		<n-drawer-content closable>
 			<template #header>
-				{{ drawerTitle }}
+				{{ drawerTitle ? drawerTitle : $t("help.title") }}
 			</template>
 			<div v-if="markdownContent != ''" id="markdown">
 				<VueShowdown :markdown="markdownContent" />
 			</div>
 			<div v-else class="text-center text-red-500">
-				Unable to load '{{ fileName }}'
+				{{ $t("help.unable_to_load", { file: fileName }) }}
 			</div>
 		</n-drawer-content>
 	</n-drawer>

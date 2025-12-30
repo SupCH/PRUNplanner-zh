@@ -93,7 +93,7 @@
 					{{ localBuildingData.amount }}
 				</h3>
 				<span :class="isPlanetCogc ? 'text-positive' : ''">{{
-					capitalizeString(expertiseString)
+					localBuildingData.expertise ? $t("plan.experts.mapping." + localBuildingData.expertise.toUpperCase()) : ""
 				}}</span>
 			</div>
 			<div
@@ -121,7 +121,7 @@
 					:disabled="disabled"
 					@click="emit('add:building:recipe', buildingIndex)">
 					<template #icon><PlusSharp /></template>
-					RECIPE
+					{{ $t("plan.production.building.recipe_button") }}
 				</PButton>
 				<PButton
 					:disabled="disabled"
@@ -175,7 +175,7 @@
 					" />
 			</div>
 			<div v-else class="h-full w-full flex items-center justify-center">
-				No Active Recipes
+				{{ $t("plan.production.building.no_active_recipes") }}
 			</div>
 		</div>
 		<div
@@ -184,7 +184,7 @@
 				<PTooltip>
 					<template #trigger>
 						<div class="flex gap-x-1 hover:cursor-help">
-							<span>Efficiency:</span>
+							<span>{{ $t("plan.production.building.efficiency") }}:</span>
 							<span class="font-bold">
 								{{
 									formatNumber(
@@ -205,7 +205,7 @@
 					</div>
 				</PTooltip>
 				<div class="flex gap-x-1">
-					<span>Area:</span>
+					<span>{{ $t("plan.production.building.area") }}:</span>
 					<span class="font-bold">
 						{{ localBuildingData.areaUsed }}
 					</span>
@@ -213,7 +213,7 @@
 			</div>
 			<div class="flex flex-wrap gap-x-3">
 				<div class="flex gap-x-1">
-					<span>Revenue:</span>
+					<span>{{ $t("plan.production.building.revenue") }}:</span>
 					<span
 						class="font-bold"
 						:class="
@@ -225,7 +225,7 @@
 					</span>
 				</div>
 				<div class="flex gap-x-1">
-					<span>Construction Cost:</span>
+					<span>{{ $t("plan.production.building.construction_cost") }}:</span>
 					<span class="font-bold">
 						{{
 							formatNumber(

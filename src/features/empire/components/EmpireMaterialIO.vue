@@ -50,12 +50,12 @@
 
 <template>
 	<x-n-data-table :data="localEmpireMaterialIO" striped>
-		<x-n-data-table-column key="ticker" title="Ticker" sorter="default">
+		<x-n-data-table-column key="ticker" :title="$t('empire.material_io_table.ticker')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<MaterialTile :key="rowData.ticker" :ticker="rowData.ticker" />
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="delta" title="Delta" sorter="default">
+		<x-n-data-table-column key="delta" :title="$t('empire.material_io_table.delta')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<span
 					class="text-nowrap"
@@ -66,7 +66,7 @@
 				</span>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="output" title="Production" sorter="default">
+		<x-n-data-table-column key="output" :title="$t('empire.material_io_table.production')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<span
 					class="text-nowrap"
@@ -75,7 +75,7 @@
 				</span>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="input" title="Consumption" sorter="default">
+		<x-n-data-table-column key="input" :title="$t('empire.material_io_table.consumption')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<span :class="rowData.input <= 0 ? 'text-white/50' : ''">
 					{{ formatNumber(rowData.input) }}
@@ -84,7 +84,7 @@
 		</x-n-data-table-column>
 		<x-n-data-table-column
 			key="deltaPrice"
-			title="$ Delta"
+			:title="$t('empire.material_io_table.delta_price')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				<span
@@ -98,7 +98,7 @@
 				</span>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="outputPlanets" title="Production Planets">
+		<x-n-data-table-column key="outputPlanets" :title="$t('empire.material_io_table.production_planets')">
 			<template #render-cell="{ rowData }">
 				<div
 					v-for="p in rowData.outputPlanets"
@@ -106,7 +106,7 @@
 					<router-link
 						:to="`/plan/${p.planetId}/${p.planUuid}`"
 						class="hover:underline">
-						{{ planetNames[p.planetId] || "Loading" }}:
+						{{ planetNames[p.planetId] || $t("empire.plan_list.loading") }}:
 						<strong>
 							{{ formatNumber(p.output) }}
 						</strong>
@@ -114,7 +114,7 @@
 				</div>
 			</template>
 		</x-n-data-table-column>
-		<x-n-data-table-column key="inputPlanets" title="Consumption Planets">
+		<x-n-data-table-column key="inputPlanets" :title="$t('empire.material_io_table.consumption_planets')">
 			<template #render-cell="{ rowData }">
 				<div
 					v-for="p in rowData.inputPlanets"
@@ -122,7 +122,7 @@
 					<router-link
 						:to="`/plan/${p.planetId}/${p.planUuid}`"
 						class="hover:underline">
-						{{ planetNames[p.planetId] || "Loading" }}:
+						{{ planetNames[p.planetId] || $t("empire.plan_list.loading") }}:
 						<strong>
 							{{ formatNumber(p.input) }}
 						</strong>

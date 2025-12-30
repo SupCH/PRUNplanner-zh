@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, PropType } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Types & Interfaces
 	import {
@@ -46,10 +48,10 @@
 			const expert = props.expertData[expertKey as keyof IExpertRecord];
 			if (expert.amount > 0) {
 				if (experts.length > 0) experts += ", ";
-				experts += `${expert.amount}x${expert.name.substring(0, 4)}`;
+				experts += `${expert.amount}x${t("plan.experts.mapping." + expert.name.toUpperCase()).substring(0, 4)}`;
 			}
 		}
-		if (experts.length === 0) experts = "None";
+		if (experts.length === 0) experts = t("plan.status_bar.none");
 		return experts;
 	});
 </script>
@@ -62,11 +64,11 @@
 		<div>
 			<span>COGC: </span>
 			<span :class="props.cogc === '---' ? 'text-negative' : ''">
-				{{ cogcTextMapping[props.cogc] }}
+				{{ $t("empire.plan_list.cogc_mapping." + props.cogc) }}
 			</span>
 		</div>
 		<div>
-			<span>Area: </span>
+			<span>{{ $t("plan.status_bar.area") }}: </span>
 			<span
 				:class="
 					areaData.areaUsed > areaData.areaTotal
@@ -78,7 +80,7 @@
 			<span>/{{ areaData.areaTotal }}</span>
 		</div>
 		<div>
-			<span>Profit: </span>
+			<span>{{ $t("plan.status_bar.profit") }}: </span>
 			<span
 				:class="
 					overviewData.profit > 0 ? 'text-positive' : 'text-negative'
@@ -87,8 +89,8 @@
 			</span>
 		</div>
 		<div>
-			<span>Experts: </span>
-			<span :class="expertsString === 'None' ? 'text-negative' : ''">
+			<span>{{ $t("plan.status_bar.experts") }}: </span>
+			<span :class="expertsString === $t('plan.status_bar.none') ? 'text-negative' : ''">
 				{{ expertsString }}
 			</span>
 		</div>

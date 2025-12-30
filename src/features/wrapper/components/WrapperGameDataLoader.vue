@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import { useI18n } from "vue-i18n";
+	const { t, te } = useI18n();
 	// Composables
 	import { useGameDataLoader } from "@/features/wrapper/useGameDataLoader";
 
@@ -36,7 +38,7 @@
 				<div
 					class="min-w-[300px] max-w-[500px] bg-black p-8 rounded shadow-lg text-center flex flex-col gap-y-3">
 					<h1 class="text-2xl font-bold font-mono mb-3">
-						Loading Data...
+						{{ $t("loading.title") }}
 					</h1>
 					<div
 						v-for="e in loadingSteps"
@@ -51,7 +53,9 @@
 								<ClearSharp v-else />
 							</PIcon>
 						</div>
-						<div class="!text-left">{{ e.name }}</div>
+						<div class="!text-left">
+							{{ te("loading.steps." + e.name) ? $t("loading.steps." + e.name) : e.name }}
+						</div>
 					</div>
 				</div>
 			</div>

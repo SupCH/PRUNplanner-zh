@@ -45,9 +45,9 @@
 <template>
 	<div
 		class="border border-b-0 rounded-[3px] border-white/15 p-3 flex flex-row gap-3 flex-wrap">
-		<div class="my-auto font-bold pr-3">Filter</div>
+		<div class="my-auto font-bold pr-3">{{ $t("manage.assignments.filters.heading") }}</div>
 		<div class="flex flex-row gap-3 child:my-auto">
-			<div>Plan</div>
+			<div>{{ $t("manage.assignments.filters.plan_label") }}</div>
 			<div>
 				<PSelectMultiple
 					v-model:value="localFilterPlanNames"
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="flex flex-row gap-3 child:my-auto">
-			<div>Active Empire</div>
+			<div>{{ $t("manage.assignments.filters.empire_label") }}</div>
 			<div>
 				<PSelectMultiple
 					v-model:value="localFilterEmpires"

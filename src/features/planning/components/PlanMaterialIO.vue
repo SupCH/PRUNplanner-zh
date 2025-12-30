@@ -43,21 +43,21 @@
 					:disable-drawer="false" />
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="input" title="In" sorter="default">
+		<XNDataTableColumn key="input" :title="$t('plan.material_io.input')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<span :class="rowData.input === 0 ? 'text-white/20' : ''">
 					{{ formatNumber(rowData.input) }}
 				</span>
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="output" title="Out" sorter="default">
+		<XNDataTableColumn key="output" :title="$t('plan.material_io.output')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<span :class="rowData.output === 0 ? 'text-white/20' : ''">
 					{{ formatNumber(rowData.output) }}
 				</span>
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="delta" title="Δ" sorter="default">
+		<XNDataTableColumn key="delta" :title="$t('plan.material_io.delta')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<span
 					:class="
@@ -70,7 +70,7 @@
 		<XNDataTableColumn
 			v-if="!localShowBasked"
 			key="price"
-			title="$ / day"
+			:title="$t('plan.material_io.daily_value')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				<span
@@ -84,7 +84,7 @@
 		<XNDataTableColumn
 			v-if="localShowBasked"
 			key="totalWeight"
-			title="Δ t"
+			:title="$t('plan.material_io.weight_delta')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				<span
@@ -100,7 +100,7 @@
 		<XNDataTableColumn
 			v-if="localShowBasked"
 			key="totalVolume"
-			title="Δ m³"
+			:title="$t('plan.material_io.volume_delta')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				<span

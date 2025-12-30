@@ -18,7 +18,7 @@
 		<div class="absolute inset-0 flex items-center justify-center">
 			<div class="bg-black p-8 rounded shadow-lg text-center">
 				<PSpin size="lg" />
-				<div class="pt-3">Rendering View</div>
+				<div class="pt-3">{{ $t("loading.rendering") }}</div>
 			</div>
 		</div>
 	</div>
