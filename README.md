@@ -1,6 +1,12 @@
 # PRUNplanner 中文版
 
+[![Status](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88-orange)](https://github.com/SupCH/PRUNplanner-zh)
+
 欢迎使用 PRUNplanner 中文版！本项目是基于 [PRUNplanner 官方前端](https://github.com/PRUNplanner/frontend) 的汉化版本，旨在为 Prosperous Universe 的中国玩家提供更友好的界面体验。
+
+> [!CAUTION]
+> **注意：** 本项目目前处于**非完整汉化版**阶段。大部分核心页面（主页、管理、帝国、搜索、登录注册）已完成汉化，但部分二级工具和细节内容仍可能显示为英文。我们正在持续改进中。
+
 
 本项目通过集成 `vue-i18n` 实现了全站汉化，同时严格保留了官方的专有名词（如项目名、游戏名、阵营名等）为英文。
 
