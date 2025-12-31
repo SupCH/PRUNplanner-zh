@@ -7,11 +7,13 @@
 		ref,
 		toRef,
 	} from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Unhead
 	import { useHead } from "@unhead/vue";
 	useHead({
-		title: "Burn | PRUNplanner",
+		title: `${t("nav.items.fio_burn")} | PRUNplanner`,
 	});
 
 	// Stores
@@ -159,14 +161,14 @@
 					v-if="isCalculating"
 					:step="progressCurrent"
 					:total="progressTotal"
-					message="One does not simply calculate automate burn supply." />
+					:message="$t('fio.burn.calculating')" />
 				<div v-else class="min-h-screen flex flex-col">
 					<div
 						class="px-6 py-3 border-b border-white/10 flex flex-row justify-between">
-						<h1 class="text-2xl font-bold my-auto">FIO Burn</h1>
+						<h1 class="text-2xl font-bold my-auto">{{ $t("fio.burn.title") }}</h1>
 						<div class="flex flex-row gap-x-3">
 							<div class="my-auto">
-								FIO Data Update:
+								{{ $t("fio.burn.data_update") }}:
 								{{
 									relativeFromDate(
 										planningStore.fio_sites_timestamp ?? 0
@@ -184,7 +186,7 @@
 								<div>
 									<h2
 										class="text-white/80 font-bold text-lg pb-3">
-										Empire
+										{{ $t("nav.items.empire") }}
 									</h2>
 
 									<PSelect
@@ -197,6 +199,7 @@
 												};
 											})
 										"
+										:placeholder="$t('nav.items.empire')"
 										@update-value="
 									(value: string) => {
 										selectedEmpireUuid = value;
@@ -207,18 +210,18 @@
 								<div>
 									<h2
 										class="text-white/80 font-bold text-lg pb-3">
-										Burn Thresholds
+										{{ $t("fio.burn.thresholds") }}
 									</h2>
 
 									<PForm>
-										<PFormItem label="Red">
+										<PFormItem :label="$t('fio.burn.red')">
 											<PInputNumber
 												v-model:value="burnDaysRed"
 												show-buttons
 												:min="1"
 												class="w-full max-w-[400px]" />
 										</PFormItem>
-										<PFormItem label="Yellow">
+										<PFormItem :label="$t('fio.burn.yellow')">
 											<PInputNumber
 												v-model:value="burnDaysYellow"
 												show-buttons
@@ -230,7 +233,7 @@
 							</div>
 
 							<h2 class="text-white/80 font-bold text-lg pb-3">
-								Plan Burn Overview
+								{{ $t("fio.burn.plan_overview") }}
 							</h2>
 
 							<AsyncFIOBurnPlanTable :plan-table="planTable" />

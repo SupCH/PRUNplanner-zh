@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, ComputedRef, PropType, ref, Ref, watch } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Composables
 	import { usePlanPreferences } from "@/features/preferences/usePlanPreferences";
@@ -202,18 +204,13 @@
 </script>
 
 <template>
-	<h2 class="pb-3 text-white/80 font-bold text-lg">Visitation Frequency</h2>
+	<h2 class="pb-3 text-white/80 font-bold text-lg">{{ $t("plan.tools.visitation_frequency_details.title") }}</h2>
 
 	<div class="grid grid-cols-1 lg:grid-cols-[40%_auto] gap-3">
 		<div>
-			<h3 class="font-bold text-lg pb-3">Storage</h3>
+			<h3 class="font-bold text-lg pb-3">{{ $t("plan.tools.visitation_frequency_details.storage_heading") }}</h3>
 
-			<p class="pb-3">
-				Your plan involves adding
-				<strong>{{ localStoAmount }}</strong> STO, giving you a total
-				storage capacity of
-				<strong>{{ formatAmount(totalStorage) }}</strong
-				>.
+			<p class="pb-3" v-html="$t('plan.tools.visitation_frequency_details.storage_info', { sto: localStoAmount, total: formatAmount(totalStorage) })">
 			</p>
 
 			<PTable striped>
@@ -226,12 +223,12 @@
 				</thead>
 				<tbody class="child:child:text-center">
 					<tr>
-						<td class="!text-left font-bold">Import</td>
+						<td class="!text-left font-bold">{{ $t("plan.storage.import") }}</td>
 						<td>{{ formatNumber(dailyData.dailyVolumeImport) }}</td>
 						<td>{{ formatNumber(dailyData.dailyWeightImport) }}</td>
 					</tr>
 					<tr>
-						<td class="!text-left font-bold">Export</td>
+						<td class="!text-left font-bold">{{ $t("plan.storage.export") }}</td>
 						<td>{{ formatNumber(dailyData.dailyVolumeExport) }}</td>
 						<td>{{ formatNumber(dailyData.dailyWeightExport) }}</td>
 					</tr>
@@ -241,18 +238,16 @@
 						<td>{{ formatNumber(dailyData.dailyWeight) }}</td>
 					</tr>
 					<tr>
-						<td class="!text-left font-bold">Storage Filled</td>
+						<td class="!text-left font-bold">{{ $t("plan.tools.visitation_frequency_details.storage_filled") }}</td>
 						<td colspan="2" class="font-bold">
-							{{ formatNumber(dailyData.storageFilled) }} days
+							{{ formatNumber(dailyData.storageFilled) }} {{ $t("plan.status_bar.none") === "None" ? "days" : "天" }}
 						</td>
 					</tr>
 				</tbody>
 			</PTable>
 
 			<p class="py-3">
-				Exclude local materials from visitation frequency calculation
-				for items handled exclusively planet-side, like local market
-				sales, purchases or contracts.
+				{{ $t("plan.tools.visitation_frequency_details.exclusion_info") }}
 			</p>
 
 			<PSelectMultiple
@@ -261,6 +256,7 @@
 				:options="refMaterialExclusionOption"
 				multiple
 				searchable
+				:placeholder="$t('plan.production.material')"
 				@update:value="
 					(value) => {
 						// only keep string values
@@ -274,25 +270,25 @@
 				" />
 		</div>
 		<div>
-			<h3 class="font-bold text-lg pb-3">Shipping</h3>
+			<h3 class="font-bold text-lg pb-3">{{ $t("plan.tools.visitation_frequency_details.shipping_heading") }}</h3>
 
 			<PTable striped>
 				<thead>
 					<tr>
-						<th>Ship m³</th>
-						<th>Ship t</th>
-						<th class="!text-center">Visitation (days)</th>
-						<th class="!text-center">Limit</th>
-						<th class="!text-center">Visitation (days)</th>
-						<th class="!text-center">Limit</th>
+						<th>{{ $t("plan.tools.visitation_frequency_details.table.ship_volume") }}</th>
+						<th>{{ $t("plan.tools.visitation_frequency_details.table.ship_weight") }}</th>
+						<th class="!text-center">{{ $t("plan.tools.visitation_frequency_details.table.visitation_days") }}</th>
+						<th class="!text-center">{{ $t("plan.tools.visitation_frequency_details.table.limit") }}</th>
+						<th class="!text-center">{{ $t("plan.tools.visitation_frequency_details.table.visitation_days") }}</th>
+						<th class="!text-center">{{ $t("plan.tools.visitation_frequency_details.table.limit") }}</th>
 					</tr>
 					<tr>
 						<th colspan="2" />
 						<th colspan="2" class="!text-center">
-							Export Frequency
+							{{ $t("plan.tools.visitation_frequency_details.table.export_frequency") }}
 						</th>
 						<th colspan="2" class="!text-center">
-							Import Frequency
+							{{ $t("plan.tools.visitation_frequency_details.table.import_frequency") }}
 						</th>
 					</tr>
 				</thead>

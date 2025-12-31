@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { onMounted, PropType, ref, Ref } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Composables
 	import { useQuery } from "@/lib/query_cache/useQuery";
@@ -48,16 +50,15 @@
 
 <template>
 	<h2 class="pb-3 text-white/80 font-bold text-lg">
-		Latest Population Report
+		{{ $t("plan.tools.popr_details.title") }}
 	</h2>
 	<div v-if="hasError">
-		Error loading latest population report. The planet might not have
-		population.
+		{{ $t("plan.tools.popr_details.error_loading") }}
 	</div>
 	<div v-else-if="isLoading" class="text-center">
 		<PSpin size="lg" />
 		<br />
-		Loading Population Report
+		{{ $t("plan.tools.popr_details.loading") }}
 	</div>
 	<div v-else-if="poprData">
 		<PlanetPOPRTable

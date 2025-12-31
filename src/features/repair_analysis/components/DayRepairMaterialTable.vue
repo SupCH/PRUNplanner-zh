@@ -34,9 +34,9 @@
 	<PTable striped>
 		<thead>
 			<tr>
-				<th>Material</th>
-				<th>Amount</th>
-				<th class="!text-end">Cost</th>
+				<th>{{ $t("plan.tools.hq_calculator.table.material") }}</th>
+				<th>{{ $t("plan.tools.hq_calculator.table.amount") }}</th>
+				<th class="!text-end">{{ $t("plan.tools.hq_calculator.table.unit_cost") }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -62,21 +62,21 @@
 				<td colspan="3" class="!border-t">
 					<div
 						class="grid grid-cols-2 gap-1 child:even:text-end child:not-even:font-bold">
-						<div>Total Cost</div>
+						<div>{{ $t("plan.tools.hq_calculator.total_cost") }}</div>
 						<div>
 							{{ formatNumber(totalData.cost) }}
 							<span class="pl-1 font-light text-white/50">
 								$
 							</span>
 						</div>
-						<div>Total Volume</div>
+						<div>{{ $t("plan.tools.hq_calculator.total_volume") }}</div>
 						<div>
 							{{ formatNumber(totalData.volume) }}
 							<span class="pl-1 font-light text-white/50">
 								m³
 							</span>
 						</div>
-						<div>Total Weight</div>
+						<div>{{ $t("plan.tools.hq_calculator.total_weight") }}</div>
 						<div>
 							{{ formatNumber(totalData.weight) }}
 							<span class="pl-1 font-light text-white/50">

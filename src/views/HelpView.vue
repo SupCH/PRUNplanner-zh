@@ -2,7 +2,7 @@
 	import { onMounted, Ref, ref } from "vue";
 	import { useHead } from "@unhead/vue";
 	import { useI18n } from "vue-i18n";
-	const { t } = useI18n();
+	const { t, locale } = useI18n();
 
 	useHead({
 		title: `${t("help.title")} | PRUNplanner`,
@@ -10,6 +10,7 @@
 
 	import HelpTutorial from "@/features/help/components/HelpTutorial.vue";
 	import { VueShowdown } from "vue-showdown";
+	import { watch } from "vue";
 
 	// markdown loader from changelog
 	async function loadMarkdown(): Promise<string> {
@@ -18,7 +19,9 @@
 			import: "default",
 		}) as Record<string, () => Promise<string>>;
 
-		const path = `/src/assets/help/changelog.md`;
+		const path = `/src/assets/help/changelog${
+			locale.value === "zh" ? ".zh" : ""
+		}.md`;
 		const loader = markdownFiles[path];
 		if (!loader) throw new Error(`Markdown file "changelog" not found.`);
 
@@ -28,6 +31,10 @@
 	const markdownContent: Ref<string> = ref("");
 
 	onMounted(async () => (markdownContent.value = await loadMarkdown()));
+
+	watch(locale, async () => {
+		markdownContent.value = await loadMarkdown();
+	});
 </script>
 
 <template>
@@ -43,14 +50,25 @@
 				<HelpTutorial />
 			</div>
 			<div>
-				<section class="bg-white/10 p-3 rounded mb-3">
-					{{ $t("help.contribution_text") }}
-					<a
-						href="https://github.com/PRUNplanner/frontend"
-						target="_blank"
-						class="text-link-primary"
-						>open source</a
-					>
+				<section class="bg-white/10 p-3 rounded mb-3 flex flex-col gap-2">
+					<div>
+						{{ $t("help.contribution_text") }}
+						<a
+							href="https://github.com/PRUNplanner/frontend"
+							target="_blank"
+							class="text-link-primary font-bold hover:underline"
+							>PRUNplanner</a
+						>
+					</div>
+					<div class="text-sm border-t border-white/5 pt-2">
+						<span class="opacity-60">中文版项目：</span>
+						<a
+							href="https://github.com/SupCH/PRUNplanner-zh"
+							target="_blank"
+							class="text-link-primary font-bold hover:underline"
+							>PRUNplanner-zh</a
+						>
+					</div>
 				</section>
 
 				<h2 class="text-xl font-bold pb-3">{{ $t("help.changelog") }}</h2>

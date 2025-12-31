@@ -1,8 +1,10 @@
 <script setup lang="ts">
 	import { useHead } from "@unhead/vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	useHead({
-		title: "Profile | PRUNplanner",
+		title: `${t("profile.title")} | PRUNplanner`,
 	});
 
 	// Components
@@ -20,7 +22,7 @@
 			<div class="min-h-screen flex flex-col">
 				<div
 					class="px-6 py-3 border-b border-white/10 flex flex-row justify-between">
-					<h1 class="text-2xl font-bold">Profile</h1>
+					<h1 class="text-2xl font-bold">{{ $t("profile.title") }}</h1>
 					<HelpDrawer file-name="profile" />
 				</div>
 

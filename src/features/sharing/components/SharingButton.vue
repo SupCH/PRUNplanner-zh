@@ -70,19 +70,15 @@
 		v-model:show="showModal"
 		class="!w-fit !max-w-[700px]"
 		preset="card"
-		title="Share Plan">
+		:title="$t('sharing.title')">
 		<template v-if="!isShared">
 			<div>
-				This will create an unique link that can be shared with others.
-				They will be able to see your plan, but don't modify it. The
-				link becomes unavailable once you choose to stop sharing or
-				delete the plan.
+				{{ $t("sharing.create_info") }}
 			</div>
 		</template>
 		<template v-else>
 			<div class="pb-3">
-				You're currently sharing this plan. It has been viewed
-				<strong>{{ viewCount }}</strong> times.
+				{{ $t("sharing.active_info", { count: viewCount }) }}
 			</div>
 			<div v-if="url" class="font-mono">
 				{{ url }}
@@ -93,7 +89,7 @@
 				:size="buttonSize"
 				:loading="isCreating"
 				@click="doCreateSharing">
-				Create Sharing Link
+				{{ $t("sharing.create_link_button") }}
 			</PButton>
 		</template>
 		<template v-else #action>
@@ -103,14 +99,14 @@
 					:size="buttonSize"
 					type="success"
 					@click="copyToClipboard(url)">
-					Copy URL
+					{{ $t("sharing.copy_link_button") }}
 				</PButton>
 				<PButton
 					:size="buttonSize"
 					type="error"
 					:loading="isDeleting"
 					@click="stopSharing">
-					Stop Sharing
+					{{ $t("sharing.stop_sharing_button") }}
 				</PButton>
 			</div>
 		</template>
@@ -126,8 +122,8 @@
 		<template v-if="isShared">{{ viewCount }}</template>
 
 		<template v-if="buttonSize !== 'sm'">
-			<template v-if="isShared"> Views</template>
-			<template v-else>Share</template>
+			<template v-if="isShared"> {{ $t("sharing.views_label") }}</template>
+			<template v-else>{{ $t("sharing.share_label") }}</template>
 		</template>
 	</PButton>
 </template>

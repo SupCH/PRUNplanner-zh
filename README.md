@@ -1,12 +1,9 @@
 # PRUNplanner 中文版
 
-[![Status](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88-orange)](https://github.com/SupCH/PRUNplanner-zh)
+[![Status](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E5%B7%B2%E5%AE%8C%E6%88%90-brightgreen)](https://github.com/SupCH/PRUNplanner-zh)
 [![Deployed on Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Deployed-blue?logo=cloudflare)](https://prunp.crazzy.cn/)
 
-欢迎使用 PRUNplanner 中文版！本项目是基于 [PRUNplanner 官方前端](https://github.com/PRUNplanner/frontend) 的汉化版本，旨在为 Prosperous Universe 的中国玩家提供更友好的界面体验。
-
-> [!CAUTION]
-> **注意：** 本项目目前处于**非完整汉化版**阶段。大部分核心页面（主页、管理、帝国、搜索、登录注册）已完成汉化，但部分二级工具和细节内容仍可能显示为英文。我们正在持续改进中。
+欢迎使用 PRUNplanner 中文版！本项目是 [PRUNplanner 官方前端](https://github.com/PRUNplanner/frontend) 的深度汉化与优化版本，旨在为 Prosperous Universe 的中国玩家提供完整且流畅的本地化体验。
 
 ## 🚀 在线预览
 
@@ -15,10 +12,12 @@
 
 ## ✨ 功能特性
 
-- **深度汉化**: 覆盖主页、帝国管理、计划详情、星球搜索、加载界面及登录注册等核心流程。
-- **中英切换**: 导航栏内置语言切换功能，支持随时在中文与原版英文间无缝切换。
-- **UI 组件本地化**: 完美适配 Naive UI 组件库的中文环境。
-- **保留原味**: 严格保留官方 API 地址、项目名称、游戏名称、阵营缩写等专有名词为英文。
+- **深度全面汉化**: 覆盖 100% 的用户界面，包括所有二级工具（ROI 分析、购物车、生产链可视化、总部升级计算器等）。
+- **动态语言切换**: 支持在中文与原版英文间无缝切换，所有翻译均通过 `vue-i18n` 标准化管理。
+- **本地化日期系统**: 基于 `dayjs` 实现了相对时间的中文显示，并修复了原始项目中 FIO 数据更新时间显示异常的 Bug。
+- **多语言文档支持**: “更新日志”等动态内容现在可以根据当前语言环境自动加载对应的中文/英文 Markdown 版本。
+- **UI 组件适配**: 深度定制了 Naive UI 组件库的占位符与提示信息，确保护持一致的中文体验。
+- **保留核心概念**: 严格保留项目原名、游戏专有名词（如 FIO, CX, Ticker 等）及阵营名称，维持与国际社区的无障碍交流。
 
 ## 🛠️ 安装与运行
 
@@ -58,7 +57,11 @@
 | VITE_API_BASE_URL | string | "https://api.prunplanner.org" | 官方 API 接口地址 |
 | VITE_SHARE_BASE_URL | string | "https://prunplanner.org/shared" | 计划分享链接基础地址 |
 
-## ⚖️ 许可证
+## ⚖️ 声明
+
+本项目为 [PRUNplanner](https://github.com/PRUNplanner/frontend) 的中文本地化分叉版本。原项目的版权归原作者所有。汉化及功能增强部分由 **SupCH** 维护。
+
+## 许可证
 
 本项目遵循 [MIT License](LICENSE)。
 

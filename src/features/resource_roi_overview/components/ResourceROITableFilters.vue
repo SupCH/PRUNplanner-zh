@@ -65,32 +65,34 @@
 	<div
 		class="border border-b-0 rounded-[3px] border-white/15 p-3 flex flex-row gap-3 flex-wrap justify-between">
 		<div class="flex flex-row flex-wrap gap-3 child:my-auto">
-			<div class="font-bold pr-3">Filter</div>
+			<div class="font-bold pr-3">{{ $t("manage.assignments.filters.heading") }}</div>
 			<div class="flex flex-row gap-3 child:my-auto">
-				<div>Planet</div>
+				<div>{{ $t("tools.resource_roi.filters.planet") }}</div>
 				<PSelect
 					v-model:value="localFilterPlanet"
 					:options="planetOptions"
 					searchable
 					clearable
+					:placeholder="$t('search.results.planet')"
 					class="w-[200px]" />
 			</div>
 			<div class="flex flex-row gap-3 child:my-auto">
-				<div>Building</div>
+				<div>{{ $t("tools.resource_roi.filters.building") }}</div>
 				<PSelect
 					v-model:value="localFilterBuilding"
 					:options="buildingOptions"
 					searchable
 					clearable
+					:placeholder="$t('plan.production.heading')"
 					class="w-[200px]" />
 			</div>
 			<div class="flex flex-row gap-3 child:my-auto">
-				<div>Positive ROI</div>
+				<div>{{ $t("tools.resource_roi.filters.positive_roi") }}</div>
 				<PCheckbox v-model:checked="localFilterPositiveROI" />
 			</div>
 		</div>
 		<div class="flex flex-row flex-wrap gap-3 pr-3">
-			<div class="my-auto font-bold">Searched Material</div>
+			<div class="my-auto font-bold">{{ $t("tools.resource_roi.filters.searched_material") }}</div>
 			<div>
 				<MaterialTile
 					:key="searchedMaterial"

@@ -1,9 +1,11 @@
 <script setup lang="ts">
 	import { onMounted, Ref, ref } from "vue";
 	import { useHead } from "@unhead/vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	useHead({
-		title: "Market Exploration | PRUNplanner",
+		title: `${t("tools.market_exploration.title")} | PRUNplanner`,
 	});
 
 	// Stores
@@ -69,23 +71,23 @@
 		<div class="min-h-screen flex flex-col">
 			<div
 				class="px-6 py-3 border-b border-white/10 flex flex-row justify-between gap-x-3">
-				<h1 class="text-2xl font-bold">Market Exploration</h1>
+				<h1 class="text-2xl font-bold">{{ $t("tools.market_exploration.title") }}</h1>
 				<div>
 					<div class="flex flex-row gap-x-3 child:my-auto">
-						<div>Exchange</div>
+						<div>{{ $t("tools.market_exploration.exchange_label") }}</div>
 						<PSelect
 							v-model:value="selectedExchange"
 							:options="exchangeOptions"
 							class="w-[100px]" />
 
-						<div>Material</div>
+						<div>{{ $t("tools.market_exploration.material_label") }}</div>
 						<PSelect
 							v-model:value="selectedMaterial"
 							searchable
 							:options="materialOptions"
 							class="w-[200px]" />
 						<PButton :loading="loading" @click="fetch">
-							Explore
+							{{ $t("tools.market_exploration.explore_button") }}
 						</PButton>
 						<HelpDrawer file-name="tools_market_exploration" />
 					</div>
@@ -94,10 +96,10 @@
 			<div class="px-6 py-3">
 				<div v-if="loading" class="text-center">
 					<PSpin size="xl" /> <br />
-					Loading Data from backend.
+					{{ $t("tools.market_exploration.loading_backend") }}
 				</div>
 				<div v-else-if="error" class="text-center">
-					Error Loading Data.
+					{{ $t("tools.market_exploration.error_loading") }}
 				</div>
 				<div v-else-if="!loading && !error && dataChart.length > 0">
 					<Chart
@@ -105,14 +107,14 @@
 						:constructor-type="'stockChart'"
 						class="hc"
 						:options="chartOptions" />
-					<h2 class="text-xl py-2">Data</h2>
+					<h2 class="text-xl py-2">{{ $t("tools.market_exploration.data_heading") }}</h2>
 					<XNDataTable
 						:data="dataChart"
 						striped
 						:pagination="{ pageSize: 50 }">
 						<XNDataTableColumn
 							key="Datetime"
-							title="Date"
+							:title="$t('tools.market_exploration.table.date')"
 							sorter="default">
 							<template #render-cell="{ rowData }">
 								{{ formatDate(rowData.Datetime) }}
@@ -120,19 +122,19 @@
 						</XNDataTableColumn>
 						<XNDataTableColumn
 							key="price_average"
-							title="Average Price"
+							:title="$t('tools.market_exploration.table.avg_price')"
 							sorter="default" />
 						<XNDataTableColumn
 							key="price_min"
-							title="Lowest Price"
+							:title="$t('tools.market_exploration.table.lowest_price')"
 							sorter="default" />
 						<XNDataTableColumn
 							key="price_max"
-							title="Highest Price"
+							:title="$t('tools.market_exploration.table.highest_price')"
 							sorter="default" />
 						<XNDataTableColumn
 							key="volume_max"
-							title="Traded Volume"
+							:title="$t('tools.market_exploration.table.traded_volume')"
 							sorter="default">
 							<template #render-cell="{ rowData }">
 								{{ formatAmount(rowData.volume_max) }}
@@ -140,7 +142,7 @@
 						</XNDataTableColumn>
 						<XNDataTableColumn
 							key="delta_supply_demand"
-							title="Delta Supply & Demand"
+							:title="$t('tools.market_exploration.table.delta_supply_demand')"
 							sorter="default">
 							<template #render-cell="{ rowData }">
 								<span
@@ -160,7 +162,7 @@
 					</XNDataTable>
 				</div>
 				<div v-else class="text-center">
-					Please select an Exchange and Material. Press "Explore".
+					{{ $t("tools.market_exploration.select_hint") }}
 				</div>
 			</div>
 		</div>

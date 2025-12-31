@@ -2,6 +2,8 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/zh-cn";
+import i18n from "@/locales";
 
 dayjs.extend(utc);
 dayjs.extend(duration);
@@ -87,14 +89,25 @@ export function humanizeTimeMs(value: number): string {
  * @author jplacht
  *
  * @export
- * @param {(Date | undefined)} value Date
+ * @param {(Date | number | undefined)} value Date
  * @returns {string} Relative, humanized time
  */
 export function relativeFromDate(
 	value: Date | number | undefined,
 	isUTC: boolean = false
 ): string {
-	if (value === undefined) return "—";
+	const currentLocale = i18n.global.locale.value === "zh" ? "zh-cn" : "en";
+	dayjs.locale(currentLocale);
+
+	if (
+		value === undefined ||
+		value === null ||
+		value === 0 ||
+		value === "0" ||
+		(value instanceof Date && isNaN(value.getTime()))
+	) {
+		return currentLocale === "zh-cn" ? "从未" : "Never";
+	}
 
 	if (isUTC) return dayjs(value).utc(true).local().fromNow();
 

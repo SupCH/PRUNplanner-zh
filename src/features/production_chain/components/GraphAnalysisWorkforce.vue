@@ -21,12 +21,12 @@
 </script>
 
 <template>
-	<h3 class="font-bold py-3">Workforce</h3>
+	<h3 class="font-bold py-3">{{ $t("tools.production_chain.analysis.workforce_heading") }}</h3>
 	<PTable striped>
 		<thead>
 			<tr>
-				<th>Workforce</th>
-				<th class="!text-end">Required</th>
+				<th>{{ $t("tools.production_chain.analysis.workforce_label") }}</th>
+				<th class="!text-end">{{ $t("tools.production_chain.analysis.required_label") }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,7 +39,7 @@
 						:style="`background-color: ${
 							WORKFORCECOLORS[workforce.workforce]
 						};`">
-						{{ capitalizeString(workforce.workforce) }}
+						{{ $t("empire.plan_list.cogc_mapping." + workforce.workforce.toUpperCase()) }}
 					</span>
 				</td>
 				<td class="text-end">

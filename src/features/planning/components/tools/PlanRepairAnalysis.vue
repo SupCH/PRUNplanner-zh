@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, ComputedRef, PropType, Ref, ref, watch } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Composables
 	import { usePrice } from "@/features/cx/usePrice";
@@ -173,7 +175,7 @@
 			},
 			yAxis: {
 				title: {
-					text: "Profit / Day",
+					text: t("plan.tools.repair_analysis_details.chart.profit_day"),
 				},
 				labels: {
 					format: "${text}",
@@ -181,27 +183,27 @@
 			},
 			xAxis: {
 				title: {
-					text: "Days since Repair",
+					text: t("plan.tools.repair_analysis_details.chart.days_since_repair"),
 				},
 			},
 			tooltip: {
-				headerFormat: "Day: <strong>{point.key}</strong><br />",
+				headerFormat: `${t("plan.tools.repair_analysis_details.chart.day_prefix")} <strong>{point.key}</strong>${t("plan.tools.repair_analysis_details.chart.day_suffix")}<br />`,
 				pointFormat: "$ {y:.2f}",
 			},
 			series: [
 				{
-					name: "Repair Analyis",
+					name: t("plan.tools.repair_analysis_details.chart.repair_analysis"),
 					data: repairAnalysisElements.value.map((r) => r.profit),
 				},
 				{
-					name: "Last Optimal Profit",
+					name: t("plan.tools.repair_analysis_details.chart.last_optimal"),
 					data: [{ x: maxDay.value, y: maxValue.value }],
 					marker: {
 						symbol: "diamond",
 					},
 					dataLabels: {
 						enabled: true,
-						format: "Day: <strong>{x}</strong><br />$ {y:.2f}",
+						format: `${t("plan.tools.repair_analysis_details.chart.day_prefix")} <strong>{x}</strong>${t("plan.tools.repair_analysis_details.chart.day_suffix")}<br />$ {y:.2f}`,
 					},
 				},
 			],
@@ -214,7 +216,7 @@
 	const costOptions: ComputedRef<Options> = computed(() => {
 		const s = [
 			{
-				name: "Total Cost",
+				name: t("plan.tools.repair_analysis_details.chart.total_cost"),
 				data: repairAnalysisElements.value.map((r) => r.dailyRepair),
 			},
 		].concat(singleMat.value as { name: string; data: number[] }[]);
@@ -226,12 +228,12 @@
 			},
 			tooltip: {
 				headerFormat:
-					"<strong>{series.name}</strong><br />Day: <strong>{point.key}</strong><br />",
+					"<strong>{series.name}</strong><br />" + `${t("plan.tools.repair_analysis_details.chart.day_prefix")} <strong>{point.key}</strong>${t("plan.tools.repair_analysis_details.chart.day_suffix")}<br />`,
 				pointFormat: "$ {y:.2f}",
 			},
 			yAxis: {
 				title: {
-					text: "Cost",
+					text: t("plan.tools.repair_analysis_details.chart.cost"),
 				},
 				labels: {
 					format: "${text}",
@@ -239,7 +241,7 @@
 			},
 			xAxis: {
 				title: {
-					text: "Days since Repair",
+					text: t("plan.tools.repair_analysis_details.chart.days_since_repair"),
 				},
 			},
 			series: s,
@@ -285,13 +287,13 @@
 </script>
 
 <template>
-	<h2 class="pb-3 text-white/80 font-bold text-lg">Repair Analysis</h2>
+	<h2 class="pb-3 text-white/80 font-bold text-lg">{{ $t("plan.tools.repair_analysis_details.title") }}</h2>
 	<div class="grid grid-cols-1 xl:grid-cols-[400px_auto] gap-3 gap-x-6">
 		<div>
-			<h2 class="font-bold pb-3">Plan</h2>
+			<h2 class="font-bold pb-3">{{ $t("plan.tools.repair_analysis_details.plan_heading") }}</h2>
 
 			<PForm>
-				<PFormItem label="Select Day">
+				<PFormItem :label="$t('plan.tools.repair_analysis_details.select_day')">
 					<div class="w-full flex flex-row justify-between">
 						<PSelect
 							v-model:value="selectedDay"
@@ -315,9 +317,9 @@
 			</div>
 		</div>
 		<div>
-			<h2 class="font-bold pb-3">Individual Building</h2>
+			<h2 class="font-bold pb-3">{{ $t("plan.tools.repair_analysis_details.individual_building") }}</h2>
 			<PForm>
-				<PFormItem label="Select Building">
+				<PFormItem :label="$t('plan.tools.repair_analysis_details.select_building')">
 					<PSelect
 						v-model:value="selectedBuilding"
 						:options="selectionOptions"
@@ -328,7 +330,7 @@
 			<template v-if="selectionOptions.length > 0">
 				<div class="flex flex-col">
 					<div>
-						<h2 class="font-bold py-3">Profit Curve</h2>
+						<h2 class="font-bold py-3">{{ $t("plan.tools.repair_analysis_details.profit_curve") }}</h2>
 						<chart
 							v-if="repairAnalysisElements.length > 0"
 							ref="chart"
@@ -336,7 +338,7 @@
 							:options="chartOptions" />
 					</div>
 					<div>
-						<h2 class="font-bold pb-3">Repair Cost Breakdown</h2>
+						<h2 class="font-bold pb-3">{{ $t("plan.tools.repair_analysis_details.cost_breakdown") }}</h2>
 						<chart
 							v-if="repairAnalysisElements.length > 0"
 							ref="chart"

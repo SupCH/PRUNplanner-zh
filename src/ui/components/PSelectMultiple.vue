@@ -27,12 +27,14 @@
 		disabled = false,
 		clearable = true,
 		maxItems = Infinity,
+		placeholder = undefined,
 	} = defineProps<{
 		options: PSelectOption[];
 		searchable?: boolean;
 		disabled?: boolean;
 		clearable?: boolean;
 		maxItems?: number;
+		placeholder?: string;
 	}>();
 
 	const open = ref(false);
@@ -238,7 +240,9 @@
 							</PTag>
 						</div>
 					</template>
-					<template v-else> Select Options </template>
+					<template v-else>
+						{{ placeholder ? placeholder : $t("plan.status_bar.none") }}
+					</template>
 				</div>
 
 				<div
@@ -266,27 +270,26 @@
 				ref="dropdownRef"
 				class="z-5000 p-1 bg-gray-900 text-white rounded-sm shadow-lg max-h-[300px] overflow-auto"
 				:style="dropdownPosition">
-				<div
-					class="w-full flex flex-col bg-gray-900 child:py-1 child:px-2 child:hover:bg-gray-800 rounded-b-sm">
-					<PInput
-						v-if="searchable"
-						ref="searchInputRef"
-						v-model:value="searchString"
-						placeholder="Search"
-						@keydown="onKeyDown" />
-					<PSelectElement
-						v-for="(option, idx) in filteredOptions"
-						:key="option.value"
-						:option="option"
-						:selected-value="value"
-						:highlighted="idx === highlightedIndex"
-						@click="(v) => change(v)" />
-
-					<template v-if="filteredOptions.length === 0">
-						<div class="text-center text-xs">No Results</div>
-					</template>
-				</div>
-			</div>
+				                <div
+									class="w-full flex flex-col bg-gray-900 child:py-1 child:px-2 child:hover:bg-gray-800 rounded-b-sm">
+									<PInput
+										v-if="searchable"
+										ref="searchInputRef"
+										v-model:value="searchString"
+										:placeholder="$t('search.basic.search_button')"
+										@keydown="onKeyDown" />
+									<PSelectElement
+										v-for="(option, idx) in filteredOptions"
+										:key="option.value"
+										:option="option"
+										:selected-value="value"
+										:highlighted="idx === highlightedIndex"
+										@click="(v) => change(v)" />
+				
+									<template v-if="filteredOptions.length === 0">
+										<div class="text-center text-xs">{{ $t("search.results.no_results") }}</div>
+									</template>
+								</div>			</div>
 		</Teleport>
 	</div>
 </template>

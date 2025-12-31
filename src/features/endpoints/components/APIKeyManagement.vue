@@ -53,17 +53,17 @@
 
 <template>
 	<div class="flex flex-row flex-wrap justify-between child:my-auto pb-3">
-		<h2 class="text-white/80 font-bold text-lg">API Keys</h2>
+		<h2 class="text-white/80 font-bold text-lg">{{ $t("api.management.title") }}</h2>
 		<div class="flex flex-row flex-wrap gap-1">
 			<div v-if="apiKeys.length >= 5" class="my-auto">
-				You're allowed up to 5 API Keys.
+				{{ $t("api.management.limit_reached") }}
 			</div>
 			<template v-else>
 				<PInput
 					v-model:value="newAPIKeyName"
-					placeholder="Max. 100 characters" />
+					:placeholder="$t('api.management.name_placeholder')" />
 				<PButton :disabled="!canCreate" @click="triggerKeyCreation">
-					Create API Key
+					{{ $t("api.management.create_button") }}
 				</PButton>
 			</template>
 		</div>
@@ -72,10 +72,10 @@
 	<PTable striped>
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Key</th>
-				<th>Created</th>
-				<th>Last Activity</th>
+				<th>{{ $t("api.management.table.name") }}</th>
+				<th>{{ $t("api.management.table.key") }}</th>
+				<th>{{ $t("api.management.table.created") }}</th>
+				<th>{{ $t("api.management.table.last_activity") }}</th>
 				<th></th>
 			</tr>
 		</thead>

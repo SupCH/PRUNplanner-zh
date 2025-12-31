@@ -33,14 +33,13 @@
 </script>
 
 <template>
-	<h2 class="text-white/80 font-bold text-lg pb-3">Endpoints</h2>
+	<h2 class="text-white/80 font-bold text-lg pb-3">{{ $t("api.endpoints.title") }}</h2>
 
 	<div class="flex flex-col gap-3">
 		<div class="border-2 border-white/10 px-2 py-1">
-			<h2 class="text-white/80 font-bold pb-1">Exchange Data</h2>
+			<h2 class="text-white/80 font-bold pb-1">{{ $t("api.endpoints.exchange.title") }}</h2>
 			<div class="text-white/60">
-				Provides exchange information including PRUNplanner calculated
-				averages (PP7D, PP30D) as well as ingame data.
+				{{ $t("api.endpoints.exchange.description") }}
 			</div>
 			<div
 				class="px-2 py-1 bg-black border border-white/10 rounded-sm font-mono my-1 flex flex-row justify-between child:my-auto">
@@ -62,10 +61,9 @@ DCS.PP30D_AI1,DCS,PP30D_AI1,,,1611.05,,,0</pre
 		</div>
 
 		<div class="border-2 border-white/10 px-2 py-1">
-			<h2 class="text-white/80 font-bold pb-1">Material Data</h2>
+			<h2 class="text-white/80 font-bold pb-1">{{ $t("api.endpoints.material.title") }}</h2>
 			<div class="text-white/60">
-				Provides data on all Prosperous Universe materials including
-				their ticker, weight and volume.
+				{{ $t("api.endpoints.material.description") }}
 			</div>
 			<div
 				class="px-2 py-1 bg-black border border-white/10 rounded-sm font-mono my-1 flex flex-row justify-between child:my-auto">
@@ -87,10 +85,9 @@ RAT,rations,83dd61885cf6879ff49fe1419f068f10,3f047ec3043bdd795fd7272d6be98799,co
 		</div>
 
 		<div class="border-2 border-white/10 px-2 py-1">
-			<h2 class="text-white/80 font-bold pb-1">Material I/O</h2>
+			<h2 class="text-white/80 font-bold pb-1">{{ $t("api.endpoints.material_io.title") }}</h2>
 			<div class="text-white/60">
-				Provides your plans Material I/O information, data is refreshed
-				every plan calculation save.
+				{{ $t("api.endpoints.material_io.description") }}
 			</div>
 			<div
 				class="px-2 py-1 bg-black border border-white/10 rounded-sm font-mono my-1 flex flex-row justify-between child:my-auto">

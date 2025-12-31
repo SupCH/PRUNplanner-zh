@@ -41,7 +41,7 @@
 				<XNDataTable :data="rowData.burnMaterials" striped>
 					<XNDataTableColumn
 						key="ticker"
-						title="Ticker"
+						:title="$t('plan.tools.supply_cart_details.table.ticker')"
 						sorter="default">
 						<template #render-cell="data">
 							<MaterialTile
@@ -51,7 +51,7 @@
 					</XNDataTableColumn>
 					<XNDataTableColumn
 						key="input"
-						title="Consumption"
+						:title="$t('plan.tools.supply_cart_details.table.production').replace($t('plan.sections.production'), $t('plan.sections.input'))"
 						sorter="default">
 						<template #render-cell="data">
 							<span
@@ -66,7 +66,7 @@
 					</XNDataTableColumn>
 					<XNDataTableColumn
 						key="output"
-						title="Production"
+						:title="$t('plan.sections.output')"
 						sorter="default">
 						<template #render-cell="data">
 							<span
@@ -81,7 +81,7 @@
 					</XNDataTableColumn>
 					<XNDataTableColumn
 						key="delta"
-						title="Delta"
+						:title="$t('empire.material_io_table.delta')"
 						sorter="default">
 						<template #render-cell="data">
 							<span
@@ -96,7 +96,7 @@
 					</XNDataTableColumn>
 					<XNDataTableColumn
 						key="stock"
-						title="Stock"
+						:title="$t('plan.tools.supply_cart_details.table.stock')"
 						sorter="default">
 						<template #render-cell="data">
 							{{ formatAmount(data.rowData.stock) }}
@@ -104,7 +104,7 @@
 					</XNDataTableColumn>
 					<XNDataTableColumn
 						key="exhaustion"
-						title="Burn"
+						:title="$t('nav.items.fio_burn')"
 						sorter="default">
 						<template #render-cell="data">
 							<span
@@ -120,11 +120,11 @@
 				</XNDataTable>
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="planName" title="Plan">
+		<XNDataTableColumn key="planName" :title="$t('empire.plan_list.plan')">
 			<template #title>
 				<div class="flex flex-row justify-between">
-					<div>Plan</div>
-					<div>Exhaustion</div>
+					<div>{{ $t("empire.plan_list.plan") }}</div>
+					<div>{{ $t("nav.items.fio_burn") }}</div>
 				</div>
 			</template>
 			<template #render-cell="{ rowData }">
@@ -138,7 +138,7 @@
 							{{
 								planetNames[rowData.planetId] ||
 								loadPlanetName(rowData.planetId) ||
-								"Loading..."
+								$t("empire.plan_list.loading")
 							}}
 						</span>
 					</div>
@@ -154,7 +154,7 @@
 						</div>
 						<div>
 							<XITBurnActionButton
-								:drawer-title="`XIT Resupply: ${rowData.planName}`"
+								:drawer-title="`XIT 补给: ${rowData.planName}`"
 								:elements="
 									rowData.burnMaterials.map(
 										(e: IFIOBurnTableElementMaterial) => {

@@ -22,13 +22,13 @@
 </script>
 
 <template>
-	<h3 class="font-bold pb-3">Building Expertises</h3>
+	<h3 class="font-bold pb-3">{{ $t("tools.production_chain.analysis.expertise_heading") }}</h3>
 
 	<PTable striped>
 		<thead>
 			<tr>
-				<th>Expertise</th>
-				<th class="!text-end">Materials</th>
+				<th>{{ $t("tools.production_chain.analysis.expertise_label") }}</th>
+				<th class="!text-end">{{ $t("plan.production.material") }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,7 +41,7 @@
 						:style="`background-color:
 											${EXPERTISECOLORS[expertise as
 											BUILDING_EXPERTISE_TYPE]};`">
-						{{ capitalizeString(expertise) }}
+						{{ $t("plan.experts.mapping." + expertise.toUpperCase()) }}
 					</span>
 				</td>
 				<td class="text-end">

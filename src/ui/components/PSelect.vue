@@ -14,6 +14,9 @@
 	import { createPopper, Instance } from "@popperjs/core";
 	import { ClearSharp } from "@vicons/material";
 
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
+
 	const value = defineModel<null | string | number | undefined>("value", {
 		required: true,
 	});
@@ -23,7 +26,7 @@
 		searchable = false,
 		disabled = false,
 		clearable = false,
-		placeholder = "Please Select",
+		placeholder = undefined,
 	} = defineProps<{
 		options: PSelectOption[];
 		searchable?: boolean;
@@ -55,7 +58,7 @@
 
 		return (
 			allOptions.find((f) => f.value === value.value)?.label ??
-			placeholder
+			(placeholder ? placeholder : t("plan.status_bar.none"))
 		);
 	});
 
@@ -211,7 +214,7 @@
 				<div
 					v-else
 					class="flex-grow child:child:!bg-transparent py-0.5">
-					<PInput v-model:value="searchString" placeholder="Search" />
+					<PInput v-model:value="searchString" :placeholder="$t('search.basic.search_button')" />
 				</div>
 				<div
 					v-if="value && value !== null && clearable"
@@ -249,7 +252,7 @@
 						@click="(v) => change(v)" />
 
 					<template v-if="filteredOptions.length === 0">
-						<div class="text-center text-xs">No Results</div>
+						<div class="text-center text-xs">{{ $t("search.results.no_results") }}</div>
 					</template>
 				</div>
 			</div>

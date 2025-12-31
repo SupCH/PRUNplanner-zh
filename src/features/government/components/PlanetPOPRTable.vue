@@ -48,23 +48,23 @@
 
 <template>
 	<div v-if="!poprData" class="text-center">
-		Planet {{ planetNaturalId }} has no population data.
+		{{ $t("plan.tools.popr_details.no_data", { planet: planetNaturalId }) }}
 	</div>
 
 	<PTable striped>
 		<thead>
 			<tr>
 				<th></th>
-				<th>Pioneer</th>
-				<th>Settler</th>
-				<th>Technician</th>
-				<th>Engineer</th>
-				<th>Scientist</th>
+				<th>{{ $t("empire.plan_list.cogc_mapping.PIONEERS") }}</th>
+				<th>{{ $t("empire.plan_list.cogc_mapping.SETTLERS") }}</th>
+				<th>{{ $t("empire.plan_list.cogc_mapping.TECHNICIANS") }}</th>
+				<th>{{ $t("empire.plan_list.cogc_mapping.ENGINEERS") }}</th>
+				<th>{{ $t("empire.plan_list.cogc_mapping.SCIENTISTS") }}</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td class="font-bold">Total Population</td>
+				<td class="font-bold">{{ $t("plan.tools.popr_details.table.total_population") }}</td>
 				<td>{{ formatAmount(poprData.NextPopulationPioneer) }}</td>
 				<td>{{ formatAmount(poprData.NextPopulationSettler) }}</td>
 				<td>{{ formatAmount(poprData.NextPopulationTechnician) }}</td>
@@ -72,7 +72,7 @@
 				<td>{{ formatAmount(poprData.NextPopulationScientist) }}</td>
 			</tr>
 			<tr>
-				<td class="font-bold">Free Population</td>
+				<td class="font-bold">{{ $t("plan.tools.popr_details.table.free_population") }}</td>
 				<td>{{ formatAmount(poprData.FreePioneer) }}</td>
 				<td>{{ formatAmount(poprData.FreeSettler) }}</td>
 				<td>{{ formatAmount(poprData.FreeTechnician) }}</td>
@@ -80,7 +80,7 @@
 				<td>{{ formatAmount(poprData.FreeScientist) }}</td>
 			</tr>
 			<tr>
-				<td class="font-bold">Free Population %</td>
+				<td class="font-bold">{{ $t("plan.tools.popr_details.table.free_population_percent") }}</td>
 				<td>
 					{{ formatNumber(poprData.UnemploymentRatePioneer * 100) }}
 				</td>
@@ -100,7 +100,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="font-bold">Unfilled Jobs</td>
+				<td class="font-bold">{{ $t("plan.tools.popr_details.table.unfilled_jobs") }}</td>
 				<td>{{ formatAmount(poprData.OpenJobsPioneer) }}</td>
 				<td>{{ formatAmount(poprData.OpenJobsSettler) }}</td>
 				<td>{{ formatAmount(poprData.OpenJobsTechnician) }}</td>
@@ -109,7 +109,7 @@
 			</tr>
 			<template v-if="workforceData">
 				<tr class="child:!border-t-2 child:!border-t-white/20">
-					<td class="font-bold">Plan Need</td>
+					<td class="font-bold">{{ $t("plan.tools.popr_details.table.plan_need") }}</td>
 					<td>{{ formatAmount(workforceData.pioneer.required) }}</td>
 					<td>{{ formatAmount(workforceData.settler.required) }}</td>
 					<td>
@@ -121,7 +121,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="font-bold">Plan Check</td>
+					<td class="font-bold">{{ $t("plan.tools.popr_details.table.plan_check") }}</td>
 					<td>
 						<PIcon>
 							<component

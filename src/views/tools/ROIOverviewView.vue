@@ -1,6 +1,8 @@
 <script setup lang="ts">
 	import { ref, Ref } from "vue";
 	import { useHead } from "@unhead/vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Components
 	import WrapperGameDataLoader from "@/features/wrapper/components/WrapperGameDataLoader.vue";
@@ -10,7 +12,7 @@
 	import ROIOverviewTable from "@/features/roi_overview/components/ROIOverviewTable.vue";
 
 	useHead({
-		title: "ROI Overview | PRUNplanner",
+		title: `${t("tools.recipe_roi.title")} | PRUNplanner`,
 	});
 
 	// UI
@@ -37,10 +39,10 @@
 				<div class="min-h-screen flex flex-col">
 					<div
 						class="px-6 py-3 border-b border-white/10 flex flex-row justify-between">
-						<h1 class="text-2xl font-bold my-auto">ROI Overview</h1>
+						<h1 class="text-2xl font-bold my-auto">{{ $t("tools.recipe_roi.title") }}</h1>
 						<div class="flex flex-row gap-x-3">
 							<PForm>
-								<PFormItem label="CX Preference">
+								<PFormItem :label="$t('tools.recipe_roi.cx_preference')">
 									<CXPreferenceSelector
 										:cx-uuid="refSelectedCXUuid"
 										@update:cxuuid="

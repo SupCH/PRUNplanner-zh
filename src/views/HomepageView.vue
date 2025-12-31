@@ -183,11 +183,12 @@
 			</a>
 		</div>
 	</div>
-	<h1 class="pb-4 text-4xl tracking-tight text-white text-center mt-30">
-		{{ $t("home.open_source_title") }}
+	<h1 class="pb-4 text-4xl tracking-tight text-white text-center mt-30 hover:underline cursor-pointer">
+		<a href="https://github.com/SupCH/PRUNplanner-zh" target="_blank">{{ $t("home.open_source_title") }}</a>
 	</h1>
 	<p class="text-white/60 text-center text-xl mb-5">
-		{{ $t("home.open_source_desc") }}
+		{{ $t("home.open_source_desc") }} 
+		<a href="https://github.com/SupCH/PRUNplanner-zh" target="_blank" class="text-link-primary font-bold hover:underline">PRUNplanner-zh</a>
 	</p>
 	<p class="text-white/60 text-center font-mono">
 		{{ $t("home.made_with") }}

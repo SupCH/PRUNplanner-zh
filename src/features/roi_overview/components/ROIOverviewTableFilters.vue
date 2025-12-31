@@ -83,45 +83,49 @@
 <template>
 	<div
 		class="border border-b-0 rounded-[3px] border-white/15 p-3 flex flex-row gap-3 flex-wrap">
-		<div class="my-auto font-bold pr-3">Filter</div>
+		<div class="my-auto font-bold pr-3">{{ $t("manage.assignments.filters.heading") }}</div>
 		<div class="flex flex-row gap-3 child:my-auto">
-			<div>Building</div>
+			<div>{{ $t("tools.recipe_roi.filters.building") }}</div>
 			<PSelect
 				v-model:value="localFilterBuilding"
 				:options="buildingOptions"
 				searchable
 				clearable
+				:placeholder="$t('plan.production.heading')"
 				class="w-[200px]" />
 		</div>
 		<div class="flex flex-row gap-3 child:my-auto">
-			<div>COGC</div>
+			<div>{{ $t("tools.recipe_roi.filters.cogc") }}</div>
 			<PSelect
 				v-model:value="localFilterCogc"
 				:options="cogcOptions"
 				searchable
 				clearable
+				:placeholder="$t('plan.status_bar.none')"
 				class="w-[200px]" />
 		</div>
 		<div class="flex flex-row gap-3 child:my-auto">
-			<div>Output</div>
+			<div>{{ $t("plan.sections.output") }}</div>
 			<PSelect
 				v-model:value="localFilterOutputMaterial"
 				:options="outputMaterialOptions"
 				searchable
 				clearable
+				:placeholder="$t('plan.sections.output')"
 				class="w-[200px]" />
 		</div>
 		<div class="flex flex-row gap-3 child:my-auto">
-			<div>Input</div>
+			<div>{{ $t("plan.sections.input") }}</div>
 			<PSelect
 				v-model:value="localFilterInputMaterial"
 				:options="inputMaterialOptions"
 				searchable
 				clearable
+				:placeholder="$t('plan.sections.input')"
 				class="w-[200px]" />
 		</div>
 		<div class="flex flex-row gap-3 child:my-auto">
-			<div>Positive ROI</div>
+			<div>{{ $t("tools.recipe_roi.filters.positive_roi") }}</div>
 			<PCheckbox v-model:checked="localFilterPositiveROI" />
 		</div>
 	</div>

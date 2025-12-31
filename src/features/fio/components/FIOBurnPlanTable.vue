@@ -27,7 +27,7 @@
 
 <template>
 	<XNDataTable :data="planTable" striped>
-		<XNDataTableColumn key="planUuid" title="Plan" sorter="default">
+		<XNDataTableColumn key="planUuid" :title="$t('empire.plan_list.plan')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<router-link
 					:to="`/plan/${rowData.planetId}/${rowData.planUuid}`"
@@ -36,16 +36,16 @@
 				</router-link>
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="planetId" title="Planet">
+		<XNDataTableColumn key="planetId" :title="$t('empire.plan_list.planet')">
 			<template #render-cell="{ rowData }">
 				{{
 					planetNames[rowData.planetId] ||
 					loadPlanetName(rowData.planetId) ||
-					"Loading..."
+					$t("empire.plan_list.loading")
 				}}
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="minDays" title="Burn" sorter="default">
+		<XNDataTableColumn key="minDays" :title="$t('nav.items.fio_burn')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<div class="text-center">
 					<span

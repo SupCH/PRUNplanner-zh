@@ -30,49 +30,49 @@
     }
   },
   "home": {
-    "title": "Plan your empire.",
-    "subtitle": "Rule Prosperous Universe.",
-    "description": "Say goodbye to cumbersome spreadsheets and hello to seamless management of your in-game assets.",
-    "features_title": "Powerful Features, Free For Everyone",
-    "features_subtitle": "Streamline your planning and resource management, ensure you stay ahead in the galaxy.",
+    "title": "Plan your Empire.",
+    "subtitle": "Rule the Prosperous Universe.",
+    "description": "Say goodbye to complex spreadsheets and easily manage your game assets.",
+    "features_title": "Powerful Features, Free for Everyone",
+    "features_subtitle": "Optimize your planning and resource management to ensure you stay ahead in the galaxy.",
     "features": {
       "base_simulation_title": "Base Simulation",
-      "base_simulation_desc": "PRUNplanner lets you design and try new bases without spending in-game resources. It mirrors all aspects of a base, from habitation and production buildings to COGC programs and planet resources.",
+      "base_simulation_desc": "PRUNplanner lets you design and experiment with new bases without spending in-game resources. It simulates every aspect of a base, from habitation and production buildings to COGC projects and planetary resources.",
       "empire_planning_title": "Empire Planning",
-      "empire_planning_desc": "Effortlessly organize and manage your entire empire. With PRUNplanner, you can plan across multiple bases and complex supply chains, ensuring your material flows remain on schedule and your empire runs smoothly.",
+      "empire_planning_desc": "Easily organize and manage your entire empire. With PRUNplanner, you can plan across multiple bases and complex supply chains, ensuring your material flow is on schedule and your empire runs smoothly.",
       "game_data_title": "Game Data",
-      "game_data_desc": "Stay ahead with up-to-date market information integrated directly from the game's community API (FIO). Make informed planning and expansion decisions based on actual markets and the best ROI.",
+      "game_data_desc": "Stay ahead with up-to-date market information integrated directly from the community API (FIO). Make informed decisions on planning and expansion based on real markets and optimal ROI.",
       "burn_repair_title": "Burn & Repair",
-      "burn_repair_desc": "Prevent shortages and bottlenecks with detailed management tools. PRUNplanner tracks your resources and consumables, ensuring you have everything you need right when you need it, keeping your operations seamless.",
+      "burn_repair_desc": "Prevent shortages and bottlenecks with detailed management tools. PRUNplanner tracks your resources and consumables, ensuring you have everything you need when you need it to keep operations seamless.",
       "market_exploration_title": "Market Exploration",
-      "market_exploration_desc": "Explore historic market trends from past years and uncover how markets truly behave. Spot exciting opportunities, and effortlessly calculate Return on Investment for every recipe and resource — giving you the strategic edge you need for smarter planning.",
+      "market_exploration_desc": "Explore historical market trends over the past few years to reveal the true behavior of the market. Discover exciting opportunities and calculate ROI for every recipe and resource effortlessly—providing you with the strategic edge needed for smarter planning.",
       "additional_tools_title": "A Wealth of Additional Tools",
-      "additional_tools_desc": "Explore material prices from now to years past, know the optimal times for repairing production buildings, monitor expert spawn times, and optimize habitation buildings for minimal area or cost. PRUNplanner offers these features and many more."
+      "additional_tools_desc": "Explore material prices from now back several years, understand the optimal time to repair production buildings, monitor expert refreshes, and optimize habitation buildings for minimum area or cost. PRUNplanner provides all these features and more."
     },
-    "command_anywhere_title": "Command Your Empire from Anywhere",
-    "command_anywhere_subtitle": "Monitor bases, manage production, and control your plans effortlessly. With intuitive, powerful tools, you can strategize, expand, and outsmart your rivals wherever you are.",
+    "command_anywhere_title": "Take Command of Your Empire from Anywhere",
+    "command_anywhere_subtitle": "Monitor bases, manage production, and keep control of your plans with ease. With intuitive and powerful tools, you can strategize, expand, and outmaneuver your rivals, no matter where you are.",
     "screenshots": {
       "empire": "Empire: Track production, supply chains, and growth across all your planets.",
       "plan": "Plan: Strategize and analyze without spending in-game resources.",
-      "management": "Management: Coordinate plans, expansions, and your next moves effortlessly.",
+      "management": "Management: Effortlessly coordinate plans, expansions, and your next moves.",
       "exchanges": "Exchanges: Optimize in-game pricing and trading strategies.",
       "exploration": "Exploration: Analyze years of market data for smarter insights.",
-      "search": "Search: Find the exact planets and resources you need instantly."
+      "search": "Search: Instantly find the precise planets and resources you need."
     },
     "core_concepts_title": "Core Concepts",
-    "core_concepts_subtitle": "PRUNplanner consists of three main components that allow you to plan and manage your Prosperous Universe empire.",
+    "core_concepts_subtitle": "PRUNplanner is comprised of three main components, allowing you to plan and manage your Prosperous Universe empire.",
     "concepts": {
       "plans_title": "Plans",
-      "plans_desc": "Plans are the backbone of what you do in PRUNplanner. They consist of all buildings, productions and bonuses of a base you can put down in Prosperous Universe. You can create new plans by searching for the planet you would like to create a base for. Also, a plan should be assigned a CX Exchange preference, as well as be assigned to an Empire.",
+      "plans_desc": "Plans are at the heart of your operations in PRUNplanner. They contain all the buildings, production, and bonuses you can place in Prosperous Universe. You create new plans by searching for planets where you want to create a base. Furthermore, a plan should be assigned an exchange preference and assigned to an empire.",
       "empires_title": "Empires",
-      "empires_desc": "An Empire is a collection of plans (e.g. all the bases you currently have settled in Prosperous Universe, or that you would like to settle, all interconnected together). Each empire is like a container that consists of multiple plans. Additionally, an exchange preference can be assigned to each Empire.",
+      "empires_desc": "Empires are a collection of plans (e.g. all the bases you currently have settled in Prosperous Universe, or those you want to settle, all interrelated). Each empire acts like a container for multiple plans. Furthermore, each empire can be assigned an exchange preference.",
       "exchanges_title": "Exchanges",
-      "exchanges_desc": "The Exchange Settings allow you to define market preferences for the pricing of materials. Each preference can be used in multiple Empires. However, each Empire can only have a single Exchange preference assigned to it. This ensures that prices are properly calculated for all individual plans that are part of the Empire."
+      "exchanges_desc": "The exchange settings allow you to define market preferences for material pricing. Each preference can be used for multiple empires. However, each empire can only be assigned one exchange preference. This ensures all individual plans being part of an empire have their prices calculated correctly."
     },
-    "powered_by": "Powered by tools we love to use",
-    "open_source_title": "Free & Open Source",
-    "open_source_desc": "PRUNplanner is completely free to use, and its frontend is fully Open Source. Love it? We'd be thrilled if you contributed!",
-    "made_with": "Made with &hearts; in Munich, with contributions from around the world."
+    "powered_by": "Powered by tools we love",
+    "open_source_title": "Free and Open Source",
+    "open_source_desc": "PRUNplanner is completely free to use and its frontend is entirely open source. Love it? We'd appreciate it if you could contribute!",
+    "made_with": "Made with heart in Munich and contributions from around the globe."
   },
   "plan": {
     "actions": {
@@ -81,7 +81,7 @@
       "save": "Save",
       "create": "Create",
       "reload": "Reload",
-      "must_set_name": "Must set a plan name in Configuration to save"
+      "must_set_name": "Must set plan name in configuration to save"
     },
     "overview": {
       "heading": "Overview",
@@ -98,21 +98,118 @@
       "export": "Export",
       "filled": "Filled"
     },
-    "leave_confirmation": "Do you really want to leave? Unsaved changes will be lost.",
+    "leave_confirmation": "Are you sure you want to leave? Unsaved changes will be lost.",
     "tools": {
       "configuration": "Configuration",
       "popr": "POPR",
       "visitation_frequency": "Visitation Frequency",
       "construction_cart": "Construction Cart",
       "supply_cart": "Supply Cart",
-      "repair_analysis": "Repair Analysis"
+      "repair_analysis": "Repair Analysis",
+      "construction_cart_details": {
+        "title": "Construction Cart",
+        "building_label": "Building",
+        "amount_label": "Amount",
+        "materials_sum": "Materials Sum",
+        "total_cost": "Total Cost",
+        "total_volume": "Total Volume",
+        "total_weight": "Total Weight",
+        "material_heading": "Material",
+        "storage_label": "Storage",
+        "table": {
+          "material": "Material",
+          "amount": "Amount",
+          "stock": "Stock",
+          "stock_override": "Stock Override",
+          "need": "Need"
+        }
+      },
+      "supply_cart_details": {
+        "title": "Supply Cart",
+        "info_text": "The Supply Cart provides updates on your plans needs combined with existing inventory sourced from FIO. You have the flexibility to opt for alternative storage locations to replenish your base. Tailor your selection based on whether you wish to restock workforce and production supplies or focus on a specific category, and specify the duration for which the supplied stock should sustain.",
+        "fio_burn_link": "Use the FIO Burn tool for more advanced supply cart options.",
+        "filters": {
+          "all": "All",
+          "workforce": "Workforce",
+          "production": "Production"
+        },
+        "duration_label": "Stock Duration (days)",
+        "storage_label": "Storage",
+        "table": {
+          "ticker": "Ticker",
+          "daily_need": "Daily Need",
+          "daily_cost": "Daily Cost",
+          "stock": "Stock",
+          "full_need": "Full Need",
+          "final_need": "Final Need",
+          "workforce": "Workforce",
+          "production": "Production"
+        },
+        "summary": {
+          "daily_cost": "Daily Cost",
+          "total_cost": "Total Cost",
+          "total_volume": "Total Volume",
+          "total_weight": "Total Weight"
+        }
+      },
+      "repair_analysis_details": {
+        "title": "Repair Analysis",
+        "plan_heading": "Plan",
+        "select_day": "Select Day",
+        "individual_building": "Individual Building",
+        "select_building": "Select Building",
+        "profit_curve": "Profit Curve",
+        "cost_breakdown": "Repair Cost Breakdown",
+        "chart": {
+          "profit_day": "Profit / Day",
+          "days_since_repair": "Days since Repair",
+          "repair_analysis": "Repair Analysis",
+          "last_optimal": "Last Optimal Profit",
+          "day_prefix": "Day: ",
+          "day_suffix": "",
+          "cost": "Cost",
+          "total_cost": "Total Cost"
+        }
+      },
+      "visitation_frequency_details": {
+        "title": "Visitation Frequency",
+        "storage_heading": "Storage",
+        "storage_info": "Your plan involves adding <strong>{sto}</strong> STO, giving you a total storage capacity of <strong>{total}</strong>.",
+        "storage_filled": "Storage Filled",
+        "exclusion_info": "Exclude local materials from visitation frequency calculation for items handled exclusively planet-side, like local market sales, purchases or contracts.",
+        "shipping_heading": "Shipping",
+        "table": {
+          "ship_volume": "Ship m³",
+          "ship_weight": "Ship t",
+          "visitation_days": "Visitation (days)",
+          "limit": "Limit",
+          "export_frequency": "Export Frequency",
+          "import_frequency": "Import Frequency"
+        }
+      },
+      "popr_details": {
+        "title": "Latest Population Report",
+        "error_loading": "Error loading latest population report. The planet might not have population.",
+        "loading": "Loading Population Report",
+        "no_data": "Planet {planet} has no population data.",
+        "table": {
+          "total_population": "Total Population",
+          "free_population": "Free Population",
+          "free_population_percent": "Free Population %",
+          "unfilled_jobs": "Unfilled Jobs",
+          "plan_need": "Plan Need",
+          "plan_check": "Plan Check"
+        }
+      }
     },
     "sections": {
       "infrastructure": "Infrastructure",
       "experts": "Experts",
       "workforce": "Workforce",
-      "material_io": "Material I/O",
-      "production": "Production"
+      "material_io": "Material IO",
+      "production": "Production",
+      "input": "Input",
+      "output": "Output"
     },
     "status_bar": {
       "area": "Area",
@@ -122,19 +219,19 @@
     },
     "workforce": {
       "type": "Type",
-      "required": "Req.",
-      "capacity": "Capa.",
+      "required": "Required",
+      "capacity": "Capacity",
       "open": "Open",
-      "efficiency": "%Eff"
+      "efficiency": "Efficiency"
     },
     "infrastructure": {
-      "auto_optimize": "Auto-Optimize Habs",
-      "auto_optimize_tip": "Automatically optimize habitations to meet workforce needs as buildings are added.",
+      "auto_optimize": "Auto-Optimize Habitation",
+      "auto_optimize_tip": "Automatically optimize habitation to match workforce needs when adding buildings.",
       "optimize_cost": "Optimize Cost",
       "optimize_area": "Optimize Area"
     },
     "experts": {
-      "max_warning": "Maximum number of experts on a base is 6. You currently have {amount} experts assigned.",
+      "max_warning": "The maximum amount of base experts is 6. You currently have {amount} experts assigned.",
       "mapping": {
         "AGRICULTURE": "Agriculture",
         "CHEMISTRY": "Chemistry",
@@ -164,6 +261,7 @@
     },
     "production": {
       "heading": "Production",
+      "material": "Material",
       "planet_resources": "Planet Resources",
       "resource_types": {
         "MINERAL": "Mineral",
@@ -200,6 +298,37 @@
     "tips": {
       "toggle_weight_volume": "Toggle Weight & Volume",
       "toggle_split": "Toggle Production & Workforce Split"
+    }
+  },
+  "fio": {
+    "burn": {
+      "title": "FIO Burn",
+      "description": "The FIO Burn tool provides comprehensive data on the current net consumption of materials in your storage caused by workforce consumption and production. This information is sourced from the FIO system.",
+      "storage_label": "Storage",
+      "stock_duration_label": "Stock Duration (days)",
+      "data_update": "FIO Data Update",
+      "thresholds": "Burn Thresholds",
+      "red": "Red",
+      "yellow": "Yellow",
+      "plan_overview": "Plan Burn Overview",
+      "calculating": "One does not simply calculate automate burn supply.",
+      "table": {
+        "ticker": "Ticker",
+        "daily_burn": "Daily Burn",
+        "inventory": "Inventory",
+        "duration": "Duration"
+      }
+    },
+    "repair": {
+      "title": "FIO Repair",
+      "description": "The FIO Repair tool integrates building condition data from FIO to forecast repair needs across all your bases. With this tool, you can effectively plan and manage repairs resulting from building degradation.",
+      "table": {
+        "planet": "Planet",
+        "building": "Building",
+        "condition": "Condition",
+        "repair_cost": "Repair Cost",
+        "last_repair": "Last Repair"
+      }
     }
   },
   "search": {
@@ -250,7 +379,7 @@
         "temperature": "Temperature",
         "pressure": "Pressure"
       },
-      "no_results": "No planets found",
+      "no_results": "No results found for your search",
       "loading": "Loading..."
     }
   },
@@ -264,13 +393,16 @@
       "total_cost": "Total Cost",
       "total_volume": "Total Volume",
       "total_weight": "Total Weight",
-      "material": "Material",
-      "amount": "Amount",
-      "storage": "Storage",
-      "override_stock": "Override Stock",
-      "required": "Required",
-      "unit_cost": "Cost / Unit",
-      "total_cost_material": "Total Cost"
+      "table": {
+        "material": "Material",
+        "amount": "Amount",
+        "storage": "Storage",
+        "override": "Override Stock",
+        "required": "Required",
+        "unit_cost": "Cost / Unit",
+        "total_cost_material": "Total Cost",
+        "storage_locations": "Storage Locations"
+      }
     },
     "production_chain": {
       "title": "Production Chains",
@@ -279,18 +411,103 @@
       "recipe_runs": "Recipe Runs",
       "node_color": "Node Color",
       "terminals": "Terminals",
+      "terminals_placeholder": "Comma-separated Material Tickers",
       "terminals_help": "Terminals are materials whose inputs are excluded from the graph, useful if you buy them on the CX or locally and don't need to produce them.",
-      "recipe_selection": "Recipe Selection"
+      "recipe_selection": "Recipe Selection",
+      "analysis": {
+        "materials": "Material Analysis",
+        "expertise": "Expertise Analysis",
+        "workforce": "Workforce Analysis",
+        "expertise_heading": "Building Expertises",
+        "expertise_label": "Expertise",
+        "workforce_heading": "Workforce",
+        "workforce_label": "Workforce",
+        "required_label": "Required"
+      }
+    },
+    "market_exploration": {
+      "title": "Market Exploration",
+      "exchange_label": "Exchange",
+      "material_label": "Material",
+      "explore_button": "Explore",
+      "loading_backend": "Loading Data from backend.",
+      "error_loading": "Error Loading Data.",
+      "data_heading": "Data",
+      "select_hint": "Please select an Exchange and Material. Press \"Explore\".",
+      "table": {
+        "date": "Date",
+        "avg_price": "Average Price",
+        "lowest_price": "Lowest Price",
+        "highest_price": "Highest Price",
+        "traded_volume": "Traded Volume",
+        "delta_supply_demand": "Delta Supply & Demand"
+      }
+    },
+    "recipe_roi": {
+      "title": "ROI Overview",
+      "cx_preference": "CX Preference",
+      "calculating": "Calculating Building Recipe ROI",
+      "table": {
+        "building": "Building",
+        "optimal_setup": "Optimal Setup",
+        "recipe_output": "Recipe Output",
+        "recipe_input": "Recipe Input",
+        "cogc": "COGC",
+        "cogm": "COGM",
+        "plan_cost": "Plan Cost",
+        "daily_profit": "Daily Profit",
+        "profit_area": "Profit/Area",
+        "plan_roi": "Plan ROI"
+      },
+      "filters": {
+        "building": "Building",
+        "cogc": "COGC",
+        "output": "Output",
+        "input": "Input",
+        "positive_roi": "Positive ROI"
+      }
+    },
+    "resource_roi": {
+      "title": "Resource ROI Overview",
+      "select_resource": "Select Resource",
+      "cx_preference": "CX Preference",
+      "search_calculate_button": "Search & Calculate",
+      "initial_hint": "Select a Resource and press \"Search & Calculate\"",
+      "searching_planets": "Searching for planets with {material}. Awaiting backend response.",
+      "calculating": "Calculating resource ROI for planets.",
+      "table": {
+        "planet": "Planet",
+        "production": "Production",
+        "building": "Building",
+        "daily_yield": "Daily",
+        "percent_max": "% Max.",
+        "cogc": "COGC",
+        "environment": "Environment",
+        "infrastructure": "Infrastructure",
+        "profit": "Profit",
+        "cogm": "COGM",
+        "plan_cost": "Plan Cost",
+        "output_profit": "Output Profit",
+        "daily_profit": "Daily Profit",
+        "profit_area": "Profit/Area",
+        "plan_roi": "Plan ROI"
+      },
+      "filters": {
+        "planet": "Planet",
+        "building": "Building",
+        "positive_roi": "Positive ROI",
+        "searched_material": "Searched Material"
+      }
     }
   },
   "empire": {
     "unknown": "Unknown",
     "unknown_plan_name": "Unknown Plan Name",
     "analysis": "Empire Analysis",
-    "material_io": "Empire Material I/O",
+    "material_io": "Empire Material IO",
     "no_empires_title": "No Empires",
-    "no_empires_text": "You don't have any empires. Head to Management to create your first.",
-    "calculating": "One does not simply calculate empire plans.",
+    "no_empires_text": "You do not have any empires yet. Head over to the management page to create your first empire.",
+    "calculating": "Empire plans are being calculated, please wait.",
     "switch_empire": "Switch Empire",
     "overview": {
       "profit": "Profit",
@@ -305,31 +522,31 @@
       "permits": "Permits",
       "profit": "Profit",
       "loading": "Loading...",
-      "no_plans": "No Plans in Empire.",
-      "assign_plans": "Assign existing plans in Management or use Planet Search to create one.",
-      "total_permits": "Total permits planned:",
+      "no_plans": "No plans in empire.",
+      "assign_plans": "Assign existing plans in the management page or create new plans via the planet search.",
+      "total_permits": "Total plan permits:",
       "cogc_mapping": {
         "---": "None",
-        "AGRICULTURE": "AGRI",
-        "CHEMISTRY": "CHEM",
-        "CONSTRUCTION": "CONST",
-        "ELECTRONICS": "ELEC",
-        "FOOD_INDUSTRIES": "FOOD",
-        "FUEL_REFINING": "FUEL",
-        "MANUFACTURING": "MFG",
-        "METALLURGY": "METAL",
-        "RESOURCE_EXTRACTION": "RES",
-        "PIONEERS": "PIO",
-        "SETTLERS": "SET",
-        "TECHNICIANS": "TECH",
-        "ENGINEERS": "ENG",
-        "SCIENTISTS": "SCI"
+        "AGRICULTURE": "Agriculture",
+        "CHEMISTRY": "Chemistry",
+        "CONSTRUCTION": "Construction",
+        "ELECTRONICS": "Electronics",
+        "FOOD_INDUSTRIES": "Food Industries",
+        "FUEL_REFINING": "Fuel Refining",
+        "MANUFACTURING": "Manufacturing",
+        "METALLURGY": "Metallurgy",
+        "RESOURCE_EXTRACTION": "Resource Extraction",
+        "PIONEERS": "Pioneers",
+        "SETTLERS": "Settlers",
+        "TECHNICIANS": "Technicians",
+        "ENGINEERS": "Engineers",
+        "SCIENTISTS": "Scientists"
       }
     },
     "filters": {
       "display": "Display",
       "all": "All",
-      "loadbalance": "Loadbalance",
+      "loadbalance": "Load Balance",
       "consumables": "Consumables",
       "show": "Show",
       "hide": "Hide",
@@ -341,7 +558,7 @@
       "delta": "Delta",
       "production": "Production",
       "consumption": "Consumption",
-      "delta_price": "$ Delta",
+      "delta_price": "Delta Value",
       "production_planets": "Production Planets",
       "consumption_planets": "Consumption Planets"
     },
@@ -371,28 +588,112 @@
       }
     }
   },
+  "profile": {
+    "title": "Profile",
+    "preferences": {
+      "title": "Preferences",
+      "description": "Your preferences are saved locally in your browser and aren't synced with the backend yet. Use this panel to review and customize your PRUNplanner settings.",
+      "tools_heading": "Tool Preferences",
+      "default_empire": "Default Empire",
+      "default_cx": "Default CX Preference",
+      "burn_red": "Red Threshold (days)",
+      "burn_yellow": "Yellow Threshold (days)",
+      "resupply_days": "Resupply Days",
+      "xit_origin": "XIT Origin",
+      "xit_buy_cx": "XIT Buy from CX",
+      "plan_settings_heading": "Plan-Specific Settings",
+      "plan_settings_description": "These settings are managed within individual plans. This section provides an overview of the preferences you've customized so far — to modify them, navigate to the corresponding plan.",
+      "table": {
+        "plan": "Plan",
+        "preferences": "Preferences"
+      }
+    },
+    "storage": {
+      "title": "Browser Storage",
+      "description": "PRUNplanner minimizes API calls by storing data locally in your browser. Data refreshes automatically at set intervals.",
+      "table": {
+        "storage": "Storage",
+        "records": "Records",
+        "size": "Approx. Size"
+      }
+    },
+    "change_profile": {
+      "title": "Profile",
+      "description": "FIO Data Updates are handled by PRUNplanners backend automatically. It is not required to provide an email but highly recommended for increased account safety and password recovery.",
+      "fio_key_label": "FIO API Key",
+      "username_label": "PrUn Username",
+      "email_label": "Email Address",
+      "email_verified_label": "Email Verified",
+      "update_button": "Update Profile",
+      "verify_email_button": "Verify Email",
+      "resend_code_button": "Resend Code",
+      "code_requested": "Code requested."
+    },
+    "change_password": {
+      "title": "Change Password",
+      "description": "Passwords must be at least 8 characters long.",
+      "current_password": "Current Password",
+      "new_password": "New Password",
+      "update_button": "Update Password",
+      "success": "Password changed.",
+      "error": "Password changed failed."
+    }
+  },
+  "api": {
+    "title": "API",
+    "description": "PRUNplanner utilizes its own backend API to securely store and interact with data, including both game data from FIO and data generated by users during base and empire planning. Through easy-to-use CSV endpoints, you can access and process this data in spreadsheets or other applications of your choice. Access to the API requires an API Key for secure authentication, distinct from your FIO API Key. Note that FIO remains the essential source of all Prosperous Universe in-game data, while PRUNplanner serves as a powerful supplement for your planning needs.",
+    "api_key_label": "API Key",
+    "empire_label": "Empire",
+    "management": {
+      "title": "API Keys",
+      "limit_reached": "You're allowed up to 5 API Keys.",
+      "name_placeholder": "Max. 100 characters",
+      "create_button": "Create API Key",
+      "table": {
+        "name": "Name",
+        "key": "Key",
+        "created": "Created",
+        "last_activity": "Last Activity"
+      }
+    },
+    "endpoints": {
+      "title": "Endpoints",
+      "exchange": {
+        "title": "Exchange Data",
+        "description": "Provides exchange information including PRUNplanner calculated averages (PP7D, PP30D) as well as ingame data."
+      },
+      "material": {
+        "title": "Material Data",
+        "description": "Provides data on all Prosperous Universe materials including their ticker, weight and volume."
+      },
+      "material_io": {
+        "title": "Material I/O",
+        "description": "Provides your plans Material I/O information, data is refreshed every plan calculation save."
+      }
+    }
+  },
   "auth": {
     "login_title": "Login",
     "username": "Username",
     "password": "Password",
-    "error_login": "Error logging in. Please check your username and password.",
+    "error_login": "Login failed. Please check your username and password.",
     "tos_prefix": "By using PRUNplanner you agree to the",
-    "tos_link": "Terms of Service.",
-    "forgot_password_prefix": "Forgot your password? Request a",
-    "forgot_password_link": "Password Reset.",
+    "tos_link": "Terms of Service",
+    "forgot_password_prefix": "Forgot password? Request",
+    "forgot_password_link": "password reset",
     "register_title": "Create Account",
     "register_success_welcome": "Welcome, {username}!",
-    "register_success_desc": "Registration successful. You can now login to PRUNplanner.",
-    "account_info": "Account Information",
-    "register_tos_desc": "PRUNplanner is free to use. By creating an account, you acknowledge and agree to the",
+    "register_success_desc": "Your account has been created successfully. You can now log into PRUNplanner.",
+    "account_info": "Account Info",
+    "register_tos_desc": "PRUNplanner is free to use. By creating an account you confirm and agree to the",
     "error_register": "Error during registration.",
-    "username_info": "Must be at least 3 characters long. Can't contain spaces.",
-    "password_info": "Must be at least 8 characters long.",
+    "username_info": "Must have at least 3 characters. Cannot contain spaces.",
+    "password_info": "Must have at least 8 characters.",
     "email": "Email",
-    "email_placeholder": "Not mandatory, but recommended.",
-    "email_info": "Not mandatory. Increases your account security.",
+    "email_placeholder": "Not required, but recommended.",
+    "email_info": "Not required. Adds security to your account.",
     "security_question": "Security Question",
-    "security_question_desc": "Enter the name of planet {planet}. To find it, open a new Prosperous Universe buffer with the command {command}. You'll see the planet's name listed under \"Name\" in the planet information.",
+    "security_question_desc": "Please enter the name of planet {planet}. To find it, open a new buffer in Prosperous Universe using the command {command}. You will find the planet's name under \"Name\" in the planet information.",
     "planet_name_label": "Name",
     "register_button": "Create Account"
   },
@@ -401,37 +702,112 @@
     "rendering": "Rendering View",
     "steps": {
       "Materials": "Materials",
+      "Material Data": "Material Data",
       "Exchanges": "Exchanges",
+      "Exchange Data": "Exchange Data",
       "Buildings": "Buildings",
+      "Building Data": "Building Data",
       "Recipes": "Recipes",
+      "Recipe Data": "Recipe Data",
       "Planets": "Planets",
+      "Planet": "Planet",
       "All Planets": "All Planets",
       "Plans": "Plans",
       "Empires": "Empires",
-      "Shared Data": "Shared Data"
+      "Shared Data": "Shared Data",
+      "Empires Configurations": "Empires Configurations",
+      "Plan Configuration": "Plan Configuration",
+      "All Plan Configurations": "All Plan Configurations",
+      "Shared Plan Configuration": "Shared Plan Configuration",
+      "CX Configurations": "CX Configurations",
+      "Empire Plans": "Empire Plans",
+      "Shared Plan Configurations": "Shared Plan Configurations"
+    },
+    "version_update": {
+      "updated": "<strong>PRUNplanner</strong> has been updated!",
+      "click_to_load": "Click to load the newest version."
     }
   },
   "help": {
     "title": "Help",
     "heading": "Help & Changelog",
     "changelog": "Changelog",
-    "unable_to_load": "Unable to load '{file}'",
-    "contribution_text": "PRUNplanners frontend is open source and welcomes contributions on Github!"
+    "unable_to_load": "Unable to load \"{file}\"",
+    "contribution_text": "PRUNplanner's frontend is open source and contributions are welcome on GitHub!",
+    "tutorial": {
+      "intro": "PRUNplanner helps you design bases, organize empires, and calculate profits — without wasting in-game resources. It mirrors nearly every aspect of <span class=\"italic\">Prosperous Universe</span> so you can plan smarter and play more confidently.",
+      "getting_started": {
+        "title": "Getting Started",
+        "step1": "Create an Empire in <strong>Management</strong>: By default, you'll already have one. But you can add more for different factions or regions. Assign a name and faction, and save.",
+        "step2": "Set up an <strong>Exchange</strong>: Go into Management and create your exchange. Switch to the Exchanges view to modify it. For most players, set it to <em>Both</em> (buying and selling) and choose the exchange your bases will use (e.g., CI1 for Benten). Save it.",
+        "step3": "Search for a <strong>Planet</strong>: Use the planet search to filter by resources, programs, or proximity to a CX. Select your target planet and view its modifiers, extraction rates, and infrastructure.",
+        "step4": "<strong>Create a Plan:</strong> Choose your Empire, give it a name, then add buildings. For example: add a Refinery, set a production order, and save the plan. You can modify all aspects like COGC, expert bonuses and dive into optimizations.",
+        "step5": "<strong>Check ROI:</strong> Once set up, you'll see daily profits, inputs and outputs, and return on investment for each production line. Adjust, experiment, and optimize."
+      },
+      "concepts": {
+        "title": "Core Concepts",
+        "plans": {
+          "title": "Plans",
+          "desc": "A plan represents a single base: its buildings, productions, and bonuses. Create a plan by choosing a planet, placing buildings, and assigning it to an Empire with a CX preference."
+        },
+        "empires": {
+          "title": "Empires",
+          "desc": "An Empire is a container of multiple plans — essentially your entire network of bases. Empires keep your supply chains organized and allow you to manage multiple bases together."
+        },
+        "exchanges": {
+          "title": "Exchanges",
+          "desc": "Exchange settings define how prices are calculated. Each Empire uses one Exchange for consistency. You can reuse the same Exchange setup across empires if needed."
+        }
+      },
+      "features": {
+        "title": "Key Features",
+        "base_simulation": {
+          "title": "Base Simulation",
+          "desc": "Design and test bases without spending resources. From habitation to production to planet-specific modifiers and bonuses — PRUNplanner simulates it all."
+        },
+        "empire_planning": {
+          "title": "Empire Planning",
+          "desc": "Manage your empire across multiple bases and supply chains. Keep your materials flowing, prevent bottlenecks, and run smoothly at scale. Always see what is going on and where the next best expansion starts."
+        },
+        "game_data": {
+          "title": "Game Data",
+          "desc": "Market information is integrated directly from FIO, the community API. Plan expansions, check ROI, and make informed trade decisions. Explore historic market data or let PRUNplanner calculate production or resource extraction ROIs."
+        },
+        "burn_repair": {
+          "title": "Burn & Repair",
+          "desc": "Track consumables and building wear. Avoid shortages and downtime by seeing exactly what your colony needs and when it needs it."
+        },
+        "additional_tools": {
+          "title": "A Wealth of Additional Tools",
+          "desc": "Dive into historical prices, optimize habitation layouts, estimate visitation frequencies, and fine-tune production efficiency. PRUNplanner is packed with utilities to give you the edge."
+        }
+      }
+    }
+  },
+  "sharing": {
+    "title": "Share Plan",
+    "create_info": "This will create an unique link that can be shared with others. They will be able to see your plan, but don't modify it. The link becomes unavailable once you choose to stop sharing or delete the plan.",
+    "active_info": "You're currently sharing this plan. It has been viewed {count} times.",
+    "create_link_button": "Create Sharing Link",
+    "copy_link_button": "Copy URL",
+    "stop_sharing_button": "Stop Sharing",
+    "share_label": "Share",
+    "views_label": "Views"
   },
   "manage": {
     "title": "Management",
     "empires": {
-      "heading": "Empire Configuration",
-      "update_cx_button": "Update CX Assignments",
+      "heading": "Empire Configurations",
+      "update_cx_button": "Update Exchange Assignments",
       "new_empire_button": "New Empire",
-      "info_text": "Removing empires will not delete any associated plans — they will simply become unassigned. You can create edit existing empires in the Empire View. To ensure correct plan efficiency calculations, make sure each empire has your Faction and the appropriate Permits.",
+      "info_text": "Deleting an empire will not delete any associated plans - they will become unassigned. You can edit existing empires in the empire view. To ensure accurate plan efficiency calculations, make sure each empire has the correct faction and permits set.",
       "create_section": {
         "name_label": "Empire Name",
-        "name_placeholder": "Empire Name (max. 100 characters)",
+        "name_placeholder": "Empire Name (max 100 characters)",
         "faction_label": "Faction",
         "permits_total_label": "Permits Total",
         "permits_used_label": "Permits Used",
-        "use_fio_label": "Use FIO Storage?",
+        "use_fio_label": "Use FIO storage?",
         "create_button": "Create"
       },
       "table": {
@@ -440,34 +816,34 @@
         "permits": "Permits",
         "plans": "Plans",
         "fio": "FIO",
-        "cx": "CX",
+        "cx": "Exchange",
         "yes": "Yes",
         "no": "No",
-        "no_empires": "No Empires available.",
-        "create_first": "Create your first Empire."
+        "no_empires": "No empires available.",
+        "create_first": "Create your first empire."
       },
       "delete_confirm": {
         "title": "Confirm Empire Deletion",
-        "content": "Are you sure? Deleting the Empire will not delete plans assigned to it.",
+        "content": "Are you sure? Deleting an empire will not delete assigned plans.",
         "positive": "Delete",
         "negative": "Cancel"
       }
     },
     "exchanges": {
-      "heading": "CX Configuration",
+      "heading": "Exchange Configurations",
       "title": "Exchanges",
-      "new_cx_button": "New CX",
-      "info_text": "Removing a CX preference will delete all its exchange and material settings. Assigned empires will remain unaffected, but they will no longer use the removed preferences. Make sure to assign a new CX preference.",
+      "new_cx_button": "New Exchange",
+      "info_text": "Deleting an exchange preference will delete all its exchange and material settings. Assigned empires will not be affected but they will no longer use the deleted preference. Make sure to assign a new exchange preference.",
       "no_preferences_title": "No Preferences",
-      "no_preferences_text": "You don't have exchange preferences. Head to Management and create your first.",
+      "no_preferences_text": "You do not have any exchange preferences yet. Head over to the management page to create your first preference.",
       "preference_name": "Preference Name",
       "empire_preferences": "Empire Preferences",
       "exchange_label": "Exchange",
       "ticker_label": "Ticker",
       "planet_preferences": "Planet Preferences",
       "create_section": {
-        "name_label": "CX Name",
-        "name_placeholder": "CX Name (max. 100 characters)",
+        "name_label": "Exchange Name",
+        "name_placeholder": "Exchange Name (max 100 characters)",
         "create_button": "Create"
       },
       "table": {
@@ -475,23 +851,23 @@
         "assigned": "Assigned to Empire?",
         "yes": "Yes",
         "no": "No",
-        "no_cx": "No CX available.",
-        "create_first": "Create your first Exchange Preference."
+        "no_cx": "No exchange preferences available.",
+        "create_first": "Create your first exchange preference."
       },
       "delete_confirm": {
-        "title": "Confirm CX Deletion",
-        "content": "Are you sure? Deleting the CX will delete all preferences.",
+        "title": "Confirm Exchange Preference Deletion",
+        "content": "Are you sure? Deleting an exchange will delete all preferences.",
         "positive": "Delete",
         "negative": "Cancel"
       },
       "preference_component": {
-        "no_config": "No Exchange Preference Configured",
-        "no_ticker_config": "No Ticker Preferences Configured",
+        "no_config": "No exchange preferences configured",
+        "no_ticker_config": "No ticker preferences configured",
         "material_placeholder": "Material",
         "types": {
-          "BUY": "BUY",
-          "SELL": "SELL",
-          "BOTH": "BOTH"
+          "BUY": "Buy",
+          "SELL": "Sell",
+          "BOTH": "Both"
         }
       }
     },
@@ -499,28 +875,28 @@
       "heading": "Plan ↔ Empire Assignments",
       "update_button": "Update Plan Assignments",
       "reload_button": "Reload",
-      "info_text": "Every planned base can be assigned to multiple empires. This allows you to simultaneously keep track of your existing Prosperous Universe empire, corporation production chains or future expansion plans.",
+      "info_text": "Each planned base can be assigned to multiple empires. This allows you to track your current Prosperous Universe empire, corporation chains, or future expansion plans simultaneously.",
       "table": {
         "plan": "Plan",
         "planet": "Planet",
         "configuration": "Configuration",
         "loading": "Loading...",
-        "no_plans": "No Plans available.",
-        "create_first": "Use Planet Search to create your first plan."
+        "no_plans": "No plans available.",
+        "create_first": "Use the planet search to create your first plan."
       },
       "actions": {
         "clone_suffix": " (Clone)"
       },
       "delete_confirm": {
         "title": "Confirm Plan Deletion",
-        "content": "Are you sure? Deleting the Plan can't be reversed.",
+        "content": "Are you sure? Plans cannot be recovered once deleted.",
         "positive": "Delete",
         "negative": "Cancel"
       },
       "filters": {
         "heading": "Filter",
         "plan_label": "Plan",
-        "empire_label": "Active Empire"
+        "empire_label": "Empire"
       }
     }
   }

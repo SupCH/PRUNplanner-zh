@@ -154,7 +154,7 @@
 		<div class="text-center w-[400px] py-3">
 			<PProgressBar :step="progressCurrent" :total="progressTotal" />
 			<div class="pt-3 text-xs text-white/60">
-				Calculating Building Recipe ROI
+				{{ $t("tools.recipe_roi.calculating") }}
 			</div>
 		</div>
 	</div>
@@ -175,18 +175,18 @@
 			:pagination="{ pageSize: 50 }">
 			<XNDataTableColumn
 				key="buildingTicker"
-				title="Building"
+				:title="$t('tools.recipe_roi.table.building')"
 				sorter="default">
 				<template #render-cell="{ rowData }">
 					<span class="font-bold">{{ rowData.buildingTicker }}</span>
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="optimalSetup" title="Optimal Setup">
+			<XNDataTableColumn key="optimalSetup" :title="$t('tools.recipe_roi.table.optimal_setup')">
 				<template #render-cell="{ rowData }">
 					{{ formatOptimal(rowData.optimalSetup) }}
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="recipeOutputs" title="Recipe Output">
+			<XNDataTableColumn key="recipeOutputs" :title="$t('tools.recipe_roi.table.recipe_output')">
 				<template #render-cell="{ rowData }">
 					<div class="flex flex-row flex-wrap gap-1">
 						<MaterialTile
@@ -197,7 +197,7 @@
 					</div>
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="recipeInputs" title="Recipe Input">
+			<XNDataTableColumn key="recipeInputs" :title="$t('tools.recipe_roi.table.recipe_input')">
 				<template #render-cell="{ rowData }">
 					<div class="flex flex-row flex-wrap gap-1">
 						<MaterialTile
@@ -208,24 +208,24 @@
 					</div>
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="cogc" title="COGC">
+			<XNDataTableColumn key="cogc" :title="$t('tools.recipe_roi.table.cogc')">
 				<template #render-cell="{ rowData }">
 					<span class="text-nowrap">
-						{{ capitalizeString(rowData.cogc) }}
+						{{ $t("plan.experts.mapping." + (rowData.cogc || "NONE").toUpperCase()) }}
 					</span>
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="cogm" title="COGM">
+			<XNDataTableColumn key="cogm" :title="$t('tools.recipe_roi.table.cogm')">
 				<template #render-cell="{ rowData }">
 					<COGMButton :cogm-data="rowData.cogm" />
 				</template>
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="planCost"
-				title="Plan Cost"
+				:title="$t('tools.recipe_roi.table.plan_cost')"
 				sorter="default">
 				<template #title>
-					<div class="text-end">Plan Cost</div>
+					<div class="text-end">{{ $t("tools.recipe_roi.table.plan_cost") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div class="text-end text-nowrap">
@@ -236,10 +236,10 @@
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="dailyProfit"
-				title="Daily Profit"
+				:title="$t('tools.recipe_roi.table.daily_profit')"
 				sorter="default">
 				<template #title>
-					<div class="text-end">Daily Profit</div>
+					<div class="text-end">{{ $t("tools.recipe_roi.table.daily_profit") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div
@@ -256,10 +256,10 @@
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="planProfitArea"
-				title="Profit/Area"
+				:title="$t('tools.recipe_roi.table.profit_area')"
 				sorter="default">
 				<template #title>
-					<div class="text-end">Profit/Area</div>
+					<div class="text-end">{{ $t("tools.recipe_roi.table.profit_area") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div
@@ -274,9 +274,9 @@
 					</div>
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="planROI" title="Plan ROI" sorter="default">
+			<XNDataTableColumn key="planROI" :title="$t('tools.recipe_roi.table.plan_roi')" sorter="default">
 				<template #title>
-					<div class="text-end">Plan ROI</div>
+					<div class="text-end">{{ $t("tools.recipe_roi.table.plan_roi") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div

@@ -19,20 +19,20 @@
 </script>
 
 <template>
-	<h2 class="text-white/80 font-bold text-lg pb-3">Planets</h2>
+	<h2 class="text-white/80 font-bold text-lg pb-3">{{ $t("search.results.planet") }}</h2>
 
 	<x-n-data-table :data="repairData" striped>
 		<x-n-data-table-column
 			key="planetName"
-			title="Planet"
+			:title="$t('search.results.planet')"
 			sorter="default" />
 		<x-n-data-table-column
 			key="amountProductionBuildings"
-			title="Buildings"
+			:title="$t('plan.tools.construction_cart_details.building_label')"
 			sorter="default" />
 		<x-n-data-table-column
 			key="averageCondition"
-			title="⌀ Condition"
+			:title="'⌀ ' + $t('fio.repair.table.condition')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				{{ formatNumber(rowData.averageCondition * 100) }} %
@@ -40,7 +40,7 @@
 		</x-n-data-table-column>
 		<x-n-data-table-column
 			key="minCondition"
-			title="Min. Condition"
+			:title="'Min. ' + $t('fio.repair.table.condition')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				{{ formatNumber(rowData.minCondition * 100) }} %
@@ -48,7 +48,7 @@
 		</x-n-data-table-column>
 		<x-n-data-table-column
 			key="maxLastRepairDays"
-			title="Repair Age"
+			:title="$t('fio.repair.table.last_repair')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				{{ formatAmount(rowData.maxLastRepairDays) }}

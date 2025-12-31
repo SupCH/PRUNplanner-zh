@@ -21,17 +21,17 @@
 </script>
 
 <template>
-	<h2 class="text-white/80 font-bold text-lg pb-3">Ships</h2>
+	<h2 class="text-white/80 font-bold text-lg pb-3">{{ $t("nav.items.help") === "Help" ? "Ships" : "飞船" }}</h2>
 
 	<x-n-data-table :data="repairData" striped>
 		<x-n-data-table-column
 			key="shipRegistration"
-			title="Id"
+			:title="$t('search.basic.id_label')"
 			sorter="default" />
-		<x-n-data-table-column key="shipName" title="Name" sorter="default" />
+		<x-n-data-table-column key="shipName" :title="$t('plan.configuration.name_label')" sorter="default" />
 		<x-n-data-table-column
 			key="condition"
-			title="Condition"
+			:title="$t('fio.repair.table.condition')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				{{ formatNumber(rowData.condition * 100) }} %
@@ -39,7 +39,7 @@
 		</x-n-data-table-column>
 		<x-n-data-table-column
 			key="repairMaterials"
-			title="Repair Materials"
+			:title="$t('fio.repair.table.repair_cost')"
 			sorter="default">
 			<template #render-cell="{ rowData }">
 				<div class="flex flex-row flex-wrap gap-1 child:text-nowrap">

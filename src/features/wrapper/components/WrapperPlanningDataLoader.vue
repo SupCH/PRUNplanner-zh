@@ -54,7 +54,12 @@
 							</PIcon>
 						</div>
 						<div>
-							{{ te("loading.steps." + e.name) ? $t("loading.steps." + e.name) : e.name }}
+							{{ te("loading.steps." + e.name) 
+								? $t("loading.steps." + e.name) 
+								: e.name.includes("Planet") 
+									? e.name.replace("Planet", $t("loading.steps.Planet")).replace("Data", $t("loading.steps.Material Data").replace($t("loading.steps.Materials"), "").trim()).replace(/'/g, "")
+									: e.name 
+							}}
 						</div>
 					</div>
 				</div>

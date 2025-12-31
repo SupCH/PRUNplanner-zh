@@ -23,12 +23,12 @@
 </script>
 
 <template>
-	<h3 class="font-bold py-3">Materials</h3>
+	<h3 class="font-bold py-3">{{ $t("tools.production_chain.analysis.materials") }}</h3>
 	<PTable striped>
 		<thead>
 			<tr>
-				<th>Material</th>
-				<th>Amount</th>
+				<th>{{ $t("plan.production.material") }}</th>
+				<th>{{ $t("plan.workforce.capacity") }}</th>
 			</tr>
 		</thead>
 		<tbody>

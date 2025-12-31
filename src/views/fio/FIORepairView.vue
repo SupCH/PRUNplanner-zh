@@ -1,5 +1,12 @@
 <script setup lang="ts">
 	import { ref } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
+	import { useHead } from "@unhead/vue";
+
+	useHead({
+		title: `${t("nav.items.fio_repair")} | PRUNplanner`,
+	});
 
 	// Stores
 	import { usePlanningStore } from "@/stores/planningStore";
@@ -28,9 +35,9 @@
 		<div class="min-h-screen flex flex-col">
 			<div
 				class="px-6 py-3 border-b border-white/10 flex flex-row justify-between">
-				<h1 class="text-2xl font-bold my-auto">FIO Repair</h1>
+				<h1 class="text-2xl font-bold my-auto">{{ $t("fio.repair.title") }}</h1>
 				<div class="my-auto">
-					FIO Data Update:
+					{{ $t("fio.burn.data_update") }}:
 					{{
 						relativeFromDate(planningStore.fio_sites_timestamp ?? 0)
 					}}

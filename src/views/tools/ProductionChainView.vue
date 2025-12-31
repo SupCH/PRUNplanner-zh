@@ -1,10 +1,12 @@
 <script setup lang="ts">
 	import { onMounted, ref, Ref } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// Unhead
 	import { useHead } from "@unhead/vue";
 	useHead({
-		title: "Production Chain | PRUNplanner",
+		title: `${t("tools.production_chain.title")} | PRUNplanner`,
 	});
 
 	// Components
@@ -79,23 +81,24 @@
 		<div class="min-h-screen flex flex-col">
 			<div
 				class="px-6 py-3 border-b border-white/10 flex flex-row justify-between gap-x-3">
-				<h1 class="text-2xl font-bold my-auto">Production Chains</h1>
+				<h1 class="text-2xl font-bold my-auto">{{ $t("tools.production_chain.title") }}</h1>
 				<HelpDrawer file-name="tools_production_chain" />
 			</div>
 			<div
 				class="flex-grow grid grid-cols-1 xl:grid-cols-[400px_auto_300px] gap-3 divide-x divide-white/10">
 				<div class="px-6 py-3">
-					<h3 class="font-bold pb-3">Configuration</h3>
+					<h3 class="font-bold pb-3">{{ $t("tools.production_chain.configuration") }}</h3>
 					<PForm>
-						<PFormItem label="Material">
+						<PFormItem :label="$t('tools.production_chain.material')">
 							<PSelect
 								v-model:value="selectedMaterial"
 								:options="materialSelectOptions"
 								searchable
+								:placeholder="$t('manage.exchanges.preference_component.material_placeholder')"
 								class="w-full"
 								@update:value="generate(true)" />
 						</PFormItem>
-						<PFormItem label="Recipe Runs">
+						<PFormItem :label="$t('tools.production_chain.recipe_runs')">
 							<PInputNumber
 								v-model:value="selectedAmount"
 								:min="1"
@@ -103,7 +106,7 @@
 								class="w-full"
 								@update:value="generate()" />
 						</PFormItem>
-						<PFormItem label="Node Color">
+						<PFormItem :label="$t('tools.production_chain.node_color')">
 							<PSelect
 								v-model:value="selectedNodeColorType"
 								:options="NodeColorTypeOptions"
@@ -111,24 +114,21 @@
 								class="w-full"
 								@update:value="generate(true)" />
 						</PFormItem>
-						<PFormItem label="Terminals">
+						<PFormItem :label="$t('tools.production_chain.terminals')">
 							<PInput
 								v-model:value="selectedTerminals"
-								placeholder="Comma-separated Material Tickers"
+								:placeholder="$t('tools.production_chain.terminals_placeholder')"
 								class="w-full"
 								@update:value="generate()" />
 						</PFormItem>
 						<PFormSeperator>
 							<div class="text-xs !text-white/60">
-								Terminals are materials whose inputs are
-								excluded from the graph, useful if you buy them
-								on the CX or locally and don't need to produce
-								them.
+								{{ $t("tools.production_chain.terminals_help") }}
 							</div>
 						</PFormSeperator>
 					</PForm>
 					<template v-if="graphData">
-						<h3 class="font-bold py-3">Recipe Selection</h3>
+						<h3 class="font-bold py-3">{{ $t("tools.production_chain.recipe_selection") }}</h3>
 						<PForm>
 							<template
 								v-for="[building, options] in Object.entries(
