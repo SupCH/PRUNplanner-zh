@@ -217,6 +217,14 @@
       "experts": "专家",
       "none": "无"
     },
+    "material_io": {
+      "input": "投入",
+      "output": "产出",
+      "delta": "差值",
+      "daily_value": "日价值",
+      "weight_delta": "重量差",
+      "volume_delta": "体积差"
+    },
     "workforce": {
       "type": "类型",
       "required": "需求",
@@ -537,10 +545,15 @@
         "METALLURGY": "冶金",
         "RESOURCE_EXTRACTION": "资源",
         "PIONEERS": "先驱",
+        "PIONEER": "先驱",
         "SETTLERS": "定居者",
+        "SETTLER": "定居者",
         "TECHNICIANS": "技术员",
+        "TECHNICIAN": "技术员",
         "ENGINEERS": "工程师",
-        "SCIENTISTS": "科学家"
+        "ENGINEER": "工程师",
+        "SCIENTISTS": "科学家",
+        "SCIENTIST": "科学家"
       }
     },
     "filters": {

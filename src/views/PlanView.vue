@@ -800,10 +800,10 @@
 							" />
 					</div>
 				</div>
-				<div>
-					<div class="sticky top-12">
+				<div class="@[1290px]:h-full">
+					<div class="sticky top-12 max-h-[calc(100vh-100px)] flex flex-col">
 						<h2
-							class="text-white/80 font-bold text-lg pb-3 flex justify-between child:my-auto">
+							class="text-white/80 font-bold text-lg pb-3 flex justify-between child:my-auto flex-shrink-0">
 							<div>{{ $t("plan.sections.material_io") }}</div>
 							<div class="flex gap-x-3">
 								<PTooltip>
@@ -849,21 +849,23 @@
 								</PTooltip>
 							</div>
 						</h2>
-						<template v-if="!refMaterialIOSplitted">
-							<PlanMaterialIO
-								:material-i-o-data="result.materialio"
-								:show-basked="refMaterialIOShowBasked" />
-						</template>
-						<template v-else>
-							<h3 class="font-bold pb-3">{{ $t("plan.sections.production") }}</h3>
-							<PlanMaterialIO
-								:material-i-o-data="result.productionMaterialIO"
-								:show-basked="refMaterialIOShowBasked" />
-							<h3 class="font-bold py-3">{{ $t("plan.sections.workforce") }}</h3>
-							<PlanMaterialIO
-								:material-i-o-data="result.workforceMaterialIO"
-								:show-basked="refMaterialIOShowBasked" />
-						</template>
+						<div class="overflow-y-auto flex-grow pr-1 custom-scrollbar" style="scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent;">
+							<template v-if="!refMaterialIOSplitted">
+								<PlanMaterialIO
+									:material-i-o-data="result.materialio"
+									:show-basked="refMaterialIOShowBasked" />
+							</template>
+							<template v-else>
+								<h3 class="font-bold pb-3 text-white/80">{{ $t("plan.sections.production") }}</h3>
+								<PlanMaterialIO
+									:material-i-o-data="result.productionMaterialIO"
+									:show-basked="refMaterialIOShowBasked" />
+								<h3 class="font-bold py-3 text-white/80">{{ $t("plan.sections.workforce") }}</h3>
+								<PlanMaterialIO
+									:material-i-o-data="result.workforceMaterialIO"
+									:show-basked="refMaterialIOShowBasked" />
+							</template>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -160,6 +160,11 @@ const router = createRouter({
 			meta: { requiresAuth: true },
 			component: () => import("@/views/APIView.vue"),
 		},
+		{
+			path: "/:pathMatch(.*)*",
+			name: "not-found",
+			redirect: { name: "homepage" },
+		},
 	],
 });
 

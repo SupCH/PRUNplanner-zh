@@ -217,6 +217,14 @@
       "experts": "Experts",
       "none": "None"
     },
+    "material_io": {
+      "input": "Input",
+      "output": "Output",
+      "delta": "Delta",
+      "daily_value": "Daily Value",
+      "weight_delta": "Weight Delta",
+      "volume_delta": "Volume Delta"
+    },
     "workforce": {
       "type": "Type",
       "required": "Required",
@@ -537,10 +545,15 @@
         "METALLURGY": "Metallurgy",
         "RESOURCE_EXTRACTION": "Resource Extraction",
         "PIONEERS": "Pioneers",
+        "PIONEER": "Pioneer",
         "SETTLERS": "Settlers",
+        "SETTLER": "Settler",
         "TECHNICIANS": "Technicians",
+        "TECHNICIAN": "Technician",
         "ENGINEERS": "Engineers",
-        "SCIENTISTS": "Scientists"
+        "ENGINEER": "Engineer",
+        "SCIENTISTS": "Scientists",
+        "SCIENTIST": "Scientist"
       }
     },
     "filters": {
