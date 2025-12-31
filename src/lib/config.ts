@@ -15,7 +15,7 @@ class Config {
 			import.meta.env.VITE_API_BASE_URL || "https://api.prunplanner.org";
 		this.SHARE_BASE_URL =
 			import.meta.env.VITE_SHARE_BASE_URL ||
-			"https://prunplanner.org/shared";
+			"https://prunp.crazzy.cn/shared";
 
 		this.GAME_DATA_STALE_MINUTES_BUILDINGS =
 			import.meta.env.VITE_GAME_DATA_STALE_MINUTES_BUILDINGS || 24 * 60;

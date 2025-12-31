@@ -16,6 +16,7 @@
 - **动态语言切换**: 支持在中文与原版英文间无缝切换，所有翻译均通过 `vue-i18n` 标准化管理。
 - **本地化日期系统**: 基于 `dayjs` 实现了相对时间的中文显示，并修复了原始项目中 FIO 数据更新时间显示异常的 Bug。
 - **多语言文档支持**: “更新日志”等动态内容现在可以根据当前语言环境自动加载对应的中文/英文 Markdown 版本。
+- **自定义分享链接**: 优化了计划分享功能，默认生成的分享链接现已指向本项目域名 `prunp.crazzy.cn`，方便中国玩家直接查看。
 - **UI 组件适配**: 深度定制了 Naive UI 组件库的占位符与提示信息，确保护持一致的中文体验。
 - **保留核心概念**: 严格保留项目原名、游戏专有名词（如 FIO, CX, Ticker 等）及阵营名称，维持与国际社区的无障碍交流。
 
@@ -55,7 +56,7 @@
 | 变量名 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
 | VITE_API_BASE_URL | string | "https://api.prunplanner.org" | 官方 API 接口地址 |
-| VITE_SHARE_BASE_URL | string | "https://prunplanner.org/shared" | 计划分享链接基础地址 |
+| VITE_SHARE_BASE_URL | string | "https://prunp.crazzy.cn/shared" | 计划分享链接基础地址 |
 
 ## ⚖️ 声明
 
