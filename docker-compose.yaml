@@ -1,7 +1,7 @@
 services:
     frontend:
-        image: prunplanner-frontend:latest
-        container_name: prunplanner-frontend
+        image: prunplanner-zh:latest
+        container_name: prunplanner-zh
         entrypoint: ["sh", "-c"]
         command: >
             "echo \"window.__APP_CONFIG__ = { POSTHOG_KEY: '${POSTHOG_KEY}' }\" > /code/env.js &&

@@ -54,6 +54,7 @@
 					:options="optionsPlanNames"
 					searchable
 					clearable
+					:placeholder="$t('manage.assignments.table.plan')"
 					class="!w-[400px]" />
 			</div>
 		</div>
@@ -65,6 +66,7 @@
 					:options="optionsEmpires"
 					searchable
 					clearable
+					:placeholder="$t('nav.items.empire')"
 					class="!w-[400px]" />
 			</div>
 		</div>

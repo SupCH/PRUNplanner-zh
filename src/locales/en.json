@@ -455,8 +455,16 @@
     },
     "exchanges": {
       "heading": "CX Configuration",
+      "title": "Exchanges",
       "new_cx_button": "New CX",
       "info_text": "Removing a CX preference will delete all its exchange and material settings. Assigned empires will remain unaffected, but they will no longer use the removed preferences. Make sure to assign a new CX preference.",
+      "no_preferences_title": "No Preferences",
+      "no_preferences_text": "You don't have exchange preferences. Head to Management and create your first.",
+      "preference_name": "Preference Name",
+      "empire_preferences": "Empire Preferences",
+      "exchange_label": "Exchange",
+      "ticker_label": "Ticker",
+      "planet_preferences": "Planet Preferences",
       "create_section": {
         "name_label": "CX Name",
         "name_placeholder": "CX Name (max. 100 characters)",
@@ -475,6 +483,16 @@
         "content": "Are you sure? Deleting the CX will delete all preferences.",
         "positive": "Delete",
         "negative": "Cancel"
+      },
+      "preference_component": {
+        "no_config": "No Exchange Preference Configured",
+        "no_ticker_config": "No Ticker Preferences Configured",
+        "material_placeholder": "Material",
+        "types": {
+          "BUY": "BUY",
+          "SELL": "SELL",
+          "BOTH": "BOTH"
+        }
       }
     },
     "assignments": {

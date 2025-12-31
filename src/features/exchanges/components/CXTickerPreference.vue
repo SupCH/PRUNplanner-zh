@@ -61,7 +61,7 @@
 			:options="materialOptions"
 			searchable
 			size="small"
-			placeholder="Material"
+			:placeholder="$t('manage.exchanges.preference_component.material_placeholder')"
 			class="!w-[100px]" />
 		<PInputNumber
 			v-model:value="selectedValue"
@@ -103,7 +103,7 @@
 								? 'error'
 								: 'primary'
 						">
-						{{ preference.type }}
+						{{ $t("manage.exchanges.preference_component.types." + (preference.type || "BOTH")) }}
 					</PTag>
 				</td>
 				<td>
@@ -133,7 +133,7 @@
 			<tr
 				v-if="localCXOptions.length === 0"
 				class="text-center child:!text-white/50">
-				<td colspan="4">No Ticker Preferences Configured</td>
+				<td colspan="4">{{ $t("manage.exchanges.preference_component.no_ticker_config") }}</td>
 			</tr>
 		</PTable>
 	</div>

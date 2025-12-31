@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import { computed, ComputedRef, ref, Ref } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
 	// API
 	import { useQuery } from "@/lib/query_cache/useQuery";
@@ -153,22 +155,23 @@
 
 <template>
 	<div class="flex flex-row justify-between pb-3">
-		<h2 class="text-lg font-bold my-auto">{{ $t("advanced.heading") }}</h2>
+		<h2 class="text-lg font-bold my-auto">{{ $t("search.advanced.heading") }}</h2>
 		<PButton :loading="refIsLoading" @click="doSearch">
 			<template #icon><SearchSharp /></template>
-			{{ $t("advanced.search_button") }}
+			{{ $t("search.advanced.search_button") }}
 		</PButton>
 	</div>
 
 	<div class="grid grid-cols-1 xl:grid-cols-[40%_auto] gap-x-6">
 		<div>
 			<PForm>
-				<PFormItem :label="$t('advanced.materials_label')">
+				<PFormItem :label="$t('search.advanced.materials_label')">
 					<PSelectMultiple
 						v-model:value="inputMaterials"
 						:options="PLANETSEARCHOPTIONMATERIALS"
 						clearable
 						searchable
+						:placeholder="$t('manage.exchanges.preference_component.material_placeholder')"
 						class="w-full"
 						@update:value="
 							(value) => {
@@ -182,28 +185,31 @@
 							}
 						" />
 				</PFormItem>
-				<PFormItem :label="$t('advanced.cogc_label')">
+				<PFormItem :label="$t('search.advanced.cogc_label')">
 					<PSelectMultiple
 						v-model:value="inputCOGC"
 						:options="PLANETSEARCHCOGC"
 						clearable
 						searchable
+						:placeholder="$t('plan.status_bar.none')"
 						class="w-full" />
 				</PFormItem>
-				<PFormItem :label="$t('advanced.features_label')">
+				<PFormItem :label="$t('search.advanced.features_label')">
 					<PSelectMultiple
 						v-model:value="inputInfrastructure"
 						:options="PLANETSEARCHINFRASTRUCTURE"
 						searchable
 						clearable
+						:placeholder="$t('plan.status_bar.none')"
 						class="w-full" />
 				</PFormItem>
-				<PFormItem :label="$t('advanced.distance_label')">
+				<PFormItem :label="$t('search.advanced.distance_label')">
 					<PSelect
 						v-model:value="inputSystem"
 						:options="PLANETSEARCHSYSTEMS"
 						searchable
 						clearable
+						:placeholder="$t('plan.status_bar.none')"
 						class="pr-3 w-full" />
 					<PInputNumber
 						v-model:value="inputSystemDistance"
@@ -214,16 +220,16 @@
 			</PForm>
 		</div>
 		<div>
-			<h3 class="pb-3">{{ $t("advanced.environment_heading") }}</h3>
+			<h3 class="pb-3">{{ $t("search.advanced.environment_heading") }}</h3>
 
 			<div class="flex flex-row gap-x-3">
 				<PTable class="w-full">
 					<tbody>
 						<tr class="child:w-[25%]">
-							<td>{{ $t("advanced.env_table.surface") }}</td>
-							<td>{{ $t("advanced.env_table.gravity") }}</td>
-							<td>{{ $t("advanced.env_table.temperature") }}</td>
-							<td>{{ $t("advanced.env_table.pressure") }}</td>
+							<td>{{ $t("search.advanced.env_table.surface") }}</td>
+							<td>{{ $t("search.advanced.env_table.gravity") }}</td>
+							<td>{{ $t("search.advanced.env_table.temperature") }}</td>
+							<td>{{ $t("search.advanced.env_table.pressure") }}</td>
 						</tr>
 						<tr>
 							<td>
@@ -231,7 +237,7 @@
 									class="flex flex-row gap-x-3 child:my-auto">
 									<PCheckbox
 										v-model:checked="inputIncludeRocky" />
-									{{ $t("advanced.env_table.rocky") }}
+									{{ $t("search.advanced.env_table.rocky") }}
 								</div>
 							</td>
 							<td>
@@ -241,7 +247,7 @@
 										v-model:checked="
 											inputIncludeLowGravity
 										" />
-									{{ $t("advanced.env_table.low") }}
+									{{ $t("search.advanced.env_table.low") }}
 								</div>
 							</td>
 							<td>
@@ -251,7 +257,7 @@
 										v-model:checked="
 											inputIncludeLowTemperature
 										" />
-									{{ $t("advanced.env_table.low") }}
+									{{ $t("search.advanced.env_table.low") }}
 								</div>
 							</td>
 							<td>
@@ -261,7 +267,7 @@
 										v-model:checked="
 											inputIncludeLowPressure
 										" />
-									{{ $t("advanced.env_table.low") }}
+									{{ $t("search.advanced.env_table.low") }}
 								</div>
 							</td>
 						</tr>
@@ -271,7 +277,7 @@
 									class="flex flex-row gap-x-3 child:my-auto">
 									<PCheckbox
 										v-model:checked="inputIncludeGaseous" />
-									{{ $t("advanced.env_table.gaseous") }}
+									{{ $t("search.advanced.env_table.gaseous") }}
 								</div>
 							</td>
 							<td>
@@ -281,7 +287,7 @@
 										v-model:checked="
 											inputIncludeHighGravity
 										" />
-									{{ $t("advanced.env_table.high") }}
+									{{ $t("search.advanced.env_table.high") }}
 								</div>
 							</td>
 							<td>
@@ -291,7 +297,7 @@
 										v-model:checked="
 											inputIncludeHighTemperature
 										" />
-									{{ $t("advanced.env_table.high") }}
+									{{ $t("search.advanced.env_table.high") }}
 								</div>
 							</td>
 							<td>
@@ -301,7 +307,7 @@
 										v-model:checked="
 											inputIncludeHighPressure
 										" />
-									{{ $t("advanced.env_table.high") }}
+									{{ $t("search.advanced.env_table.high") }}
 								</div>
 							</td>
 						</tr>
@@ -310,10 +316,10 @@
 
 				<div class="flex flex-col gap-y-3">
 					<PButton secondary @click="environmentDefault">
-						{{ $t("advanced.env_buttons.default") }}
+						{{ $t("search.advanced.env_buttons.default") }}
 					</PButton>
 					<PButton secondary @click="environmentAll">
-						{{ $t("advanced.env_buttons.select_all") }}
+						{{ $t("search.advanced.env_buttons.select_all") }}
 					</PButton>
 				</div>
 			</div>

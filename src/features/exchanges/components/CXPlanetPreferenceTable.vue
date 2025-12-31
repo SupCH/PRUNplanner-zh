@@ -43,12 +43,12 @@
 
 <template>
 	<h2 class="text-xl font-bold my-auto pb-3">
-		Planet Preferences<span v-if="selectedPlanet"
+		{{ $t("manage.exchanges.planet_preferences") }}<span v-if="selectedPlanet"
 			>:
 			{{
 				planetNames[selectedPlanet] ||
 				loadPlanetName(selectedPlanet) ||
-				"Loading"
+				$t("manage.assignments.table.loading")
 			}}
 		</span>
 	</h2>
@@ -56,13 +56,13 @@
 		v-if="selectedPlanet"
 		class="grid grid-cols-1 xl:grid-cols-[40%_auto] gap-3 pb-3">
 		<div>
-			<h3 class="text-lg font-bold pb-3">Exchange</h3>
+			<h3 class="text-lg font-bold pb-3">{{ $t("manage.exchanges.exchange_label") }}</h3>
 			<CXExchangePreference
 				:key="`Exchanges#${selectedPlanet}`"
 				v-model:cx-options="localMap[selectedPlanet].exchanges" />
 		</div>
 		<div>
-			<h3 class="text-lg font-bold pb-3">Ticker</h3>
+			<h3 class="text-lg font-bold pb-3">{{ $t("manage.exchanges.ticker_label") }}</h3>
 			<CXTickerPreference
 				:key="`Ticker#${selectedPlanet}`"
 				v-model:cx-options="localMap[selectedPlanet].ticker" />
@@ -87,16 +87,16 @@
 				</PButton>
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="planet" title="Planet" sorter="default">
+		<XNDataTableColumn key="planet" :title="$t('manage.assignments.table.planet')" sorter="default">
 			<template #render-cell="{ rowData }">
 				{{
 					planetNames[rowData.planet] ||
 					loadPlanetName(rowData.planet) ||
-					"Loading..."
+					$t("manage.assignments.table.loading")
 				}}
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="exchanges" title="Exchanges" max-width="20%">
+		<XNDataTableColumn key="exchanges" :title="$t('manage.exchanges.exchange_label')" max-width="20%">
 			<template #render-cell="{ rowData }">
 				<div class="flex flex-col gap-y-1">
 					<div
@@ -110,14 +110,14 @@
 									? 'error'
 									: 'primary'
 							">
-							{{ exchange.type }}:
+							{{ $t("manage.exchanges.preference_component.types." + (exchange.type || "BOTH")) }}:
 							<strong>{{ exchange.exchange }}</strong>
 						</PTag>
 					</div>
 				</div>
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="ticker" title="Ticker" max-width="50%">
+		<XNDataTableColumn key="ticker" :title="$t('manage.exchanges.ticker_label')" max-width="50%">
 			<template #render-cell="{ rowData }">
 				<div class="flex flex-wrap gap-3">
 					<div
@@ -135,7 +135,7 @@
 									? 'error'
 									: 'primary'
 							">
-							{{ ticker.type }}:
+							{{ $t("manage.exchanges.preference_component.types." + (ticker.type || "BOTH")) }}:
 							<strong>{{ formatNumber(ticker.value) }}</strong>
 							<span class="pl-1 font-light opacity-50">$</span>
 						</PTag>

@@ -455,8 +455,16 @@
     },
     "exchanges": {
       "heading": "交易所配置",
+      "title": "交易所",
       "new_cx_button": "新建交易所",
       "info_text": "删除交易所偏好将删除其所有的交易所和材料设置。已分配的帝国将不受影响，但它们将不再使用已删除的偏好。请务必分配一个新的交易所偏好。",
+      "no_preferences_title": "无偏好设置",
+      "no_preferences_text": "你还没有任何交易所偏好。请前往管理页面创建你的第一个偏好。",
+      "preference_name": "偏好名称",
+      "empire_preferences": "帝国偏好",
+      "exchange_label": "交易所",
+      "ticker_label": "代码",
+      "planet_preferences": "星球偏好",
       "create_section": {
         "name_label": "交易所名称",
         "name_placeholder": "交易所名称（最多 100 个字符）",
@@ -475,6 +483,16 @@
         "content": "你确定吗？删除交易所将删除所有偏好设置。",
         "positive": "删除",
         "negative": "取消"
+      },
+      "preference_component": {
+        "no_config": "未配置交易所偏好",
+        "no_ticker_config": "未配置代码偏好",
+        "material_placeholder": "材料",
+        "types": {
+          "BUY": "买入",
+          "SELL": "卖出",
+          "BOTH": "全部"
+        }
       }
     },
     "assignments": {

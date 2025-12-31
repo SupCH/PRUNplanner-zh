@@ -97,6 +97,7 @@
 				v-model:value="localActiveEmpireUuid"
 				class="w-full"
 				:disabled="disabled"
+				:placeholder="$t('nav.items.empire')"
 				:options="empireSelectOptions" />
 		</PFormItem>
 	</PForm>

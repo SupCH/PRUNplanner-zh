@@ -83,7 +83,7 @@
 								? 'error'
 								: 'primary'
 						">
-						{{ preference.type }}
+						{{ $t("manage.exchanges.preference_component.types." + (preference.type || "BOTH")) }}
 					</PTag>
 				</td>
 				<td>{{ preference.exchange }}</td>
@@ -104,7 +104,7 @@
 			<tr
 				v-if="localCXOptions.length === 0"
 				class="text-center child:!text-white/50">
-				<td colspan="3">No Exchange Preference Configured</td>
+				<td colspan="3">{{ $t("manage.exchanges.preference_component.no_config") }}</td>
 			</tr>
 		</PTable>
 	</div>
