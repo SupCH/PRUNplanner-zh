@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import { PropType, ref, Ref, watch } from "vue";
 	import { useI18n } from "vue-i18n";
-	const { t } = useI18n();
+	const { t, locale } = useI18n();
 
 	import { PButton } from "@/ui";
 	import { NDrawer, NDrawerContent } from "naive-ui";
@@ -15,7 +15,13 @@
 			import: "default",
 		}) as Record<string, () => Promise<string>>;
 
-		const path = `/src/assets/help/${props.fileName}.md`;
+		const localeSuffix = locale.value === "zh" ? ".zh" : "";
+		let path = `/src/assets/help/${props.fileName}${localeSuffix}.md`;
+
+		if (!markdownFiles[path]) {
+			path = `/src/assets/help/${props.fileName}.md`;
+		}
+
 		const loader = markdownFiles[path];
 		if (!loader)
 			throw new Error(`Markdown file "${props.fileName}" not found.`);
@@ -56,7 +62,7 @@
 		},
 	});
 
-	watch(showDrawer, async () => {
+	watch([showDrawer, locale], async () => {
 		if (showDrawer.value) {
 			markdownContent.value = await loadMarkdown();
 		}

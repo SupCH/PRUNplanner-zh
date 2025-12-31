@@ -34,8 +34,12 @@
 </script>
 
 <template>
-	<XNDataTable :data="localMaterialIOData" striped>
-		<XNDataTableColumn key="ticker" title="" sorter="default">
+	<XNDataTable
+		:data="localMaterialIOData"
+		striped
+		flex-height
+		class="h-full max-h-[600px]">
+		<XNDataTableColumn key="ticker" title="" sorter="default" :width="60">
 			<template #render-cell="{ rowData }">
 				<MaterialTile
 					:key="`MATERIALIO#MATERIALTILE#${rowData.ticker}`"

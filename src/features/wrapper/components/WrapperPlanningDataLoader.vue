@@ -57,7 +57,7 @@
 							{{ te("loading.steps." + e.name) 
 								? $t("loading.steps." + e.name) 
 								: e.name.includes("Planet") 
-									? e.name.replace("Planet", $t("loading.steps.Planet")).replace("Data", $t("loading.steps.Material Data").replace($t("loading.steps.Materials"), "").trim()).replace(/'/g, "")
+									? $t("loading.steps.Planet") + " " + e.name.replace("Planet", "").replace("Data", "").replace(/'/g, "").trim() + " " + $t("loading.steps.Material Data").replace($t("loading.steps.Materials"), "").trim()
 									: e.name 
 							}}
 						</div>

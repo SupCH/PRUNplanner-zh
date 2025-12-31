@@ -800,8 +800,8 @@
 							" />
 					</div>
 				</div>
-				<div class="@[1290px]:h-full">
-					<div class="sticky top-12 max-h-[calc(100vh-100px)] flex flex-col">
+				<div class="@[1290px]:h-[calc(100vh-100px)]">
+					<div class="sticky top-12 h-full flex flex-col">
 						<h2
 							class="text-white/80 font-bold text-lg pb-3 flex justify-between child:my-auto flex-shrink-0">
 							<div>{{ $t("plan.sections.material_io") }}</div>

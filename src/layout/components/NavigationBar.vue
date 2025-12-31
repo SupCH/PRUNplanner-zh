@@ -533,7 +533,7 @@
 						">
 						<template #trigger>
 							<PTag size="sm" type="success" :bordered="false">
-								{{ isFull ? "FIO Active" : "FIO" }}
+								{{ isFull ? $t("nav.status.fio_active") : "FIO" }}
 							</PTag>
 						</template>
 						<PTable striped>
@@ -567,7 +567,7 @@
 						</PTable>
 					</PTooltip>
 					<PTag v-else size="sm" type="warning" :bordered="false">
-						{{ isFull ? "FIO Inactive" : "FIO" }}
+						{{ isFull ? $t("nav.status.fio_inactive") : "FIO" }}
 					</PTag>
 				</div>
 				<div @click="toggleNavigationSize">
