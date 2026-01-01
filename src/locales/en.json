@@ -189,16 +189,26 @@
       },
       "popr_details": {
         "title": "Latest Population Report",
-        "error_loading": "Error loading latest population report. The planet might not have population.",
-        "loading": "Loading Population Report",
+        "error_loading": "Error loading latest population report. The planet might not have any population.",
+        "loading": "Loading population report...",
         "no_data": "Planet {planet} has no population data.",
         "table": {
           "total_population": "Total Population",
           "free_population": "Free Population",
           "free_population_percent": "Free Population %",
           "unfilled_jobs": "Unfilled Jobs",
-          "plan_need": "Plan Need",
+          "plan_need": "Plan Requirement",
           "plan_check": "Plan Check"
+        }
+      },
+      "hq_calculator": {
+        "total_cost": "Total Cost",
+        "total_volume": "Total Volume",
+        "total_weight": "Total Weight",
+        "table": {
+          "material": "Material",
+          "amount": "Amount",
+          "unit_cost": "Unit Cost"
         }
       }
     },
