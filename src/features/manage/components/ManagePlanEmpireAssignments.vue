@@ -83,6 +83,10 @@
 	const refIsCloning: Ref<string | undefined> = ref(undefined);
 	const refIsDeleting: Ref<string | undefined> = ref(undefined);
 
+	// Filter state for Plan and Empire assignment filters
+	const filterPlanNames: Ref<string[]> = ref([]);
+	const filterEmpires: Ref<string[]> = ref([]);
+
 	const filterOptionsPlanNames: ComputedRef<PSelectOption[]> = computed(() =>
 		localPlans.value.map((e) => ({
 			label: e.name ?? t("empire.unknown_plan_name"),
