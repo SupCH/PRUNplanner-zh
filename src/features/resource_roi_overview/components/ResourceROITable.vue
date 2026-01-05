@@ -74,7 +74,7 @@
 		:building-options="filterOptionBuilding"
 		:searched-material="searchedMaterial" />
 	<XNDataTable :data="localResult" striped :pagination="{ pageSize: 50 }">
-		<XNDataTableColumn key="planetName" :title="$t('resource_roi.table.planet')" sorter="default">
+		<XNDataTableColumn key="planetName" :title="$t('tools.resource_roi.table.planet')" sorter="default">
 			<template #render-cell="{ rowData }">
 				<router-link
 					:to="`/plan/${rowData.planetNaturalId}`"
@@ -83,30 +83,30 @@
 				</router-link>
 			</template>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="production" :title="$t('resource_roi.table.production')">
+		<XNDataTableColumn key="production" :title="$t('tools.resource_roi.table.production')">
 			<XNDataTableColumn
 				key="buildingTicker"
-				:title="$t('resource_roi.table.building')"
+				:title="$t('tools.resource_roi.table.building')"
 				sorter="default">
 				<template #render-cell="{ rowData }">
 					<span class="font-bold">{{ rowData.buildingTicker }}</span>
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="dailyYield" :title="$t('resource_roi.table.daily_yield')" sorter="default">
+			<XNDataTableColumn key="dailyYield" :title="$t('tools.resource_roi.table.daily_yield')" sorter="default">
 				<template #render-cell="{ rowData }">
 					{{ formatNumber(rowData.dailyYield) }}
 				</template>
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="percentMaxDailyYield"
-				:title="$t('resource_roi.table.percent_max')"
+				:title="$t('tools.resource_roi.table.percent_max')"
 				sorter="default">
 				<template #render-cell="{ rowData }">
 					{{ formatNumber(rowData.percentMaxDailyYield * 100) }} %
 				</template>
 			</XNDataTableColumn>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="planet" :title="$t('resource_roi.table.planet')">
+		<XNDataTableColumn key="planet" :title="$t('tools.resource_roi.table.planet')">
 			<XNDataTableColumn key="popr" title="POPR">
 				<template #render-cell="{ rowData }">
 					<PlanetPOPRButton
@@ -114,7 +114,7 @@
 						button-size="sm" />
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="planetCOGC" :title="$t('resource_roi.table.cogc')">
+			<XNDataTableColumn key="planetCOGC" :title="$t('tools.resource_roi.table.cogc')">
 				<template #render-cell="{ rowData }">
 					{{
 						rowData.planetCOGC
@@ -125,7 +125,7 @@
 					}}
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="environment" :title="$t('resource_roi.table.environment')">
+			<XNDataTableColumn key="environment" :title="$t('tools.resource_roi.table.environment')">
 				<template #render-cell="{ rowData }">
 					<div class="flex flex-row flex-wrap gap-1">
 						<MaterialTile
@@ -149,24 +149,24 @@
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="planetInfrastructures"
-				:title="$t('resource_roi.table.infrastructure')">
+				:title="$t('tools.resource_roi.table.infrastructure')">
 				<template #render-cell="{ rowData }">
 					{{ rowData.planetInfrastructures.join(", ") }}
 				</template>
 			</XNDataTableColumn>
 		</XNDataTableColumn>
-		<XNDataTableColumn key="profit" :title="$t('resource_roi.table.profit')">
-			<XNDataTableColumn key="cogm" :title="$t('resource_roi.table.cogm')">
+		<XNDataTableColumn key="profit" :title="$t('tools.resource_roi.table.profit')">
+			<XNDataTableColumn key="cogm" :title="$t('tools.resource_roi.table.cogm')">
 				<template #render-cell="{ rowData }">
 					<COGMButton :cogm-data="rowData.cogm" />
 				</template>
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="planCost"
-				:title="$t('resource_roi.table.plan_cost')"
+				:title="$t('tools.resource_roi.table.plan_cost')"
 				sorter="default">
 				<template #title>
-					<div class="text-end">{{ $t("resource_roi.table.plan_cost") }}</div>
+					<div class="text-end">{{ $t("tools.resource_roi.table.plan_cost") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div class="text-end">
@@ -177,10 +177,10 @@
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="outputProfit"
-				:title="$t('resource_roi.table.output_profit')"
+				:title="$t('tools.resource_roi.table.output_profit')"
 				sorter="default">
 				<template #title>
-					<div class="text-end">{{ $t("resource_roi.table.output_profit") }}</div>
+					<div class="text-end">{{ $t("tools.resource_roi.table.output_profit") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div
@@ -197,10 +197,10 @@
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="dailyProfit"
-				:title="$t('resource_roi.table.daily_profit')"
+				:title="$t('tools.resource_roi.table.daily_profit')"
 				sorter="default">
 				<template #title>
-					<div class="text-end">{{ $t("resource_roi.table.daily_profit") }}</div>
+					<div class="text-end">{{ $t("tools.resource_roi.table.daily_profit") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div
@@ -217,10 +217,10 @@
 			</XNDataTableColumn>
 			<XNDataTableColumn
 				key="planProfitArea"
-				:title="$t('resource_roi.table.profit_area')"
+				:title="$t('tools.resource_roi.table.profit_area')"
 				sorter="default">
 				<template #title>
-					<div class="text-end">{{ $t("resource_roi.table.profit_area") }}</div>
+					<div class="text-end">{{ $t("tools.resource_roi.table.profit_area") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div
@@ -235,9 +235,9 @@
 					</div>
 				</template>
 			</XNDataTableColumn>
-			<XNDataTableColumn key="planROI" :title="$t('resource_roi.table.plan_roi')" sorter="default">
+			<XNDataTableColumn key="planROI" :title="$t('tools.resource_roi.table.plan_roi')" sorter="default">
 				<template #title>
-					<div class="text-end">{{ $t("resource_roi.table.plan_roi") }}</div>
+					<div class="text-end">{{ $t("tools.resource_roi.table.plan_roi") }}</div>
 				</template>
 				<template #render-cell="{ rowData }">
 					<div
