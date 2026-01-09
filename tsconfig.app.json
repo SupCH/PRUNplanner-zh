@@ -1,22 +1,36 @@
 {
-	"include": ["src/**/*", "src/vite-env.d.ts", "src/**/*.json"],
-	"exclude": ["dist/**/*", "coverage/**/*", ".vscode/**/*", ".github/**/*"],
+	"include": [
+		"src/**/*",
+		"src/vite-env.d.ts",
+		"src/**/*.json"
+	],
+	"exclude": [
+		"dist/**/*",
+		"coverage/**/*",
+		".vscode/**/*",
+		".github/**/*"
+	],
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "ESNext",
 		"skipLibCheck": true,
-		"ignoreDeprecations": "6.0",
+		"ignoreDeprecations": "5.0",
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"composite": true,
-		"lib": ["ESNext", "DOM"],
+		"lib": [
+			"ESNext",
+			"DOM"
+		],
 		"strict": true,
 		"moduleResolution": "node",
 		"outDir": "./dist",
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": [
+				"./src/*"
+			]
 		}
 	}
 }
