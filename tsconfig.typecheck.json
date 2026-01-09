@@ -4,7 +4,6 @@
 		"src/tests/**/*",
 	],
 	"compilerOptions": {
-		"ignoreDeprecations": "5.0", // required until vue-tsc supports TS6
-		"noEmit": true,
+		"noEmit": true
 	}
 }

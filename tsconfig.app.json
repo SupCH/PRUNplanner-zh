@@ -8,6 +8,28 @@
 		"dist/**/*",
 		"coverage/**/*",
 		".vscode/**/*",
+		".github/**/*"
+	],
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"lib": [
+			"ESNext",
+			"DOM"
+		],
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"composite": true,
+		"strict": true,
+		"moduleResolution": "bundler",
+		"outDir": "./dist",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": [
+				"./src/*"
+			]
+		}
 	}
-}
 }
